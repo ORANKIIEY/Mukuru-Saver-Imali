@@ -1,0 +1,40 @@
+{
+  "goals": [
+    {
+      "id": "g-frosty",
+      "name": "Frosty",
+      "type": "fridge",
+      "icon": "🧊",
+      "target": 6000,
+      "saved": 1200,
+      "targetDate": "2027-03-31",
+      "weeklyAmount": 150,
+      "status": "active",
+      "milestones": [20, 50, 100]
+    },
+    {
+      "id": "g-school",
+      "name": "School fees",
+      "type": "school",
+      "icon": "🎓",
+      "target": 2500,
+      "saved": 900,
+      "targetDate": "2027-01-15",
+      "weeklyAmount": 120,
+      "status": "active",
+      "milestones": [20, 50, 100]
+    },
+    {
+      "id": "g-phone",
+      "name": "New phone",
+      "type": "custom",
+      "icon": "📱",
+      "target": 1800,
+      "saved": 1800,
+      "targetDate": "2026-09-01",
+      "weeklyAmount": 100,
+      "status": "completed",
+      "milestones": [20, 50, 100]
+    }
+  ]
+}

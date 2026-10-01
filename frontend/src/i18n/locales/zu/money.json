@@ -1,0 +1,62 @@
+{
+  "common": { "continue": "Qhubeka", "back": "Emuva", "saving": "Iyalondoloza…" },
+  "transactions": {
+    "title": "Imali oyisebenzisile",
+    "search": "Sesha izinkokhelo",
+    "empty": "Azikho izinkokhelo ezifana nalokho osesha kona.",
+    "split": { "title": "Imali yakho iye kuphi", "family": "Usizo lomndeni", "spending": "Okusetshenzisile" }
+  },
+  "commitments": {
+    "title": "Ubani encike emalini yakho?",
+    "subtitle": "Abantu nezikweletu ozikhokhela kuqala.",
+    "total": "Isamba ngenyanga",
+    "frequency": { "monthly": "njalo ngenyanga", "weekly": "njalo ngesonto" }
+  },
+  "safe": {
+    "title": "Okuphephile ukukulondoloza",
+    "available": "{{amount}} iyatholakala",
+    "suggested": "Siphakamisa {{amount}} ngenyanga",
+    "show": "Bona ukuthi sikwenze kanjani lokhu",
+    "hide": "Fihla imininingwane",
+    "income": "Imali engenayo",
+    "commitments": "Umndeni nezikweletu",
+    "spending": "Izindleko zansuku zonke",
+    "left": "Okuphephile ukukulondoloza",
+    "startGoal": "Qala umgomo"
+  },
+  "goals": {
+    "title": "Imigomo yakho",
+    "create": "Dala umgomo",
+    "empty": "Awukabi nayo imigomo. Dala owodwa ukuze uqale ukulondoloza.",
+    "of": "kwi",
+    "reached": "Ufinyelelwe",
+    "away": "{{name}} isele {{amount}}",
+    "targetDate": "Usuku oluhlosiwe",
+    "weekly": "Londoloza ngesonto",
+    "milestone": "{{level}}%",
+    "seeCelebration": "Bona ukugubha kwakho"
+  },
+  "creator": {
+    "stepOf": "Isinyathelo {{current}} kwezi-{{total}}",
+    "choose": { "title": "Ulondolozela ini?", "school": "Imali yesikole", "fridge": "Ifriji", "custom": "Okunye" },
+    "product": { "title": "Khetha ifriji", "skip": "Yeqa ufake inani lakho" },
+    "name": { "title": "Unike umgomo wakho igama", "hint": "Igama likwenza kube lula ukuqhubeka.", "label": "Igama lomgomo" },
+    "target": { "title": "Malini futhi ngomuphi usuku?", "amount": "Inani eliyihloso (R)", "date": "Usuku oluhlosiwe" },
+    "plan": {
+      "title": "Uhlelo lwakho",
+      "summary": "Londoloza {{amount}} ye-{{name}} ngomhla ka-{{date}}.",
+      "perWeek": "ngesonto",
+      "ok": "Lokhu kuhambisana ne-{{suggested}} ngenyanga esiyiphakamisayo.",
+      "tight": "Lokhu kudlula i-{{suggested}} esiyiphakamisayo, kodwa unayo i-{{available}}.",
+      "high": "Lokhu kudlula i-{{available}} onayo. Buyela emuva ukhethe usuku olulandelayo noma inani elincane.",
+      "confirm": "Dala umgomo",
+      "saveError": "Asikwazanga ukulondoloza umgomo wakho. Hlola uxhumo bese uzama futhi."
+    }
+  },
+  "celebrate": {
+    "title": "{{name}} yakho!",
+    "body": "Ulondoloze {{amount}}. Wenze kahle.",
+    "next": "Qala omunye umgomo",
+    "home": "Buyela ekhaya"
+  }
+}

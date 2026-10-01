@@ -1,0 +1,12 @@
+{
+  "transactions": [
+    { "id": "t1", "merchant": "Shoprite", "amount": 612, "date": "2026-09-28", "category": "groceries", "note": "Weekly shop" },
+    { "id": "t2", "merchant": "Mukuru transfer to Mama", "amount": 1500, "date": "2026-09-27", "category": "family", "note": "Monthly support" },
+    { "id": "t3", "merchant": "Gautrain", "amount": 96, "date": "2026-09-26", "category": "transport" },
+    { "id": "t4", "merchant": "Vodacom airtime", "amount": 49, "date": "2026-09-24", "category": "airtime" },
+    { "id": "t5", "merchant": "Pick n Pay", "amount": 284, "date": "2026-09-22", "category": "groceries" },
+    { "id": "t6", "merchant": "Mukuru transfer to Sipho", "amount": 100, "date": "2026-09-21", "category": "family", "note": "Weekly" },
+    { "id": "t7", "merchant": "Uber", "amount": 138, "date": "2026-09-19", "category": "transport" },
+    { "id": "t8", "merchant": "Thando's school", "amount": 1200, "date": "2026-09-15", "category": "family", "note": "School fees" }
+  ]
+}

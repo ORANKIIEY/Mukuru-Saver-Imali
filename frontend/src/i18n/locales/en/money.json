@@ -1,0 +1,62 @@
+{
+  "common": { "continue": "Continue", "back": "Back", "saving": "Saving…" },
+  "transactions": {
+    "title": "Your spending",
+    "search": "Search payments",
+    "empty": "No payments match your search.",
+    "split": { "title": "Where your money went", "family": "Family support", "spending": "Your spending" }
+  },
+  "commitments": {
+    "title": "Who depends on your money?",
+    "subtitle": "The people and bills you pay for first.",
+    "total": "Total each month",
+    "frequency": { "monthly": "every month", "weekly": "every week" }
+  },
+  "safe": {
+    "title": "Safe to save",
+    "available": "{{amount}} available",
+    "suggested": "We suggest {{amount}} a month",
+    "show": "See how we worked this out",
+    "hide": "Hide details",
+    "income": "Money in",
+    "commitments": "Family and bills",
+    "spending": "Everyday spending",
+    "left": "Safe to save",
+    "startGoal": "Start a goal"
+  },
+  "goals": {
+    "title": "Your goals",
+    "create": "Create a goal",
+    "empty": "You have no goals yet. Create one to start saving.",
+    "of": "of",
+    "reached": "Reached",
+    "away": "{{name}} is {{amount}} away",
+    "targetDate": "Target date",
+    "weekly": "Save each week",
+    "milestone": "{{level}}%",
+    "seeCelebration": "See your celebration"
+  },
+  "creator": {
+    "stepOf": "Step {{current}} of {{total}}",
+    "choose": { "title": "What are you saving for?", "school": "School fees", "fridge": "A fridge", "custom": "Something else" },
+    "product": { "title": "Pick a fridge", "skip": "Skip and enter my own amount" },
+    "name": { "title": "Give your goal a name", "hint": "A name makes it easier to stick with.", "label": "Goal name" },
+    "target": { "title": "How much and by when?", "amount": "Target amount (R)", "date": "Target date" },
+    "plan": {
+      "title": "Your plan",
+      "summary": "Save {{amount}} for {{name}} by {{date}}.",
+      "perWeek": "a week",
+      "ok": "This fits inside the {{suggested}} a month we suggest.",
+      "tight": "This is more than the {{suggested}} we suggest, but you have {{available}} available.",
+      "high": "This is more than the {{available}} you have available. Go back and choose a later date or a lower amount.",
+      "confirm": "Create goal",
+      "saveError": "We could not save your goal. Check your connection and try again."
+    }
+  },
+  "celebrate": {
+    "title": "{{name}} is yours!",
+    "body": "You saved {{amount}}. Well done.",
+    "next": "Start another goal",
+    "home": "Back to home"
+  }
+}
