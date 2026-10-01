@@ -62,7 +62,7 @@ export function UserProvider({ children }) {
         // fallback
       }
     }
-    return DEFAULT_DEMO_USER;
+    return null; // Default to signed out
   });
 
   // Save registered users list whenever it changes

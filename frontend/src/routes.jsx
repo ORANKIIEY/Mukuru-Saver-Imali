@@ -1,12 +1,13 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { Globe, Settings, ShieldCheck } from 'lucide-react';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Globe, Settings, ShieldCheck, User, LogOut } from 'lucide-react';
 import WelcomeScreen from './app/welcome/WelcomeScreen';
 import DashboardPage from './app/dashboard/DashboardPage';
 import Card from './components/Card';
 import Button from './components/Button';
 import { useMockToggle } from './hooks/useMockToggle';
 import { useLanguage } from './i18n';
+import { useUser } from './context/UserContext';
 
 // Money feature screens
 import TransactionsPage  from './features/money/transactions/TransactionsPage';
@@ -24,15 +25,67 @@ import GrowMyMoneyPage  from './features/coach/tier3/grow/GrowMyMoneyPage';
 import WhatsAppMockPage from './features/coach/tier3/whatsapp/WhatsAppMockPage';
 
 /**
+ * Protected Route Wrapper Component
+ * Redirects unauthenticated users to the Home/Welcome screen ('/') if not logged in.
+ */
+function ProtectedRoute({ children }) {
+  const { user } = useUser();
+  if (!user) {
+    return <Navigate to="/" replace />;
+  }
+  return children;
+}
+
+/**
  * More / Settings Page
  */
 function MorePage() {
+  const navigate = useNavigate();
   const { useMocks, toggleMock } = useMockToggle();
   const { lang, setLanguage, t } = useLanguage();
+  const { user, signOut } = useUser();
+
+  const handleSignOut = () => {
+    signOut();
+    navigate('/', { replace: true });
+  };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }} className="animate-fade-in">
       <h2 style={{ fontSize: '1.3rem', fontWeight: '800' }}>{t('common.nav.more', 'More & Settings')}</h2>
+
+      {/* User Profile Summary & Sign Out */}
+      {user && (
+        <Card variant="default">
+          <h4 style={{ fontSize: '0.95rem', fontWeight: '700', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <User size={18} color="var(--mukuru-orange)" /> Account Profile
+          </h4>
+          <div style={{ backgroundColor: 'var(--color-bg)', padding: '12px', borderRadius: 'var(--radius-md)', marginBottom: '12px' }}>
+            <div style={{ fontWeight: '800', fontSize: '1rem', color: 'var(--color-text-primary)' }}>
+              {user.fullName || user.name}
+            </div>
+            {user.email && (
+              <div style={{ fontSize: '0.825rem', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
+                {user.email}
+              </div>
+            )}
+            {user.phone && (
+              <div style={{ fontSize: '0.825rem', color: 'var(--color-text-muted)', marginTop: '2px' }}>
+                {user.phone}
+              </div>
+            )}
+          </div>
+          <Button
+            variant="outline"
+            onClick={handleSignOut}
+            fullWidth
+            icon={<LogOut size={16} />}
+            style={{ color: '#B91C1C', borderColor: '#FCA5A5', backgroundColor: '#FEE2E2' }}
+          >
+            Sign Out
+          </Button>
+        </Card>
+      )}
 
       {/* Language Preference Card */}
       <Card variant="default">
@@ -104,23 +157,23 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<WelcomeScreen />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
-      <Route path="/more" element={<MorePage />} />
+      <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+      <Route path="/more" element={<ProtectedRoute><MorePage /></ProtectedRoute>} />
 
       {/* Money feature screens */}
-      <Route path="/transactions"          element={<TransactionsPage />} />
-      <Route path="/commitments"           element={<CommitmentsPage />} />
-      <Route path="/goals"                 element={<GoalsPage />} />
-      <Route path="/goals/new"             element={<GoalCreatorFlow />} />
-      <Route path="/goals/:id"             element={<GoalDetailPage />} />
-      <Route path="/goals/:id/celebrate"   element={<CelebrationScreen />} />
+      <Route path="/transactions"          element={<ProtectedRoute><TransactionsPage /></ProtectedRoute>} />
+      <Route path="/commitments"           element={<ProtectedRoute><CommitmentsPage /></ProtectedRoute>} />
+      <Route path="/goals"                 element={<ProtectedRoute><GoalsPage /></ProtectedRoute>} />
+      <Route path="/goals/new"             element={<ProtectedRoute><GoalCreatorFlow /></ProtectedRoute>} />
+      <Route path="/goals/:id"             element={<ProtectedRoute><GoalDetailPage /></ProtectedRoute>} />
+      <Route path="/goals/:id/celebrate"   element={<ProtectedRoute><CelebrationScreen /></ProtectedRoute>} />
 
       {/* Coach, What-If Simulator & Tier 3 screens */}
-      <Route path="/simulator" element={<SimulatorPage />} />
-      <Route path="/coach"     element={<CoachChatPage />} />
-      <Route path="/groceries" element={<GroceryWatchPage />} />
-      <Route path="/grow"      element={<GrowMyMoneyPage />} />
-      <Route path="/whatsapp"  element={<WhatsAppMockPage />} />
+      <Route path="/simulator" element={<ProtectedRoute><SimulatorPage /></ProtectedRoute>} />
+      <Route path="/coach"     element={<ProtectedRoute><CoachChatPage /></ProtectedRoute>} />
+      <Route path="/groceries" element={<ProtectedRoute><GroceryWatchPage /></ProtectedRoute>} />
+      <Route path="/grow"      element={<ProtectedRoute><GrowMyMoneyPage /></ProtectedRoute>} />
+      <Route path="/whatsapp"  element={<ProtectedRoute><WhatsAppMockPage /></ProtectedRoute>} />
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />

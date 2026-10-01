@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useUser, COUNTRY_REGIONS } from '../../context/UserContext';
 import { X, Lock, Mail, Phone, User, Globe, ArrowRight, ShieldCheck } from 'lucide-react';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 
 export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
+  const navigate = useNavigate();
   const { signUp, signIn, regions } = useUser();
   const [tab, setTab] = useState(initialTab); // 'signin' | 'signup'
 
@@ -43,6 +45,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
       setSuccessMsg('Signed in successfully! Redirecting...');
       setTimeout(() => {
         onClose();
+        navigate('/dashboard');
       }, 500);
     } catch (err) {
       setErrorMsg(err.message || 'Failed to sign in.');
@@ -67,6 +70,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
       setSuccessMsg('Account created successfully! Welcome to Mukuru Money Coach.');
       setTimeout(() => {
         onClose();
+        navigate('/dashboard');
       }, 600);
     } catch (err) {
       setErrorMsg(err.message || 'Failed to create account.');

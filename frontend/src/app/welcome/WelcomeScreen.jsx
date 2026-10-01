@@ -14,7 +14,7 @@ import AuthModal from '../auth/AuthModal';
 export default function WelcomeScreen() {
   const navigate = useNavigate();
   const { lang, setLanguage, t } = useLanguage();
-  const { user } = useUser();
+  const { user, signIn } = useUser();
 
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [authTab, setAuthTab] = useState('signup');
@@ -25,7 +25,16 @@ export default function WelcomeScreen() {
   };
 
   const handleContinueToDashboard = () => {
-    navigate('/dashboard');
+    if (user) {
+      navigate('/dashboard');
+    } else {
+      try {
+        signIn({ identifier: 'grace.moyo@mukuru.com', password: 'password123' });
+      } catch (err) {
+        // ignore error
+      }
+      navigate('/dashboard');
+    }
   };
 
   return (
@@ -211,19 +220,20 @@ export default function WelcomeScreen() {
         )}
 
         <Button
-          variant={user ? 'primary' : 'ghost'}
+          variant={user ? 'primary' : 'outline'}
           size="lg"
           fullWidth
           onClick={handleContinueToDashboard}
           icon={<ArrowRight size={20} />}
           style={{
-            color: user ? '#FFFFFF' : '#CBD5E1',
+            color: '#FFFFFF',
             boxShadow: user ? 'var(--shadow-orange)' : 'none',
+            borderColor: user ? 'transparent' : 'rgba(255, 255, 255, 0.2)',
             fontSize: '1rem',
             padding: '14px',
           }}
         >
-          {user ? `Continue to Dashboard (${user.name})` : 'Explore Money Coach App'}
+          {user ? `Continue to Dashboard (${user.name})` : 'Try Demo Session (Grace Moyo)'}
         </Button>
 
         <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#64748B', marginTop: '6px' }}>

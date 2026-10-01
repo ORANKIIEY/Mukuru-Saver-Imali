@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Bell, Sparkles, CheckCircle2, ShoppingBag, X, ChevronDown, User, LogOut, LogIn, UserPlus } from 'lucide-react';
 import { useLanguage } from '../../i18n';
 import { useMockToggle } from '../../hooks/useMockToggle';
@@ -10,6 +11,7 @@ import AuthModal from '../auth/AuthModal';
  * Contains Mukuru branding, signed-in user account menu, auth modal triggers, notification drawer, and language switcher (EN, ZU, SN).
  */
 export default function TopBar() {
+  const navigate = useNavigate();
   const { lang, setLanguage, t } = useLanguage();
   const { useMocks, toggleMock } = useMockToggle();
   const { user, signOut } = useUser();
@@ -231,6 +233,7 @@ export default function TopBar() {
                   onClick={() => {
                     signOut();
                     setShowUserModal(false);
+                    navigate('/', { replace: true });
                   }}
                   style={{
                     width: '100%',
