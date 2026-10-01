@@ -1,4 +1,4 @@
 package com.moneycoach.ai;
 
-public class CorsConfig {
+public class PromptBuilder {
 }

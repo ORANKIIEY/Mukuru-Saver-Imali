@@ -1,4 +1,5 @@
 package com.moneycoach.dto;
 
-public class SimulatorRequest {
+
+public record SimulatorRequest(double amountSent, double weeklySaving) {
 }

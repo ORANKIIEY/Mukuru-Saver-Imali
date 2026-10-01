@@ -1,4 +1,12 @@
 package com.moneycoach.dto;
 
-public class SimulatorResponse {
+import java.time.LocalDate;
+
+
+public record SimulatorResponse(
+        double availableAfterSend,
+        boolean canAffordSend,
+        double goalRemaining,
+        Integer weeksToGoal,
+        LocalDate projectedDate) {
 }
