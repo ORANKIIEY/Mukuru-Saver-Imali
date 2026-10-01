@@ -1,4 +1,7 @@
 package com.moneycoach.repository;
 
-public class TransactionRepository {
+import com.moneycoach.model.Transaction;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
 }
