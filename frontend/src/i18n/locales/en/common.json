@@ -1,0 +1,28 @@
+{
+  "appName": "Mukuru Money Coach",
+  "tagline": "Imali Yakho",
+  "nav": {
+    "home": "Home",
+    "goals": "Goals",
+    "coach": "Coach",
+    "more": "More"
+  },
+  "language": {
+    "en": "English",
+    "zu": "isiZulu",
+    "switch": "Language"
+  },
+  "mockMode": {
+    "active": "Mock Mode",
+    "live": "Live API",
+    "toggle": "Toggle API / Mocks"
+  },
+  "actions": {
+    "continueAsGrace": "Continue as Grace",
+    "viewDetails": "View Details",
+    "askCoach": "Ask Money Coach",
+    "takeAction": "Take Action",
+    "retry": "Try Again"
+  },
+  "greeting": "Good morning"
+}

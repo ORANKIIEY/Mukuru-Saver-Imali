@@ -1,0 +1,46 @@
+{
+  "welcomeTitle": "Good morning, Grace",
+  "welcomeSubtitle": "Here is your Mukuru money summary for today.",
+  "summary": {
+    "title": "Monthly Overview",
+    "income": "Monthly Income",
+    "commitments": "Commitments",
+    "safeToSave": "Safe-to-Save Buffer",
+    "remaining": "Available Balance"
+  },
+  "currentGoal": {
+    "title": "Active Savings Goal",
+    "saved": "Saved so far",
+    "target": "Target",
+    "remaining": "away from goal",
+    "progress": "Goal Progress",
+    "targetDate": "Target Date"
+  },
+  "coachTip": {
+    "title": "Smart Coach Insight",
+    "badge": "AI MONEY TIP",
+    "content": "You saved R150 on grocery fees this week! Put R100 towards your Frosty Fridge goal to stay on track.",
+    "action": "Transfer R100 Now"
+  },
+  "nextStep": {
+    "title": "Recommended Action",
+    "badge": "NEXT STEP",
+    "content": "Put R200 aside today before weekend spending to hit your monthly savings target 4 days early.",
+    "action": "Lock In R200"
+  },
+  "groceryAlert": {
+    "title": "Grocery Price Alert",
+    "badge": "SAVINGS ALERT",
+    "item": "Mealie Meal Special at Shoprite",
+    "content": "Mealie Meal is 12% cheaper at Shoprite this week! Save R25 on 10kg.",
+    "action": "View Deals"
+  },
+  "notifications": {
+    "n1_title": "Safe-to-Save Updated",
+    "n1_desc": "Your monthly buffer is calculated at R3,000 after family commitments.",
+    "n2_title": "Goal Milestone (20%)",
+    "n2_desc": "Frosty Fridge goal reached 20%! You have saved R1,200.",
+    "n3_title": "Grocery Price Alert",
+    "n3_desc": "Mealie meal is 12% cheaper at Shoprite this week."
+  }
+}

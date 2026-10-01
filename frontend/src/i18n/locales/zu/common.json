@@ -1,0 +1,28 @@
+{
+  "appName": "Mukuru Money Coach",
+  "tagline": "Imali Yakho",
+  "nav": {
+    "home": "Ekhaya",
+    "goals": "Izinhloso",
+    "coach": "Umeluleki",
+    "more": "Okuningi"
+  },
+  "language": {
+    "en": "English",
+    "zu": "isiZulu",
+    "switch": "Ulimi"
+  },
+  "mockMode": {
+    "active": "Imodi Yokuhlola",
+    "live": "Inethiwekhi Yoqobo",
+    "toggle": "Shintsha Imikhiqizo"
+  },
+  "actions": {
+    "continueAsGrace": "Qhubeka njengo-Grace",
+    "viewDetails": "Buka Imininingwane",
+    "askCoach": "Buza Umeluleki",
+    "takeAction": "Thatha Isinyathelo",
+    "retry": "Zama Futhi"
+  },
+  "greeting": "Sawubona"
+}

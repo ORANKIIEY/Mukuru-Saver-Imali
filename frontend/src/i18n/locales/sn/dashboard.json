@@ -1,0 +1,46 @@
+{
+  "welcomeTitle": "Mangwanani, Grace",
+  "welcomeSubtitle": "Pano pane pfupiso yako yemari ye-Mukuru yanhasi.",
+  "summary": {
+    "title": "Pfupiso Yemwedzi",
+    "income": "Mugove Wewedzi",
+    "commitments": "Zvisungo Zvemhuri",
+    "safeToSave": "Kuchengeta Kwakachengeteka",
+    "remaining": "Mari Yasarira"
+  },
+  "currentGoal": {
+    "title": "Chinangwa Chinoshanda",
+    "saved": "Zvakachengetwa zvino",
+    "target": "Chinangwa Chatinoda",
+    "remaining": "yasara kusvika pachinangwa",
+    "progress": "Fambiro Mberi",
+    "targetDate": "Zuva Rechinangwa"
+  },
+  "coachTip": {
+    "title": "Zano Re-AI Rekuchengeta Mari",
+    "badge": "ZANO REMA-AI",
+    "content": "Wakachengeta R150 pamari dzekutenga chikafu svondo rino! Isa R100 kuchinangwa chako che-Frosty Fridge kuti uchikurumidze.",
+    "action": "Chinja R100 Izvozvi"
+  },
+  "nextStep": {
+    "title": "Nhanho Inotevera Yaunofanira Kutora",
+    "badge": "NHANHO INOTEVERA",
+    "content": "Isa R200 parutivi nhasi zvekuchengeta usati washandisa mari ku-weekend kuti usvike pachinangwa mazuva 4 pamberi.",
+    "action": "Pfigira R200 Zvino"
+  },
+  "groceryAlert": {
+    "title": "Yambiro YeMitengo Yechikafu",
+    "badge": "YAMBIRO YEKUCHENGETA",
+    "item": "Special Ye-Mealie Meal paShoprite",
+    "content": "Hupfu hupfu huri pa-discount ne 12% paShoprite svondo rino! Unochengeta R25 pa-10kg.",
+    "action": "Wona Mitengo"
+  },
+  "notifications": {
+    "n1_title": "Kuchengeta Kwakavandudzwa",
+    "n1_desc": "Mari yako yekuchengeta yakasvika paR3,000 mushure me kubhadhara zvisungo zvemhuri.",
+    "n2_title": "Chinangwa Chasvika 20%",
+    "n2_desc": "Chinangwa cheFrosty Fridge chasvika pa20%! Wakachengeta R1,200.",
+    "n3_title": "Yambiro YeMitengo",
+    "n3_desc": "Hupfu huri kudhura zvishoma paShoprite svondo rino."
+  }
+}

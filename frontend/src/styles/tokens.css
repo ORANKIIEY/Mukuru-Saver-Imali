@@ -1,0 +1,67 @@
+:root {
+  /* Mukuru Brand Palette */
+  --mukuru-orange: #FF5500;
+  --mukuru-orange-hover: #E64A00;
+  --mukuru-orange-light: #FF7733;
+  --mukuru-orange-subtle: #FFF0EB;
+  --mukuru-orange-border: #FFD4C2;
+  --mukuru-dark: #1E293B;
+  --mukuru-dark-slate: #0F172A;
+
+  /* Neutral Surface & Layout Colors */
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F1F5F9;
+  --color-border: #E2E8F0;
+  --color-border-subtle: #F1F5F9;
+
+  /* Typography Colors */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+  --color-text-inverse: #FFFFFF;
+
+  /* Status Colors */
+  --color-success: #10B981;
+  --color-success-bg: #ECFDF5;
+  --color-success-border: #A7F3D0;
+
+  --color-warning: #F59E0B;
+  --color-warning-bg: #FFFBEB;
+  --color-warning-border: #FDE68A;
+
+  --color-info: #0284C7;
+  --color-info-bg: #F0F9FF;
+  --color-info-border: #BAE6FD;
+
+  --color-danger: #EF4444;
+  --color-danger-bg: #FEF2F2;
+
+  /* Typography */
+  --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-heading: 'Outfit', 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 25px -5px rgba(255, 85, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-orange: 0 8px 20px rgba(255, 85, 0, 0.25);
+
+  /* Animations & Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}

@@ -1,0 +1,46 @@
+{
+  "welcomeTitle": "Sawubona, Grace",
+  "welcomeSubtitle": "Nasi isifinyezo sakho semali se-Mukuru sanamuhla.",
+  "summary": {
+    "title": "Isifinyezo Senyanga",
+    "income": "Imiholo Yenyanga",
+    "commitments": "Izibopho Zamalanga",
+    "safeToSave": "Ukonga Okuphephile",
+    "remaining": "Imali Esela"
+  },
+  "currentGoal": {
+    "title": "Inhloso Yokonga Eyingxenye",
+    "saved": "Okugcinwe kuze kube manje",
+    "target": "Inhloso Imali",
+    "remaining": "kushoda ukufinyelela inhloso",
+    "progress": "Inqubekelaphambili",
+    "targetDate": "Usuku Lwenhloso"
+  },
+  "coachTip": {
+    "title": "Zano Le-AI Lokonga Imali",
+    "badge": "ICEBO LE-AI",
+    "content": "Ughcine i-R150 ezintengweni zokudla kule wiki! Faka i-R100 enhlosweni yakho ye-Frosty Fridge ukuze ufinyelele masinyane.",
+    "action": "Dlulisa R100 Manje"
+  },
+  "nextStep": {
+    "title": "Isinyathelo Esihlongozwayo",
+    "badge": "ISINYATHELO",
+    "content": "Beka i-R200 eceleni namhlanje ngaphambi kwezindleko zempelasonto ukuze ufinyelele inhloso yakho izinsuku ezi-4 kusenesikhathi.",
+    "action": "Valela R200 Manje"
+  },
+  "groceryAlert": {
+    "title": "Isexwayiso Sezitolo",
+    "badge": "ISEXWAYISO SOKONGA",
+    "item": "Isaphulelo Se-Mealie Meal eShoprite",
+    "content": "Impuphu ine-saphulelo se-12% eShoprite kule wiki! Wonga i-R25 ku-10kg.",
+    "action": "Buka Izintengo"
+  },
+  "notifications": {
+    "n1_title": "Ukonga Kwakuyisiqalo",
+    "n1_desc": "Imali yakho yokonga isibaliwe yaba R3,000 ngemva kwezibopho zangakini.",
+    "n2_title": "Inhloso Ifinyelele ku-20%",
+    "n2_desc": "Inhloso ye-Frosty Fridge ifinyelele ku-20%! Usugcine R1,200.",
+    "n3_title": "Isexwayiso Sezitolo",
+    "n3_desc": "Impuphu ishibhile eShoprite kule wiki."
+  }
+}

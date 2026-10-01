@@ -1,0 +1,55 @@
+{
+  "user": {
+    "name": "Grace",
+    "avatar": "G",
+    "accountNumber": "MK-789210",
+    "tier": "Tier 2 Saver"
+  },
+  "summary": {
+    "income": 8500,
+    "commitments": 6300,
+    "familySupport": 1500,
+    "householdExpenses": 3200,
+    "transport": 1000,
+    "upcomingObligations": 600,
+    "available": 2200,
+    "suggestedSaving": 500,
+    "flexibleSavingMax": 1700
+  },
+  "currentGoal": {
+    "id": "frosty-fridge",
+    "title": "Frosty Fridge",
+    "name": "Frosty",
+    "targetAmount": 6000,
+    "currentSaved": 1200,
+    "percentage": 20,
+    "remainingAmount": 4800,
+    "targetDate": "2026-12-15",
+    "status": "in_progress"
+  },
+  "coachTip": {
+    "id": "tip-101",
+    "category": "savings",
+    "title": "Grocery Fee Savings",
+    "content": "You saved R150 on grocery fees this week! Put R100 towards your Frosty Fridge goal to stay on track.",
+    "actionText": "Transfer R100 Now",
+    "actionRoute": "/coach"
+  },
+  "nextStep": {
+    "id": "step-201",
+    "title": "Lock in R500 for Safe-to-Save",
+    "description": "R500 looks comfortable for Frosty this month. Lock it in today to reach your target on schedule.",
+    "actionText": "Lock In R500",
+    "actionRoute": "/goals"
+  },
+  "groceryAlert": {
+    "id": "alert-301",
+    "active": true,
+    "store": "Shoprite",
+    "item": "Super Maize Meal 10kg",
+    "discount": "12% OFF",
+    "savingsAmount": 25,
+    "description": "Mealie Meal is R25 cheaper at Shoprite this week!",
+    "actionRoute": "/groceries"
+  }
+}
