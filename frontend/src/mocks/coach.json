@@ -1,0 +1,20 @@
+{
+  "replies": {
+    "goal": {
+      "en": "You have saved R1,200 of R6,000 for Frosty. At R115 a week you will get there in about 42 weeks. Saving a little more each week gets you there sooner.",
+      "zu": "Ugcine u-R1,200 kwezingu-R6,000 ze-Frosty. Ngo-R115 ngesonto uzofika ngemva kwamasonto angaba ngu-42. Ukugcina okwengeziwe kukufikisa masinyane."
+    },
+    "family": {
+      "en": "Supporting your family matters. Try the simulator to see how sending R500 home changes your Frosty date, then decide what feels right.",
+      "zu": "Ukusiza umndeni wakho kubalulekile. Zama i-simulator ubone ukuthi ukuthumela u-R500 ekhaya kuyishintsha kanjani idethi ye-Frosty."
+    },
+    "save": {
+      "en": "Your Safe to Save amount is R2,200 this month, and R500 is a comfortable start. Even R100 a week adds up.",
+      "zu": "Imali ongayigcina ngokuphepha le nyanga ngu-R2,200, futhi u-R500 uyisiqalo esihle. Noma u-R100 ngesonto uyakhula."
+    },
+    "default": {
+      "en": "I can help with your goals, savings and sending money home. Try asking how close you are to Frosty.",
+      "zu": "Ngingakusiza ngezinjongo zakho, ukonga nokuthumela imali ekhaya. Zama ukubuza ukuthi usondele kangakanani ku-Frosty."
+    }
+  }
+}

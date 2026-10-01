@@ -1,0 +1,50 @@
+{
+  "error": "Something went wrong. Please try again.",
+  "simulator": {
+    "title": "What if...",
+    "tabs": { "sendHome": "Send money home", "weeklySave": "Save weekly" },
+    "sendHome": { "title": "If I send money home...", "label": "Amount I send home" },
+    "weeklySave": { "title": "What if I save more each week...", "label": "Extra I save per week" },
+    "impact": {
+      "before": "Before",
+      "after": "After",
+      "goalDate": "{{goal}} reached around",
+      "laterBy": "{{weeks}} weeks later",
+      "soonerBy": "{{weeks}} weeks sooner",
+      "noChange": "No change",
+      "progressIn": "Progress after {{weeks}} weeks"
+    }
+  },
+  "chat": {
+    "title": "Money Coach",
+    "greeting": "Hi Grace! How can I help with your money today?",
+    "placeholder": "Type your question...",
+    "send": "Send",
+    "prompts": ["How close am I to Frosty?", "How can I save more?", "Can I send money home this month?"]
+  },
+  "groceries": {
+    "title": "Grocery watch",
+    "cheaper": "Cheaper than usual by",
+    "noChange": "Price unchanged",
+    "saveButton": "Save the R{{amount}}",
+    "saved": "Saved to your goal!"
+  },
+  "grow": {
+    "title": "Grow my money",
+    "riskTitle": "Know the risk",
+    "riskText": "Growing money always carries risk. Never invest money you cannot afford to lose.",
+    "cards": [
+      { "title": "Emergency fund", "text": "Keep a small amount aside for surprises so you do not need to borrow." },
+      { "title": "Savings account", "text": "Money in a savings account is safer than cash at home and can earn interest." },
+      { "title": "Compound interest", "text": "Interest earns interest. Saving a little early grows more than saving a lot late." }
+    ]
+  },
+  "whatsapp": {
+    "title": "Mukuru Money Coach",
+    "messages": [
+      { "from": "coach", "text": "Hi Grace! Maize meal is R15 cheaper at Shoprite today.", "time": "08:02" },
+      { "from": "me", "text": "Nice! Can I save the R15?", "time": "08:03" },
+      { "from": "coach", "text": "Done. R15 added to Frosty. You are at R1,215 of R6,000.", "time": "08:03" }
+    ]
+  }
+}

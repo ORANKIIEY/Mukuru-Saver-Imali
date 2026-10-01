@@ -1,0 +1,7 @@
+{
+  "staples": [
+    { "id": "maize", "name": "Maize meal 10kg", "store": "Shoprite", "price": 89, "usualPrice": 104 },
+    { "id": "rice", "name": "Rice 2kg", "store": "Pick n Pay", "price": 52, "usualPrice": 52 },
+    { "id": "oil", "name": "Sunflower oil 2L", "store": "Checkers", "price": 78, "usualPrice": 92 }
+  ]
+}
