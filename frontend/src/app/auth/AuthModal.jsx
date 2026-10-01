@@ -413,15 +413,16 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
                 <div style={{ display: 'flex', gap: '6px' }}>
                   <div
                     style={{
-                      padding: '9px 12px',
-                      backgroundColor: '#F1F5F9',
-                      border: '1px solid var(--color-border)',
+                      padding: '9px 14px',
+                      backgroundColor: 'var(--mukuru-orange)',
+                      border: '1px solid var(--mukuru-orange)',
                       borderRadius: 'var(--radius-md)',
-                      fontSize: '0.85rem',
-                      fontWeight: '700',
-                      color: 'var(--mukuru-orange-dark)',
+                      fontSize: '0.875rem',
+                      fontWeight: '800',
+                      color: '#FFFFFF',
                       display: 'flex',
                       alignItems: 'center',
+                      boxShadow: 'var(--shadow-sm)',
                     }}
                   >
                     {currentRegionObj.dialCode}

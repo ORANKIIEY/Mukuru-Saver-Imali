@@ -195,15 +195,20 @@ export default function WelcomeScreen() {
       </div>
 
       {/* Action Footer */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {!user && (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
             <Button
-              variant="outline"
+              variant="secondary"
               size="lg"
               onClick={() => openAuthModal('signin')}
               icon={<LogIn size={18} />}
-              style={{ color: '#FFFFFF', borderColor: '#475569' }}
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                color: '#FFFFFF',
+                border: '1.5px solid rgba(255, 255, 255, 0.35)',
+                fontWeight: '700',
+              }}
             >
               Sign In
             </Button>
@@ -212,7 +217,12 @@ export default function WelcomeScreen() {
               size="lg"
               onClick={() => openAuthModal('signup')}
               icon={<UserPlus size={18} />}
-              style={{ boxShadow: 'var(--shadow-orange)' }}
+              style={{
+                backgroundColor: 'var(--mukuru-orange)',
+                color: '#FFFFFF',
+                fontWeight: '800',
+                boxShadow: 'var(--shadow-orange)',
+              }}
             >
               Sign Up
             </Button>
@@ -220,23 +230,25 @@ export default function WelcomeScreen() {
         )}
 
         <Button
-          variant={user ? 'primary' : 'outline'}
+          variant="primary"
           size="lg"
           fullWidth
           onClick={handleContinueToDashboard}
           icon={<ArrowRight size={20} />}
           style={{
+            backgroundColor: 'var(--mukuru-orange)',
             color: '#FFFFFF',
-            boxShadow: user ? 'var(--shadow-orange)' : 'none',
-            borderColor: user ? 'transparent' : 'rgba(255, 255, 255, 0.2)',
-            fontSize: '1rem',
-            padding: '14px',
+            fontWeight: '800',
+            fontSize: '1.05rem',
+            padding: '16px',
+            boxShadow: '0 8px 25px rgba(255, 85, 0, 0.4)',
+            border: 'none',
           }}
         >
           {user ? `Continue to Dashboard (${user.name})` : 'Try Demo Session (Grace Moyo)'}
         </Button>
 
-        <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#64748B', marginTop: '6px' }}>
+        <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#94A3B8', marginTop: '4px' }}>
           Mukuru Money Coach • SheHacks Challenge B
         </p>
       </div>
