@@ -1,0 +1,16 @@
+{
+  "insights": [
+    {
+      "id": "insight-1",
+      "type": "tip",
+      "title": "Smart Remittance Timing",
+      "text": "Sending money home on Tuesdays saves up to 5% on transfer fees during Mukuru Mid-week specials."
+    },
+    {
+      "id": "insight-2",
+      "type": "achievement",
+      "title": "20% Milestone Reached!",
+      "text": "You reached 20% of your Frosty Fridge goal! Keep up the momentum."
+    }
+  ]
+}

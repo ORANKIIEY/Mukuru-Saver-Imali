@@ -1,0 +1,29 @@
+{
+  "appName": "Mukuru Money Coach",
+  "tagline": "Imali Yakho / Mari Yako",
+  "nav": {
+    "home": "Musha",
+    "goals": "Zvinangwa",
+    "coach": "Murairidzi",
+    "more": "Zvimwe"
+  },
+  "language": {
+    "en": "English",
+    "zu": "isiZulu",
+    "sn": "chiShona",
+    "switch": "Mutauro"
+  },
+  "mockMode": {
+    "active": "Imodi Yemuyedzo",
+    "live": "Inethiweki Yechokwadi",
+    "toggle": "Shandura Data Mode"
+  },
+  "actions": {
+    "continueAsGrace": "Enderera mberi saGrace",
+    "viewDetails": "Wona Zvizere",
+    "askCoach": "Bvunza Murairidzi WeMari",
+    "takeAction": "Tora Nhanho",
+    "retry": "Edza Zvewve"
+  },
+  "greeting": "Mangwanani"
+}
