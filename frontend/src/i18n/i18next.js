@@ -1,16 +1,15 @@
 /**
- * react-i18next initialisation (Role 5 & 6 translations)
+ * react-i18next initialisation
  * Loaded once in main.jsx before <App /> renders.
  *
  * Namespaces:
- *   common    — shared labels (owned by Role 4)
- *   dashboard — dashboard strings (owned by Role 4)
- *   money     — transactions, commitments, goals, safe-to-save (Role 5)
- *   coach     — simulators, chat, Tier 3 screens (Role 6)
+ *   common    — shared labels
+ *   dashboard — dashboard strings
+ *   money     — transactions, commitments, goals, safe-to-save
+ *   coach     — simulators, chat, Tier 3 screens
  *
  * Supported languages: en (English), zu (isiZulu), sn (chiShona)
- * The language is seeded from localStorage so it stays in sync with
- * the custom LanguageContext used by Role 4's dashboard.
+ * The language is seeded from localStorage so it stays in sync with LanguageContext.
  */
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';

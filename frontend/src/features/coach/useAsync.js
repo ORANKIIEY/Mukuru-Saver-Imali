@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-// Tiny loading/error/data helper so Role 6 doesn't depend on Role 4's hook shape.
+// Async loading, error, and data hook helper.
 export default function useAsync(fn, deps = []) {
   const [state, set] = useState({ data: null, loading: true, error: null });
   useEffect(() => {

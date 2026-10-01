@@ -7,7 +7,6 @@ import { ShoppingBag } from 'lucide-react';
 /**
  * GroceryAlertCard Component (Tier 3 feature)
  * Fully translated dynamically via i18n
- * Owned by Role 4
  */
 export default function GroceryAlertCard({ alert }) {
   const { t } = useLanguage();

@@ -5,7 +5,6 @@ import BottomNav from './BottomNav';
 
 /**
  * Mobile-First & Desktop App Shell Frame Component
- * Owned by Role 4
  */
 export default function AppShell({ children }) {
   const location = useLocation();

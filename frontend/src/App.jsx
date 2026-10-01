@@ -8,7 +8,6 @@ import './styles/global.css';
 
 /**
  * Root App Component
- * Owned by Role 4
  */
 export default function App() {
   return (

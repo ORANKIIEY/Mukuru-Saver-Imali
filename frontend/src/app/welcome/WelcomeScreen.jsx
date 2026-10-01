@@ -9,7 +9,6 @@ import { useLanguage } from '../../i18n';
 /**
  * WelcomeScreen Component ("Continue as Grace" Opening Screen)
  * Clean UI without emojis.
- * Owned by Role 4
  */
 export default function WelcomeScreen() {
   const navigate = useNavigate();

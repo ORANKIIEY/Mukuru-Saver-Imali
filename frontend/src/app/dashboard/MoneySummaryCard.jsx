@@ -5,7 +5,7 @@ import { useLanguage } from '../../i18n';
 import { Wallet, Calendar, ShieldCheck } from 'lucide-react';
 
 /**
- * MoneySummaryCard Component (Role 4 Owned)
+ * MoneySummaryCard Component
  * Displays monthly overview: Income (R8,500), Commitments (R6,300), Available remainder (R2,200),
  * and suggested Safe to Save (R500), NOT the whole remainder.
  */

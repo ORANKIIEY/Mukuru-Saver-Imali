@@ -1,5 +1,5 @@
 /**
- * Shared utility functions for the money feature (Role 5)
+ * Shared utility functions for money and financial calculations
  */
 
 /**

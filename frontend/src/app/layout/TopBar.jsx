@@ -6,7 +6,7 @@ import { useMockToggle } from '../../hooks/useMockToggle';
 import { useUser, PRESET_USERS } from '../../context/UserContext';
 
 /**
- * TopBar Navigation Header Component (Role 4 Owned)
+ * TopBar Navigation Header Component
  * Contains Mukuru branding, user profile switcher, notification drawer, language switcher (EN, ZU, SN), and dev-only mock badge.
  */
 export default function TopBar() {

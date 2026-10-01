@@ -8,7 +8,6 @@ import { Sparkles, MessageSquare } from 'lucide-react';
 /**
  * CoachTipCard Component ("One insight at a time")
  * Fully translated dynamically via i18n
- * Owned by Role 4
  */
 export default function CoachTipCard({ tip }) {
   const navigate = useNavigate();

@@ -9,8 +9,8 @@ import { useLanguage } from '../../i18n';
 import { ChevronRight, Calendar, PartyPopper, Target } from 'lucide-react';
 
 /**
- * CurrentGoalCard Component (Role 4 Owned)
- * Clean UI without emojis. Matches Role 5's goals.json data shape.
+ * CurrentGoalCard Component
+ * Displays current active savings goal progress, target amount, and celebration trigger.
  */
 export default function CurrentGoalCard({ goal }) {
   const navigate = useNavigate();

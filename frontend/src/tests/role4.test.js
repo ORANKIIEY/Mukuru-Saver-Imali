@@ -1,5 +1,5 @@
 /**
- * Role 4 Unit Tests
+ * Frontend Core Unit Tests
  * 1. MoneyText formatting test
  * 2. CategoryTag fallback test
  * 3. i18n English fallback test
@@ -68,8 +68,8 @@ export function testI18nEnglishFallback() {
 }
 
 // Self-run verification when executed directly
-console.log('Running Role 4 Unit Tests...');
+console.log('Running Frontend Core Unit Tests...');
 console.log('Test 1 (MoneyText):', testMoneyTextFormat());
 console.log('Test 2 (CategoryTag Fallback):', testCategoryTagFallback());
 console.log('Test 3 (i18n Fallback):', testI18nEnglishFallback());
-console.log('✅ All 3 Role 4 unit tests passed successfully!');
+console.log('✅ All 3 Frontend Core unit tests passed successfully!');

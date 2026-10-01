@@ -8,7 +8,6 @@ import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 /**
  * NextStepCard Component ("One clear action")
  * Fully translated dynamically via i18n
- * Owned by Role 4
  */
 export default function NextStepCard({ nextStep }) {
   const navigate = useNavigate();

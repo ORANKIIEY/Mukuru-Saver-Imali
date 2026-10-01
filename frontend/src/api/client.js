@@ -4,7 +4,7 @@ import insightsMock from '../mocks/insights.json';
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 /**
- * Base API Client owned by Role 4
+ * Base API Client
  * Automatically includes Accept-Language header based on user preference (en/zu/sn).
  * Handles mock responses and clean error handling when live backend is unreachable.
  */

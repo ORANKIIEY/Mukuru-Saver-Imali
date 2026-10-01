@@ -1,4 +1,3 @@
-// ASSUMES Role 4's client.js exports apiFetch(path, options) -> parsed JSON.
 import { apiFetch } from './client';
 import mock from '../mocks/simulator.json';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Construction, Globe, Settings } from 'lucide-react';
+import { Globe, Settings, ShieldCheck } from 'lucide-react';
 import WelcomeScreen from './app/welcome/WelcomeScreen';
 import DashboardPage from './app/dashboard/DashboardPage';
 import Card from './components/Card';
@@ -8,7 +8,7 @@ import Button from './components/Button';
 import { useMockToggle } from './hooks/useMockToggle';
 import { useLanguage } from './i18n';
 
-// Role 5 — Money screens
+// Money feature screens
 import TransactionsPage  from './features/money/transactions/TransactionsPage';
 import CommitmentsPage   from './features/money/commitments/CommitmentsPage';
 import GoalsPage         from './features/money/goals/GoalsPage';
@@ -16,7 +16,7 @@ import GoalDetailPage    from './features/money/goals/GoalDetailPage';
 import CelebrationScreen from './features/money/goals/CelebrationScreen';
 import GoalCreatorFlow   from './features/money/goals/creator/GoalCreatorFlow';
 
-// Role 6 — Coach & what-if UI
+// Coach & What-If simulator screens
 import CoachChatPage    from './features/coach/chat/CoachChatPage';
 import SimulatorPage    from './features/coach/simulator/SimulatorPage';
 import GroceryWatchPage from './features/coach/tier3/groceries/GroceryWatchPage';
@@ -24,26 +24,7 @@ import GrowMyMoneyPage  from './features/coach/tier3/grow/GrowMyMoneyPage';
 import WhatsAppMockPage from './features/coach/tier3/whatsapp/WhatsAppMockPage';
 
 /**
- * Placeholder component for routes owned by Roles 5 & 6 until they plug in their screens.
- */
-function RolePlaceholder({ role, screenName }) {
-  return (
-    <Card variant="subtle" style={{ textAlign: 'center', padding: '32px 16px' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px', color: 'var(--mukuru-orange)' }}>
-        <Construction size={36} />
-      </div>
-      <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '8px' }}>
-        {screenName} ({role})
-      </h3>
-      <p style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginBottom: '16px' }}>
-        This feature module is owned by {role}. The route structure is prepared by Role 4.
-      </p>
-    </Card>
-  );
-}
-
-/**
- * More / Settings Page (Role 4)
+ * More / Settings Page
  */
 function MorePage() {
   const { useMocks, toggleMock } = useMockToggle();
@@ -86,30 +67,30 @@ function MorePage() {
         </div>
       </Card>
 
-      {/* Mock Toggle Card for Team Demo */}
+      {/* Mock Toggle Card for Demo */}
       <Card variant="default">
         <h4 style={{ fontSize: '0.95rem', fontWeight: '700', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
           <Settings size={18} color="var(--mukuru-orange)" /> {t('common.mockMode.toggle', 'Data Source Mode')}
         </h4>
         <p style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginBottom: '12px' }}>
-          Currently using: <strong>{useMocks ? 'Local JSON Mocks' : 'Live Backend API'}</strong>
+          Currently using: <strong>{useMocks ? 'Local Demo Engine' : 'Live Backend API'}</strong>
         </p>
         <Button
           variant={useMocks ? 'secondary' : 'primary'}
           onClick={toggleMock}
           fullWidth
         >
-          Switch to {useMocks ? 'Live Backend API' : 'Local JSON Mocks'}
+          Switch to {useMocks ? 'Live Backend API' : 'Local Demo Engine'}
         </Button>
       </Card>
 
-      {/* Role 4 System Info */}
+      {/* System Information Card */}
       <Card variant="subtle">
-        <h4 style={{ fontSize: '0.875rem', fontWeight: '700', color: 'var(--color-text-secondary)', marginBottom: '4px' }}>
-          Mukuru Money Coach Architecture
+        <h4 style={{ fontSize: '0.875rem', fontWeight: '700', color: 'var(--color-text-secondary)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <ShieldCheck size={16} color="var(--mukuru-orange)" /> Mukuru Money Coach | SheHacks Challenge B
         </h4>
-        <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
-          Frontend Role 4: App Shell, Dashboard, UI Kit, i18n & API Client setup.
+        <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', lineHeight: '1.4' }}>
+          Empowering emerging consumers with transaction categorisation, safe-to-save guidance, goal tracking, and AI coaching.
         </p>
       </Card>
     </div>
@@ -117,17 +98,16 @@ function MorePage() {
 }
 
 /**
- * App Routes Definition (Role 4 owned)
+ * App Routes Definition
  */
 export default function AppRoutes() {
   return (
     <Routes>
-      {/* Role 4 Routes */}
       <Route path="/" element={<WelcomeScreen />} />
       <Route path="/dashboard" element={<DashboardPage />} />
       <Route path="/more" element={<MorePage />} />
 
-      {/* ROLE 5 ROUTES (Money screens & Celebration) */}
+      {/* Money feature screens */}
       <Route path="/transactions"          element={<TransactionsPage />} />
       <Route path="/commitments"           element={<CommitmentsPage />} />
       <Route path="/goals"                 element={<GoalsPage />} />
@@ -135,7 +115,7 @@ export default function AppRoutes() {
       <Route path="/goals/:id"             element={<GoalDetailPage />} />
       <Route path="/goals/:id/celebrate"   element={<CelebrationScreen />} />
 
-      {/* ROLE 6 ROUTES (Coach, What-If UI & Tier 3) */}
+      {/* Coach, What-If Simulator & Tier 3 screens */}
       <Route path="/simulator" element={<SimulatorPage />} />
       <Route path="/coach"     element={<CoachChatPage />} />
       <Route path="/groceries" element={<GroceryWatchPage />} />

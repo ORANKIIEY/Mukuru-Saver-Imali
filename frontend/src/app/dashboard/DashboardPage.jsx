@@ -14,7 +14,7 @@ import { useUser } from '../../context/UserContext';
 
 /**
  * DashboardPage Component
- * Primary Responsive Dashboard Screen owned by Role 4.
+ * Primary Responsive Dashboard Screen for Mukuru Money Coach.
  */
 export default function DashboardPage() {
   const { t } = useLanguage();
