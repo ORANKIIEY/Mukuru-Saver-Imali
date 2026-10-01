@@ -1,3 +1,7 @@
 package com.moneycoach.repository;
-public class GoalRepository {
+
+import com.moneycoach.model.Goal;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GoalRepository extends JpaRepository<Goal, Long> {
 }

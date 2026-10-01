@@ -1,4 +1,20 @@
-package com.moneycoach.config;
+services:
 
-public class CorsConfig {
-}
+  postgres:
+    image: postgres:16
+    container_name: mukuru-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: mukuru_money_coach
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
