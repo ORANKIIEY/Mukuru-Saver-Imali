@@ -1,0 +1,50 @@
+{
+  "error": "Kukhona okungahambanga kahle. Sicela uzame futhi.",
+  "simulator": {
+    "title": "Kuthiwani uma...",
+    "tabs": { "sendHome": "Ukuthumela ekhaya", "weeklySave": "Ukugcina ngesonto" },
+    "sendHome": { "title": "Uma ngithumela imali ekhaya...", "label": "Inani engilithumela ekhaya" },
+    "weeklySave": { "title": "Uma ngigcina okwengeziwe ngesonto...", "label": "Okwengeziwe engikugcinayo ngesonto" },
+    "impact": {
+      "before": "Ngaphambi",
+      "after": "Ngemuva",
+      "goalDate": "{{goal}} kuzofinyelelwa cishe ngo",
+      "laterBy": "Kuzohlehla ngamasonto angu-{{weeks}}",
+      "soonerBy": "Kuzosheshe ngamasonto angu-{{weeks}}",
+      "noChange": "Akukho shintsho",
+      "progressIn": "Inqubekela phambili ngemuva kwamasonto angu-{{weeks}}"
+    }
+  },
+  "chat": {
+    "title": "Umqeqeshi Wemali",
+    "greeting": "Sawubona Grace! Ngingakusiza kanjani ngemali yakho namuhla?",
+    "placeholder": "Bhala umbuzo wakho...",
+    "send": "Thumela",
+    "prompts": ["Ngisondele kangakanani ku-Frosty?", "Ngingagcina kanjani okwengeziwe?", "Ngingathumela imali ekhaya le nyanga?"]
+  },
+  "groceries": {
+    "title": "Ukuqapha ukudla",
+    "cheaper": "Kushibhile kunokujwayelekile ngo",
+    "noChange": "Intengo ayishintshile",
+    "saveButton": "Gcina u-R{{amount}}",
+    "saved": "Kugcinelwe injongo yakho!"
+  },
+  "grow": {
+    "title": "Khulisa imali yami",
+    "riskTitle": "Yazi ubungozi",
+    "riskText": "Ukukhulisa imali kuhlale kunobungozi. Ungatshali imali ongakwazi ukuyilahlekelwa.",
+    "cards": [
+      { "title": "Isikhwama sesimo esiphuthumayo", "text": "Gcina imali encane yezimo ezingalindelekile ukuze ungaboleki." },
+      { "title": "I-akhawunti yokonga", "text": "Imali ku-akhawunti yokonga iphephe kakhulu kunemali ekhaya futhi ingazuza inzalo." },
+      { "title": "Inzalo eqhubekayo", "text": "Inzalo ikhula ngenzalo. Ukonga kancane kusenesikhathi kukhula kakhulu." }
+    ]
+  },
+  "whatsapp": {
+    "title": "Mukuru Umqeqeshi Wemali",
+    "messages": [
+      { "from": "coach", "text": "Sawubona Grace! Impuphu yommbila ishibhile ngo-R15 e-Shoprite namuhla.", "time": "08:02" },
+      { "from": "me", "text": "Kuhle! Ngingakugcina yini lokho u-R15?", "time": "08:03" },
+      { "from": "coach", "text": "Kwenziwe. U-R15 ufakwe ku-Frosty. Useku-R1,215 kwezingu-R6,000.", "time": "08:03" }
+    ]
+  }
+}

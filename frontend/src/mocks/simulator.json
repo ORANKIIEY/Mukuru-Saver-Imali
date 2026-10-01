@@ -1,0 +1,7 @@
+{
+  "goal": { "name": "Frosty", "target": 6000, "saved": 1200 },
+  "baselineWeekly": 115,
+  "horizonWeeks": 12,
+  "sendHome": { "min": 100, "max": 1000, "step": 100, "default": 500 },
+  "weeklySave": { "min": 50, "max": 500, "step": 50, "default": 100 }
+}
