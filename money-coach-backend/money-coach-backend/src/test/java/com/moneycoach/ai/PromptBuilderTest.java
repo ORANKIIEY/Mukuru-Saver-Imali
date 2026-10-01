@@ -1,4 +1,4 @@
-package java.com.moneycoach.ai;
+package com.moneycoach.ai;
 
 public class PromptBuilderTest {
 }

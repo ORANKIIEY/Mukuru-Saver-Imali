@@ -1,4 +1,4 @@
-package java.com.moneycoach.service;
+package com.moneycoach.service;
 
 public class CategorisationServiceTest {
 }
