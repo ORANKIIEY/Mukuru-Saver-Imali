@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import useApi from '../../../hooks/useApi';
+import { useApi } from '../../../hooks/useApi';
 import Button from '../../../components/Button';
 import LoadingState from '../../../components/LoadingState';
 import ErrorState from '../../../components/ErrorState';

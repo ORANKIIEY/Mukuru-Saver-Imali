@@ -57,3 +57,20 @@ function handleMockRequest(endpoint) {
     }, 150);
   });
 }
+
+/**
+ * Default axios-style client used by goals.js, commitments.js,
+ * transactions.js and safeToSave.js.
+ */
+const client = {
+  get: (endpoint) => apiClient(endpoint, { method: 'GET' }),
+  post: (endpoint, body) =>
+    apiClient(endpoint, { method: 'POST', body: JSON.stringify(body) }),
+};
+
+export default client;
+
+/**
+ * Named apiFetch used by groceries.js, simulator.js and coach.js.
+ */
+export const apiFetch = (endpoint, options = {}) => apiClient(endpoint, options);

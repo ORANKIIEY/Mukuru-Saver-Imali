@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import useApi from '../../../hooks/useApi';
+import { useApi } from '../../../hooks/useApi';
 import LoadingState from '../../../components/LoadingState';
 import ErrorState from '../../../components/ErrorState';
 import Card from '../../../components/Card';

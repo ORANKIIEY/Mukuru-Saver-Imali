@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// Initialise react-i18next before the app renders so all useTranslation()
+// calls in Role 5 and Role 6 components have a configured i18n instance.
+import './i18n/i18next.js';
 import App from './App.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

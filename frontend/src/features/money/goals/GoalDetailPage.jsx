@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import useApi from '../../../hooks/useApi';
+import { useApi } from '../../../hooks/useApi';
 import Card from '../../../components/Card';
 import Button from '../../../components/Button';
 import MoneyText from '../../../components/MoneyText';

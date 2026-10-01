@@ -94,7 +94,7 @@ export default function CurrentGoalCard({ goal }) {
         <Button
           variant={isCompleted ? 'primary' : 'ghost'}
           size="sm"
-          onClick={() => navigate(isCompleted ? '/celebration' : '/goals')}
+          onClick={() => navigate(isCompleted ? `/goals/${goal?.id}/celebrate` : '/goals')}
           icon={isCompleted ? <PartyPopper size={16} /> : <ChevronRight size={16} />}
           style={{ color: isCompleted ? '#FFFFFF' : 'var(--mukuru-orange)', fontWeight: '700' }}
         >

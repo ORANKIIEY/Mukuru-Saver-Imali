@@ -7,13 +7,13 @@ import BottomNav from './BottomNav';
  * Mobile-First & Desktop App Shell Frame Component
  * Owned by Role 4
  */
-export default function AppShell({ children, user }) {
+export default function AppShell({ children }) {
   const location = useLocation();
   const isWelcomeScreen = location.pathname === '/';
 
   return (
     <div className="app-frame">
-      {!isWelcomeScreen && <TopBar user={user} />}
+      {!isWelcomeScreen && <TopBar />}
       <main
         style={{
           flex: 1,

@@ -1,20 +1,20 @@
 import client from './client';
 import mock from '../mocks/goals.json';
 
-const useMocks = import.meta.env.VITE_USE_MOCKS === 'true';
+const useMocks = () => localStorage.getItem('mukuru_use_mocks') !== 'false';
 
 // In mock mode, goals created in the UI live here until the page reloads.
 const mockGoals = [...mock.goals];
 
 // GET /api/goals -> { goals: [...] }
 export async function getGoals() {
-  if (useMocks) return mockGoals;
+  if (useMocks()) return mockGoals;
   return (await client.get('/api/goals')).goals;
 }
 
 // GET /api/goals/:id -> goal
 export async function getGoal(id) {
-  if (useMocks) {
+  if (useMocks()) {
     const goal = mockGoals.find((g) => g.id === id);
     if (!goal) throw new Error('Goal not found');
     return goal;
@@ -24,7 +24,7 @@ export async function getGoal(id) {
 
 // POST /api/goals -> goal
 export async function createGoal(payload) {
-  if (useMocks) {
+  if (useMocks()) {
     const goal = { ...payload, id: `g-${Date.now()}`, saved: 0, status: 'active', milestones: [20, 50, 100] };
     mockGoals.push(goal);
     return goal;

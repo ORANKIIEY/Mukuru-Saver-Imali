@@ -1,0 +1,95 @@
+/* =========================================================
+   money.css — Shared styles for the money feature (Role 5)
+   All class names are prefixed with mm- to avoid conflicts.
+   ========================================================= */
+
+/* Layout */
+.mm-page  { padding: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+.mm-stack { display: flex; flex-direction: column; gap: 0.5rem; }
+.mm-row   { display: flex; flex-direction: row; align-items: center; gap: 0.5rem; }
+
+/* Typography */
+.mm-title  { font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin: 0; }
+.mm-sub    { font-size: 0.875rem; color: var(--color-text-muted); margin: 0; }
+.mm-strong { font-weight: 600; color: var(--color-text-primary); }
+.mm-big    { font-size: 1.5rem; font-weight: 700; color: var(--mukuru-orange); margin: 0; }
+.mm-label  { font-size: 0.875rem; font-weight: 600; color: var(--color-text-secondary); }
+.mm-link   { color: var(--mukuru-orange); text-decoration: underline; font-size: 0.875rem; }
+.mm-notice { padding: 0.75rem; background: var(--color-surface); border-radius: 8px; font-size: 0.875rem; }
+.mm-legend { font-size: 0.75rem; color: var(--color-text-muted); }
+
+/* Lists */
+.mm-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+
+/* Form inputs */
+.mm-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: var(--color-surface, #fff);
+  color: var(--color-text-primary, #111);
+}
+.mm-input:focus {
+  outline: none;
+  border-color: var(--mukuru-orange);
+}
+
+/* Goal creator choice tiles */
+.mm-choice {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-border, #e0e0e0);
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--color-surface, #fff);
+  transition: border-color 0.15s, background 0.15s;
+  text-align: left;
+  width: 100%;
+}
+.mm-choice:hover { border-color: var(--mukuru-orange); }
+.mm-choice.selected {
+  border-color: var(--mukuru-orange);
+  background: color-mix(in srgb, var(--mukuru-orange) 8%, white);
+}
+
+/* Badges & tags */
+.mm-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--mukuru-orange);
+  color: #fff;
+}
+.mm-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+/* Goal creator step indicator */
+.mm-steps { display: flex; gap: 0.35rem; justify-content: center; margin-bottom: 1rem; }
+.mm-steps span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border, #e0e0e0);
+  transition: background 0.2s;
+}
+.mm-steps span.active { background: var(--mukuru-orange); }
+
+/* Goal progress ring wrapper */
+.mm-ring       { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.mm-ring-label { font-size: 0.875rem; font-weight: 600; margin-top: 0.5rem; }
+
+/* Transaction row */
+.mm-tx-right { margin-left: auto; text-align: right; }
+
+/* Spending split bar */
+.mm-split        { display: flex; height: 8px; border-radius: 999px; overflow: hidden; width: 100%; }
+.mm-split-family { background: var(--mukuru-orange); }
+.mm-split-spend  { background: var(--color-border, #e0e0e0); }
+.mm-dot          { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+
+/* Celebration screen */
+.mm-celebrate      { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2rem 1rem; text-align: center; }
+.mm-celebrate-icon { font-size: 4rem; line-height: 1; }

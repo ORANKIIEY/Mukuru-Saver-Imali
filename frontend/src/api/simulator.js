@@ -2,7 +2,7 @@
 import { apiFetch } from './client';
 import mock from '../mocks/simulator.json';
 
-const useMocks = () => import.meta.env.VITE_USE_MOCKS !== 'false';
+const useMocks = () => localStorage.getItem('mukuru_use_mocks') !== 'false';
 const delay = (ms) => new Promise((r) => setTimeout(r, ms));
 const addWeeks = (w) => { const d = new Date(); d.setDate(d.getDate() + w * 7); return d.toISOString(); };
 

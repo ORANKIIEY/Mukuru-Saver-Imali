@@ -1,10 +1,10 @@
 import client from './client';
 import mock from '../mocks/transactions.json';
 
-const useMocks = import.meta.env.VITE_USE_MOCKS === 'true';
+const useMocks = () => localStorage.getItem('mukuru_use_mocks') !== 'false';
 
 // GET /api/transactions -> { transactions: [...] }
 export async function getTransactions() {
-  const res = useMocks ? mock : await client.get('/api/transactions');
+  const res = useMocks() ? mock : await client.get('/api/transactions');
   return res.transactions;
 }

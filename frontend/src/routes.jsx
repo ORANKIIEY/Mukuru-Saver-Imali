@@ -1,12 +1,27 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Construction, Globe, Settings, User } from 'lucide-react';
+import { Construction, Globe, Settings } from 'lucide-react';
 import WelcomeScreen from './app/welcome/WelcomeScreen';
 import DashboardPage from './app/dashboard/DashboardPage';
 import Card from './components/Card';
 import Button from './components/Button';
 import { useMockToggle } from './hooks/useMockToggle';
 import { useLanguage } from './i18n';
+
+// Role 5 — Money screens
+import TransactionsPage  from './features/money/transactions/TransactionsPage';
+import CommitmentsPage   from './features/money/commitments/CommitmentsPage';
+import GoalsPage         from './features/money/goals/GoalsPage';
+import GoalDetailPage    from './features/money/goals/GoalDetailPage';
+import CelebrationScreen from './features/money/goals/CelebrationScreen';
+import GoalCreatorFlow   from './features/money/goals/creator/GoalCreatorFlow';
+
+// Role 6 — Coach & what-if UI
+import CoachChatPage    from './features/coach/chat/CoachChatPage';
+import SimulatorPage    from './features/coach/simulator/SimulatorPage';
+import GroceryWatchPage from './features/coach/tier3/groceries/GroceryWatchPage';
+import GrowMyMoneyPage  from './features/coach/tier3/grow/GrowMyMoneyPage';
+import WhatsAppMockPage from './features/coach/tier3/whatsapp/WhatsAppMockPage';
 
 /**
  * Placeholder component for routes owned by Roles 5 & 6 until they plug in their screens.
@@ -113,15 +128,19 @@ export default function AppRoutes() {
       <Route path="/more" element={<MorePage />} />
 
       {/* ROLE 5 ROUTES (Money screens & Celebration) */}
-      <Route path="/transactions" element={<RolePlaceholder role="Role 5" screenName="Transaction History" />} />
-      <Route path="/commitments" element={<RolePlaceholder role="Role 5" screenName="My Commitments" />} />
-      <Route path="/goals" element={<RolePlaceholder role="Role 5" screenName="Savings Goals" />} />
-      <Route path="/celebration" element={<RolePlaceholder role="Role 5" screenName="Celebration Screen" />} />
+      <Route path="/transactions"          element={<TransactionsPage />} />
+      <Route path="/commitments"           element={<CommitmentsPage />} />
+      <Route path="/goals"                 element={<GoalsPage />} />
+      <Route path="/goals/new"             element={<GoalCreatorFlow />} />
+      <Route path="/goals/:id"             element={<GoalDetailPage />} />
+      <Route path="/goals/:id/celebrate"   element={<CelebrationScreen />} />
 
-      {/* ROLE 6 ROUTES (Coach, What-If UI & Tier 3 Groceries) */}
-      <Route path="/simulator" element={<RolePlaceholder role="Role 6" screenName="What-If Simulators" />} />
-      <Route path="/coach" element={<RolePlaceholder role="Role 6" screenName="AI Money Coach Chat" />} />
-      <Route path="/groceries" element={<RolePlaceholder role="Role 6" screenName="Grocery Watch (Tier 3)" />} />
+      {/* ROLE 6 ROUTES (Coach, What-If UI & Tier 3) */}
+      <Route path="/simulator" element={<SimulatorPage />} />
+      <Route path="/coach"     element={<CoachChatPage />} />
+      <Route path="/groceries" element={<GroceryWatchPage />} />
+      <Route path="/grow"      element={<GrowMyMoneyPage />} />
+      <Route path="/whatsapp"  element={<WhatsAppMockPage />} />
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />

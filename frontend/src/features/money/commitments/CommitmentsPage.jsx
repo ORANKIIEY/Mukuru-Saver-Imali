@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import useApi from '../../../hooks/useApi';
+import { useApi } from '../../../hooks/useApi';
 import LoadingState from '../../../components/LoadingState';
 import ErrorState from '../../../components/ErrorState';
 import MoneyText from '../../../components/MoneyText';

@@ -1,0 +1,50 @@
+{
+  "error": "Pane chakashaikwa. Ndapota edza zvakare.",
+  "simulator": {
+    "title": "Zvichaitika kana...",
+    "tabs": { "sendHome": "Tumira mari kumba", "weeklySave": "Chengetedza vhiki nevhiki" },
+    "sendHome": { "title": "Kana nditumira mari kumba...", "label": "Mari yandingatumira kumba" },
+    "weeklySave": { "title": "Kana ndichengetedzazve vhiki nevhiki...", "label": "Yakawedzera yandichengetedziwa pavhiki" },
+    "impact": {
+      "before": "Zvakanga",
+      "after": "Zvichaita",
+      "goalDate": "{{goal}} ichasvikwa munenge",
+      "laterBy": "Mavhiki {{weeks}} gare gare",
+      "soonerBy": "Mavhiki {{weeks}} ekutanga",
+      "noChange": "Hapana shanduko",
+      "progressIn": "Kufambira mberi mushure memavhiki {{weeks}}"
+    }
+  },
+  "chat": {
+    "title": "Murairidzi WeMari",
+    "greeting": "Mhoro Grace! Ndingakubatsira sei nemari yako nhasi?",
+    "placeholder": "Nyora mubvunzo wako...",
+    "send": "Tumira",
+    "prompts": ["Ndiri pedyo sei ne-Frosty?", "Ndingachengetedza sei zvakawanda?", "Ndingátumira mari kumba mwedzi uno?"]
+  },
+  "groceries": {
+    "title": "Kutarisa zvokudya",
+    "cheaper": "Yakadhura kupfuura izvo zvakajairika ne",
+    "noChange": "Mutengo hauchinja",
+    "saveButton": "Chengetedza R{{amount}}",
+    "saved": "Yakachengetedzwa kuchinangwa chako!"
+  },
+  "grow": {
+    "title": "Kukura kwemari yangu",
+    "riskTitle": "Ziva njodzi",
+    "riskText": "Kukura kwemari kunogara kune njodzi. Usatsvagise mari iyo usingakwanisi kuirasikirwa.",
+    "cards": [
+      { "title": "Mabhuku ekuchengeta", "text": "Chengeta mari diki yezvinhu zvisazivikanwa kuti usadzorese." },
+      { "title": "Akaunti yekuchengetedza", "text": "Mari muakaunti yekuchengetedza yakachengeteka kupfuura mari kumba uye inogona kuwana faida." },
+      { "title": "Faida inowedzera", "text": "Faida inowana faida. Kuchengetedza zvishoma nguva yekutanga kunokura kupfuura kuchengetedza zvakawanda gare gare." }
+    ]
+  },
+  "whatsapp": {
+    "title": "Mukuru Murairidzi WeMari",
+    "messages": [
+      { "from": "coach", "text": "Mhoro Grace! Hupfu hwemhunga hwakachipa neR15 kuShoprite nhasi.", "time": "08:02" },
+      { "from": "me", "text": "Zvakanaka! Ndingachengetedza here R15 iyo?", "time": "08:03" },
+      { "from": "coach", "text": "Zvagadzirwa. R15 yakawedzerwa ku-Frosty. Uri paR1,215 kubva R6,000.", "time": "08:03" }
+    ]
+  }
+}

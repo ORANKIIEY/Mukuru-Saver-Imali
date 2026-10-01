@@ -1,0 +1,62 @@
+{
+  "common": { "continue": "Enderera", "back": "Dzokera", "saving": "Kuchengetedza…" },
+  "transactions": {
+    "title": "Mari yako yakashandiswa",
+    "search": "Tsvaga mabhadharo",
+    "empty": "Hapana mabhadharo anowirirana nekutsvaga kwako.",
+    "split": { "title": "Mari yako yakaenda kupi", "family": "Rubatsiro rwemhuri", "spending": "Zvawakashandisa" }
+  },
+  "commitments": {
+    "title": "Ndiani anozvimba nemari yako?",
+    "subtitle": "Vanhu nemabhiri aunobhadhara kutanga.",
+    "total": "Yakazara pamwedzi",
+    "frequency": { "monthly": "mwedzi nemwedzi", "weekly": "vhiki nevhiki" }
+  },
+  "safe": {
+    "title": "Zvakachengeteka kuchengetedza",
+    "available": "{{amount}} iripo",
+    "suggested": "Tinokurudzira {{amount}} pamwedzi",
+    "show": "Ona kuti takaita sei izvi",
+    "hide": "Vanza ruzivo",
+    "income": "Mari inopinda",
+    "commitments": "Mhuri nemabhiri",
+    "spending": "Kushandisa kwezuva nezuva",
+    "left": "Zvakachengeteka kuchengetedza",
+    "startGoal": "Tanga chinangwa"
+  },
+  "goals": {
+    "title": "Zvinangwa zvako",
+    "create": "Gadzira chinangwa",
+    "empty": "Hauna zvinangwa. Gadzira chimwe kuti utange kuchengetedza.",
+    "of": "kubva",
+    "reached": "Yasvikwa",
+    "away": "{{name}} yasara {{amount}}",
+    "targetDate": "Zuva rekusvika",
+    "weekly": "Chengetedza vhiki nevhiki",
+    "milestone": "{{level}}%",
+    "seeCelebration": "Ona mufaro wako"
+  },
+  "creator": {
+    "stepOf": "Nhanho {{current}} kubva {{total}}",
+    "choose": { "title": "Uri kuchengetedzerani?", "school": "Mari yechikoro", "fridge": "Firiji", "custom": "Chimwe chinhu" },
+    "product": { "title": "Sarudza firiji", "skip": "Pfuura uise mari yako" },
+    "name": { "title": "Ipa chinangwa chako zita", "hint": "Zita rinokuita nyore kuenderera.", "label": "Zita rechinangwa" },
+    "target": { "title": "Mangani uye riini?", "amount": "Mari yekusvika (R)", "date": "Zuva rekusvika" },
+    "plan": {
+      "title": "Hurongwa hwako",
+      "summary": "Chengetedza {{amount}} ye-{{name}} zuva ra-{{date}}.",
+      "perWeek": "pavhiki",
+      "ok": "Izvi zvipinda mu-{{suggested}} pamwedzi yatinorudzira.",
+      "tight": "Izvi zvipfuura {{suggested}} yatinorudzira, asi une {{available}}.",
+      "high": "Izvi zvipfuura {{available}} yaunayo. Dzokera usarudze zuva rinotevera kana mari diki.",
+      "confirm": "Gadzira chinangwa",
+      "saveError": "Hatina kukwanisa kuchengetedza chinangwa chako. Tarisa kubatana kwako uedzazve."
+    }
+  },
+  "celebrate": {
+    "title": "{{name}} ndeyako!",
+    "body": "Wakachengetedza {{amount}}. Wakaita zvakanaka.",
+    "next": "Tanga chinangwa chimwe",
+    "home": "Dzokera kumba"
+  }
+}
