@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Target } from 'lucide-react';
 import { useApi } from '../../../hooks/useApi';
 import Card from '../../../components/Card';
 import Button from '../../../components/Button';
@@ -26,7 +27,9 @@ export default function GoalDetailPage() {
 
   return (
     <main className="mm-page">
-      <h1 className="mm-title"><span aria-hidden="true">{goal.icon}</span> {goal.name}</h1>
+      <h1 className="mm-title" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <Target size={26} color="var(--mukuru-orange)" /> {goal.name}
+      </h1>
       <Card>
         <div className="mm-stack" style={{ alignItems: 'center' }}>
           <GoalProgressRing percent={pct} />

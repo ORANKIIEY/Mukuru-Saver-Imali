@@ -72,4 +72,4 @@ console.log('Running Frontend Core Unit Tests...');
 console.log('Test 1 (MoneyText):', testMoneyTextFormat());
 console.log('Test 2 (CategoryTag Fallback):', testCategoryTagFallback());
 console.log('Test 3 (i18n Fallback):', testI18nEnglishFallback());
-console.log('✅ All 3 Frontend Core unit tests passed successfully!');
+console.log('[PASS] All 3 Frontend Core unit tests passed successfully!');

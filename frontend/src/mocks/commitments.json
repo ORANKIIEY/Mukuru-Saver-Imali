@@ -1,8 +1,8 @@
 {
   "commitments": [
-    { "id": "c1", "name": "Mama", "relationship": "Mother, Zimbabwe", "amount": 1500, "frequency": "monthly", "icon": "👵" },
-    { "id": "c2", "name": "Thando's school", "relationship": "Daughter", "amount": 1200, "frequency": "monthly", "icon": "🎒" },
-    { "id": "c3", "name": "Rent", "relationship": "Housing", "amount": 1100, "frequency": "monthly", "icon": "🏠" },
-    { "id": "c4", "name": "Sipho", "relationship": "Brother", "amount": 100, "frequency": "weekly", "icon": "🧑" }
+    { "id": "c1", "name": "Mama", "relationship": "Mother, Zimbabwe", "amount": 1500, "frequency": "monthly", "icon": "family" },
+    { "id": "c2", "name": "Thando's school", "relationship": "Daughter", "amount": 1200, "frequency": "monthly", "icon": "school" },
+    { "id": "c3", "name": "Rent", "relationship": "Housing", "amount": 1100, "frequency": "monthly", "icon": "housing" },
+    { "id": "c4", "name": "Sipho", "relationship": "Brother", "amount": 100, "frequency": "weekly", "icon": "family" }
   ]
 }

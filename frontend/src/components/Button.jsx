@@ -100,7 +100,7 @@ export default function Button({
     >
       {loading ? (
         <span className="pulse" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-          ⏳ Loading...
+          Loading...
         </span>
       ) : (
         <>

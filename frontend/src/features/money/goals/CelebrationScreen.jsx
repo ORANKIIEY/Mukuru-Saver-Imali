@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { PartyPopper } from 'lucide-react';
 import { useApi } from '../../../hooks/useApi';
 import Button from '../../../components/Button';
 import LoadingState from '../../../components/LoadingState';
@@ -18,7 +19,9 @@ export default function CelebrationScreen() {
 
   return (
     <main className="mm-celebrate" role="status">
-      <div className="mm-celebrate-icon" aria-hidden="true">{goal.icon || '🎉'}</div>
+      <div className="mm-celebrate-icon" aria-hidden="true">
+        <PartyPopper size={48} color="var(--mukuru-orange)" />
+      </div>
       <h1 className="mm-title">{t('celebrate.title', { name: goal.name })}</h1>
       <p className="mm-sub">{t('celebrate.body', { amount: formatMoney(goal.target) })}</p>
       <Link to="/goals/new" className="mm-link"><Button>{t('celebrate.next')}</Button></Link>
