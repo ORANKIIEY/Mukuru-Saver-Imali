@@ -1,24 +1,39 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import i18n from './i18next';
 
 import enCommon from './locales/en/common.json';
 import enDashboard from './locales/en/dashboard.json';
+import enMoney from './locales/en/money.json';
+import enCoach from './locales/en/coach.json';
+
 import zuCommon from './locales/zu/common.json';
 import zuDashboard from './locales/zu/dashboard.json';
+import zuMoney from './locales/zu/money.json';
+import zuCoach from './locales/zu/coach.json';
+
 import snCommon from './locales/sn/common.json';
 import snDashboard from './locales/sn/dashboard.json';
+import snMoney from './locales/sn/money.json';
+import snCoach from './locales/sn/coach.json';
 
 const translations = {
   en: {
     common: enCommon,
     dashboard: enDashboard,
+    money: enMoney,
+    coach: enCoach,
   },
   zu: {
     common: zuCommon,
     dashboard: zuDashboard,
+    money: zuMoney,
+    coach: zuCoach,
   },
   sn: {
     common: snCommon,
     dashboard: snDashboard,
+    money: snMoney,
+    coach: snCoach,
   },
 };
 
@@ -31,11 +46,13 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem('mukuru_lang', lang);
+    i18n.changeLanguage(lang);
   }, [lang]);
 
   const setLanguage = (newLang) => {
     if (translations[newLang]) {
       setLang(newLang);
+      i18n.changeLanguage(newLang);
     }
   };
 
