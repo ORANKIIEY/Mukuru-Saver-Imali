@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Sparkles, HeartHandshake, ArrowRight, User } from 'lucide-react';
+import { Sparkles, HeartHandshake, ArrowRight, User, LogIn, UserPlus, ShieldCheck } from 'lucide-react';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
-import MoneyText from '../../components/MoneyText';
 import { useLanguage } from '../../i18n';
+import { useUser } from '../../context/UserContext';
+import AuthModal from '../auth/AuthModal';
 
 /**
- * WelcomeScreen Component ("Continue as Grace" Opening Screen)
- * Clean UI without emojis.
+ * WelcomeScreen Component
+ * Responsive landing screen for Mukuru Money Coach with instant Sign In, Sign Up, and Dashboard access.
  */
 export default function WelcomeScreen() {
   const navigate = useNavigate();
   const { lang, setLanguage, t } = useLanguage();
+  const { user } = useUser();
 
-  const handleContinue = () => {
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [authTab, setAuthTab] = useState('signup');
+
+  const openAuthModal = (tabName) => {
+    setAuthTab(tabName);
+    setIsAuthOpen(true);
+  };
+
+  const handleContinueToDashboard = () => {
     navigate('/dashboard');
   };
 
@@ -133,7 +143,7 @@ export default function WelcomeScreen() {
           Track spending, protect family support remittances, and reach your financial goals with your AI Money Coach.
         </p>
 
-        {/* Grace Profile Snapshot Card */}
+        {/* User Account Active / Welcome Card */}
         <Card
           style={{
             backgroundColor: 'rgba(30, 41, 59, 0.85)',
@@ -148,17 +158,24 @@ export default function WelcomeScreen() {
                 width: '42px',
                 height: '42px',
                 borderRadius: '50%',
-                backgroundColor: 'var(--mukuru-orange-subtle)',
+                backgroundColor: 'var(--mukuru-orange)',
+                color: '#FFFFFF',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                fontWeight: '800',
+                fontSize: '1.2rem',
               }}
             >
-              <User size={22} color="var(--mukuru-orange)" />
+              {user ? (user.avatar || 'M') : <User size={22} />}
             </div>
             <div>
-              <div style={{ fontSize: '1rem', fontWeight: '700', color: '#FFFFFF' }}>Grace M.</div>
-              <div style={{ fontSize: '0.78rem', color: '#94A3B8' }}>Income R7,500 • Goal: Frosty Fridge</div>
+              <div style={{ fontSize: '1rem', fontWeight: '700', color: '#FFFFFF' }}>
+                {user ? (user.fullName || user.name) : 'Welcome to Mukuru'}
+              </div>
+              <div style={{ fontSize: '0.78rem', color: '#94A3B8' }}>
+                {user ? `Signed in as ${user.email || user.phone}` : 'Create a secure account to save towards your goals'}
+              </div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.78rem', color: '#CBD5E1' }}>
@@ -169,25 +186,57 @@ export default function WelcomeScreen() {
       </div>
 
       {/* Action Footer */}
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        {!user && (
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => openAuthModal('signin')}
+              icon={<LogIn size={18} />}
+              style={{ color: '#FFFFFF', borderColor: '#475569' }}
+            >
+              Sign In
+            </Button>
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() => openAuthModal('signup')}
+              icon={<UserPlus size={18} />}
+              style={{ boxShadow: 'var(--shadow-orange)' }}
+            >
+              Sign Up
+            </Button>
+          </div>
+        )}
+
         <Button
-          variant="primary"
+          variant={user ? 'primary' : 'ghost'}
           size="lg"
           fullWidth
-          onClick={handleContinue}
+          onClick={handleContinueToDashboard}
           icon={<ArrowRight size={20} />}
           style={{
-            boxShadow: 'var(--shadow-orange)',
-            fontSize: '1.1rem',
-            padding: '16px',
+            color: user ? '#FFFFFF' : '#CBD5E1',
+            boxShadow: user ? 'var(--shadow-orange)' : 'none',
+            fontSize: '1rem',
+            padding: '14px',
           }}
         >
-          {t('common.actions.continueAsGrace', 'Continue as Grace')}
+          {user ? `Continue to Dashboard (${user.name})` : 'Explore Money Coach App'}
         </Button>
-        <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#64748B', marginTop: '12px' }}>
+
+        <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#64748B', marginTop: '6px' }}>
           Mukuru Money Coach • SheHacks Challenge B
         </p>
       </div>
+
+      {/* Auth Modal */}
+      <AuthModal
+        isOpen={isAuthOpen}
+        onClose={() => setIsAuthOpen(false)}
+        initialTab={authTab}
+      />
     </div>
   );
 }
