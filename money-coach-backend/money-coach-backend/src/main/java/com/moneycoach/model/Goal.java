@@ -14,7 +14,7 @@ public class Goal {
     @Column(nullable = false)
     private String name;          // e.g. "School fees"
 
-    private String nickname;      // e.g. "Frosty" (optional)
+    private String nickname;      // e.g. "Frosty"
 
     @Column(nullable = false)
     private double targetAmount;
@@ -24,7 +24,7 @@ public class Goal {
     private LocalDate targetDate;
 
     protected Goal() {
-        // needed by JPA
+        
     }
 
     public Goal(String name, String nickname, double targetAmount, double savedAmount, LocalDate targetDate) {
