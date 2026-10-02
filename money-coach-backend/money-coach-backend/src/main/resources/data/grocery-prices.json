@@ -1,0 +1,9 @@
+{
+  "products": [
+    {"id": "mielie-meal", "name": "Mielie meal", "unit": "5kg", "store": "Mzansi Mart", "usualPrice": 79.99, "todayPrice": 63.99, "watchlist": true},
+    {"id": "rice", "name": "Rice", "unit": "2kg", "store": "Kasi Fresh", "usualPrice": 49.99, "todayPrice": 44.99, "watchlist": true},
+    {"id": "cooking-oil", "name": "Cooking oil", "unit": "2L", "store": "Mzansi Mart", "usualPrice": 64.99, "todayPrice": 49.99, "watchlist": true},
+    {"id": "bread", "name": "White bread", "unit": "700g", "store": "Kasi Fresh", "usualPrice": 18.99, "todayPrice": 18.99, "watchlist": true},
+    {"id": "milk", "name": "Long-life milk", "unit": "1L", "store": "Mzansi Mart", "usualPrice": 24.99, "todayPrice": 23.49, "watchlist": false}
+  ]
+}
