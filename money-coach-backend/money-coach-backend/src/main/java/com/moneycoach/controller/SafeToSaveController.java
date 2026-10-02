@@ -1,23 +1,23 @@
 package com.moneycoach.controller;
 
 import com.moneycoach.dto.SafeToSaveResponse;
-import com.moneycoach.service.MoneyEngineService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.moneycoach.service.SafeToSaveService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/safe-to-save")
 public class SafeToSaveController {
 
-    private final MoneyEngineService engine;
+    private final SafeToSaveService safeToSaveService;
 
-    public SafeToSaveController(MoneyEngineService engine) {
-        this.engine = engine;
+    public SafeToSaveController(SafeToSaveService safeToSaveService) {
+        this.safeToSaveService = safeToSaveService;
     }
 
     @GetMapping
-    public SafeToSaveResponse safeToSave() {
-        return engine.safeToSave();
+    public ResponseEntity<SafeToSaveResponse> getSafeToSave(
+            @RequestParam(name = "userId", defaultValue = "user-grace-01") String userId) {
+        return ResponseEntity.ok(safeToSaveService.getSafeToSave(userId));
     }
 }
