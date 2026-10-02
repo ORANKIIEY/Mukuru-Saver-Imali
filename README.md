@@ -8,7 +8,7 @@
 
 Millions of emerging consumers across Africa rely on **Mukuru** for international money transfers, bill payments, and financial services. Often managing limited incomes, supporting multiple households, and using inexpensive mobile phones with unreliable internet, these consumers need financial tools that are simple, accessible, and culturally relevant.
 
-**Mukuru Money Coach** is a mobile-first, multi-lingual financial platform built for **SheHacks Challenge B**. It features transaction categorisation, safe-to-save guidance, goal tracking, an AI Money Coach, gamified goal sprint boosters, an automated auto-saver engine, a referral rewards program with social sharing, and full localization in **English (EN)**, **isiZulu (ZU)**, and **chiShona (SN)**.
+**Mukuru Money Coach** is a mobile-first, multi-lingual financial platform built for **SheHacks Challenge B**. It features transaction categorisation, bank statement document uploads, safe-to-save guidance, goal tracking, an AI Money Coach, gamified goal sprint boosters, an automated auto-saver engine, a referral rewards program with social sharing, a unified single-port deployment architecture, and full localization in **English (EN)**, **isiZulu (ZU)**, and **chiShona (SN)**.
 
 ---
 
@@ -23,12 +23,16 @@ Millions of emerging consumers across Africa rely on **Mukuru** for internationa
 - **Personalized Experience**: Greets signed-in users by name (*"Good morning, Oratile"*) with their custom financial summary.
 - **Family Commitment Protection**: Automatically categorizes family support remittances as legitimate commitments before calculating the **Safe-to-Save Buffer** (e.g. R500 suggested out of R2,200 available).
 
-### 3. Referral Program & Social Share Hub
+### 3. Bank Statement & Document Upload Engine
+- **Document Processing**: API endpoints for uploading and analyzing bank statements (`/api/documents/upload`).
+- **Automated Extraction**: Parses transaction data to extract income, expenses, and remittance history for automated safe-to-save calculations.
+
+### 4. Referral Program & Social Share Hub
 - **Dynamic Referral Links**: Generates unique, auto-refreshing referral links (`https://mukuru-moneycoach.app/invite?code=MUKURU-USER-2026`).
 - **One-Click Social Sharing**: Direct sharing to **WhatsApp**, **SMS Text**, **Facebook**, **X (Twitter)**, **Telegram**, and **Email**.
 - **R50 Savings Reward**: Automatic R50 welcome bonus credited when registering with a referral code.
 
-### 4. Gamified Goal Sprint & Smart Auto-Saver Engine
+### 5. Gamified Goal Sprint & Smart Auto-Saver Engine
 - **Goal Milestone Alerts**: Visual alerts when goals reach >60% progress.
 - **Interactive Quick Boosters**: Earn XP and save towards goals with one-click habits (*+R15 Round-Up*, *+R35 Skip Takeout*, *+R50 Friday Lock*).
 - **Confetti Particle Celebrations**: Visual particle animations upon achieving milestones.
@@ -37,16 +41,21 @@ Millions of emerging consumers across Africa rely on **Mukuru** for internationa
   - *Grocery Round-Up*: Rounds up grocery purchases to the nearest R10.
   - *Sprint Threshold Boost*: Deposits R50 when any goal reaches 80% completion.
 
-### 5. AI Money Coach & What-If Simulator
+### 6. AI Money Coach & What-If Simulator
 - **Interactive AI Chat**: Conversational money guidance tailored to emerging consumers.
 - **What-If Scenario Simulator**: Simulates financial outcomes (e.g. *What if I cut takeaway spending by R150/month?*).
 
-### 6. Grocery Price Watch & WhatsApp Simulator
+### 7. Grocery Price Watch & WhatsApp Simulator
 - **Grocery Price Alerts**: Real-time alerts for local staple discounts (e.g. Mealie Meal 12% off at Shoprite).
 - **WhatsApp Interface**: Simulated chat interface mimicking Mukuru's WhatsApp channel.
 
-### 7. 3-Language Localization (i18n)
+### 8. 3-Language Localization (i18n)
 - Instant, real-time language switching across **English (EN)**, **isiZulu (ZU)**, and **chiShona (SN)** with full template interpolation support.
+
+### 9. Unified Single-Port Architecture & Render Blueprint
+- **Single-Port Execution**: Combines both the React 18 SPA frontend and Spring Boot REST API onto **1 single server port (Port 5000 / $PORT)**.
+- **1-Click Render Deployment**: Includes root `render.yaml` blueprint with multi-stage Docker build (`node:20-alpine` + `maven:3.9-eclipse-temurin-21`).
+- **Zero-Setup Database Fallback**: Built-in H2 in-memory fallback for local development + instant Render PostgreSQL connection support.
 
 ---
 
@@ -55,13 +64,15 @@ Millions of emerging consumers across Africa rely on **Mukuru** for internationa
 | Layer | Technologies Used |
 | :--- | :--- |
 | **Frontend Framework** | React 18, Vite |
-| **Routing** | React Router DOM v6 (with `ProtectedRoute` route guards) |
+| **Routing** | React Router DOM v6 (with `ProtectedRoute` route guards & SPA fallback) |
 | **Styling & System** | Vanilla CSS (CSS Modules & Custom Brand Tokens), Mobile-First Flexbox/Grid |
 | **Icons & Media** | Lucide React Vector Icons |
 | **Internationalization** | i18next (EN, ZU, SN) |
-| **Backend Service** | Java 21, Spring Boot, Maven |
-| **Containerization** | Docker, Docker Compose |
-| **API Integration** | REST API client with auto-switchable Live/Mock modes |
+| **Backend Service** | Java 21, Spring Boot 3.5, Maven |
+| **Database** | PostgreSQL (Production/Render), H2 In-Memory (Local/Testing fallback) |
+| **Containerization** | Docker Multi-Stage Build, Docker Compose |
+| **Cloud Deployment** | Render Blueprint (`render.yaml`) |
+| **API Integration** | Unified Single-Port REST API with auto-switchable Live/Mock modes |
 
 ---
 
@@ -69,9 +80,11 @@ Millions of emerging consumers across Africa rely on **Mukuru** for internationa
 
 ```
 Mukuru-Saver-Imali/
+├── render.yaml                        # Render Blueprint Infrastructure-as-Code (1-Click Deployment)
+├── package.json                       # Unified root scripts for building frontend into backend static resources
 ├── frontend/                          # React + Vite Frontend Application
 │   ├── index.html                     # Entry HTML template with mobile viewport
-│   ├── package.json                   # Dependencies and scripts
+│   ├── package.json                   # Frontend dependencies and scripts
 │   ├── vite.config.js                 # Vite build configuration & API proxy
 │   └── src/
 │       ├── main.jsx                   # React root entry point
@@ -95,10 +108,11 @@ Mukuru-Saver-Imali/
 └── money-coach-backend/               # Spring Boot Backend Service
     └── money-coach-backend/
         ├── pom.xml                    # Maven project configuration (Java 21)
+        ├── Dockerfile                 # Multi-stage Docker build packaging frontend & backend into 1 port
         ├── docker-compose.yml         # Container orchestration
         └── src/
-            ├── main/java/com/moneycoach/  # 55 Java classes (SafeToSaveService, GoalService, etc.)
-            └── test/java/com/moneycoach/  # 22 JUnit & Mockito backend unit tests
+            ├── main/java/com/moneycoach/  # 60 Java classes (SafeToSaveService, DocumentController, GoalService, etc.)
+            └── test/java/com/moneycoach/  # JUnit & Mockito backend unit tests
 ```
 
 ---
@@ -113,52 +127,51 @@ Mukuru-Saver-Imali/
 
 ---
 
-### 1. Frontend Setup
+### 🚀 Unified Single-Port Execution (Recommended)
+
+Run both the frontend and backend together on **1 single port (`http://localhost:5000`)**:
 
 ```bash
-# Navigate to the frontend directory
-cd frontend
-
-# Install dependencies
-npm install
-
-# Start the local development server (runs on http://localhost:3000)
-npm run dev
-```
-
-#### Build Production Bundle & Run Frontend Tests:
-```bash
-# Build production bundle
+# 1. Build React frontend & sync static assets into backend resources
 npm run build
 
-# Run frontend core unit test suite
-node src/tests/role4.test.js
+# 2. Start the unified Spring Boot app on port 5000
+cd money-coach-backend/money-coach-backend
+mvn spring-boot:run
 ```
+
+Open **`http://localhost:5000`** in your browser.
 
 ---
 
-### 2. Backend Setup (Spring Boot)
+### 💻 Independent Frontend & Backend Dev Setup
 
+If you prefer running frontend (Vite) and backend independently during development:
+
+#### 1. Frontend Local Dev Server (Port 3000):
 ```bash
-# Navigate to the backend directory
+cd frontend
+npm install
+npm run dev
+```
+
+#### 2. Backend Local Dev Server (Port 5000):
+```bash
 cd money-coach-backend/money-coach-backend
-
-# Run Maven test suite (22 unit tests)
-mvn clean test
-
-# Start Spring Boot application (runs on http://localhost:5000)
 mvn spring-boot:run
 ```
 
 ---
 
-### 3. Docker Deployment (Optional)
+### ☁️ Render 1-Click Cloud Deployment
 
-```bash
-# Run backend and database services via Docker Compose
-cd money-coach-backend/money-coach-backend
-docker-compose up --build
-```
+1. Push code to your GitHub repository:
+   ```bash
+   git push origin main
+   ```
+2. Log in to **[Render.com](https://render.com)**.
+3. Click **New +** -> **Blueprint** and select your repository (`Mukuru-Saver-Imali`).
+4. Render will automatically read `render.yaml`, build the multi-stage Docker image, and launch **`mukuru-app`** on 1 single port!
 
 ---
 
@@ -173,7 +186,7 @@ node src/tests/role4.test.js
 *Expected Result*: `[PASS] All 3 Frontend Core unit tests passed successfully!`
 
 ### Backend Unit Tests
-Run the Maven JUnit test suite covering `GoalService`, `MilestoneService`, `MoneyEngineService`, `NudgeService`, `SafeToSaveService`, and `SimulatorService`:
+Run the Maven JUnit test suite covering `GoalService`, `MilestoneService`, `MoneyEngineService`, `NudgeService`, `SafeToSaveService`, `DocumentService`, and `SimulatorService`:
 ```bash
 cd money-coach-backend/money-coach-backend
 mvn test
