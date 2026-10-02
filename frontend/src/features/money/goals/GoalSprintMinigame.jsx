@@ -67,8 +67,6 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
 
   const [currentSaved, setCurrentSaved] = useState(goal.saved);
   const [xp, setXp] = useState(350);
-  const [isSpinning, setIsSpinning] = useState(false);
-  const [spinResult, setSpinResult] = useState(null);
   const [automationToast, setAutomationToast] = useState(null);
 
   // Automated Rules State
@@ -100,29 +98,6 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
     // Persist goal update
     updateGoalProgress(goal.id, amount);
     if (onGoalUpdate) onGoalUpdate(newAmount);
-  };
-
-  /**
-   * Interactive Spin Wheel Minigame
-   */
-  const handleSpinWheel = () => {
-    if (isSpinning || remaining <= 0) return;
-    setIsSpinning(true);
-    setSpinResult(null);
-
-    const outcomes = [
-      { label: 'R15 Round-Up Boost!', amount: 15, xp: 50 },
-      { label: 'R25 Friday Saver!', amount: 25, xp: 75 },
-      { label: 'R50 Sprint Power-Up!', amount: 50, xp: 120 },
-      { label: 'R100 Accelerator Bonus!', amount: 100, xp: 200 },
-    ];
-
-    setTimeout(() => {
-      const reward = outcomes[Math.floor(Math.random() * outcomes.length)];
-      setSpinResult(reward);
-      setIsSpinning(false);
-      handleBoost(reward.amount, reward.xp, reward.label);
-    }, 1200);
   };
 
   /**
@@ -238,50 +213,10 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
         </div>
       </div>
 
-      {/* Gamified Action 1: Spin The Wheel Minigame */}
+      {/* Quick Boost Challenge Cards */}
       <div style={{ marginBottom: '16px' }}>
         <div style={{ fontSize: '0.825rem', fontWeight: '800', color: 'var(--color-text-primary)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Trophy size={16} color="var(--mukuru-orange)" /> Interactive Daily Sprint Spin
-        </div>
-
-        <div
-          style={{
-            backgroundColor: '#1E293B',
-            color: '#FFFFFF',
-            padding: '14px',
-            borderRadius: 'var(--radius-md)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)',
-          }}
-        >
-          <div>
-            <div style={{ fontSize: '0.9rem', fontWeight: '800', color: '#FFFFFF' }}>
-              Spin & Win Savings Boost!
-            </div>
-            <div style={{ fontSize: '0.75rem', color: '#94A3B8', marginTop: '2px' }}>
-              {spinResult ? `🎉 Won ${spinResult.label} (+${spinResult.xp} XP)` : 'Spin the wheel for an instant goal deposit'}
-            </div>
-          </div>
-
-          <Button
-            variant="primary"
-            size="md"
-            onClick={handleSpinWheel}
-            disabled={isSpinning || remaining <= 0}
-            icon={<RefreshCw size={16} className={isSpinning ? 'spin' : ''} />}
-            style={{ backgroundColor: 'var(--mukuru-orange)', color: '#FFFFFF', fontWeight: '800', boxShadow: 'var(--shadow-orange)' }}
-          >
-            {isSpinning ? 'Spinning...' : 'Spin Wheel'}
-          </Button>
-        </div>
-      </div>
-
-      {/* Gamified Action 2: Quick Boost Challenge Cards */}
-      <div style={{ marginBottom: '16px' }}>
-        <div style={{ fontSize: '0.825rem', fontWeight: '800', color: 'var(--color-text-primary)', marginBottom: '8px' }}>
-          ⚡ Quick Sprint Boosts
+          <Trophy size={16} color="var(--mukuru-orange)" /> Quick Goal Boosters
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
           <button
