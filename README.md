@@ -1,10 +1,10 @@
-# 🌍 Mukuru Money Coach — SheHacks Challenge B
+# Mukuru Money Coach — SheHacks Challenge B
 
 > **Empowering emerging African consumers to track spending, protect family remittances, reach financial goals, and build lasting wealth with AI coaching.**
 
 ---
 
-## 📌 Executive Summary
+## Executive Summary
 
 Millions of emerging consumers across Africa rely on **Mukuru** for international money transfers, bill payments, and financial services. Often managing limited incomes, supporting multiple households, and using inexpensive mobile phones with unreliable internet, these consumers need financial tools that are simple, accessible, and culturally relevant.
 
@@ -12,23 +12,23 @@ Millions of emerging consumers across Africa rely on **Mukuru** for internationa
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
-### 1. 🛡️ Secure Multi-Region Auth & Protected Routes
+### 1. Secure Multi-Region Auth & Protected Routes
 - **Multi-Country Support**: Sign Up and Sign In with automatic dial codes for **South Africa (+27)**, **Zimbabwe (+263)**, **Malawi (+265)**, **Mozambique (+258)**, **Zambia (+260)**, **Botswana (+267)**, **Kenya (+254)**, and more.
 - **Session Persistence**: Account credentials securely stored in `localStorage`.
 - **Protected Routes (`ProtectedRoute`)**: Unauthenticated users are automatically redirected to the Welcome screen (`/`) upon sign-out or when attempting to access private dashboard pages.
 
-### 2. 📊 Dynamic Dashboard & Safe-to-Save Buffer
+### 2. Dynamic Dashboard & Safe-to-Save Buffer
 - **Personalized Experience**: Greets signed-in users by name (*"Good morning, Oratile"*) with their custom financial summary.
 - **Family Commitment Protection**: Automatically categorizes family support remittances as legitimate commitments before calculating the **Safe-to-Save Buffer** (e.g. R500 suggested out of R2,200 available).
 
-### 3. 🎁 Referral Program & Social Share Hub
+### 3. Referral Program & Social Share Hub
 - **Dynamic Referral Links**: Generates unique, auto-refreshing referral links (`https://mukuru-moneycoach.app/invite?code=MUKURU-USER-2026`).
 - **One-Click Social Sharing**: Direct sharing to **WhatsApp**, **SMS Text**, **Facebook**, **X (Twitter)**, **Telegram**, and **Email**.
 - **R50 Savings Reward**: Automatic R50 welcome bonus credited when registering with a referral code.
 
-### 4. ⚡ Gamified Goal Sprint & Smart Auto-Saver Engine
+### 4. Gamified Goal Sprint & Smart Auto-Saver Engine
 - **Goal Milestone Alerts**: Visual alerts when goals reach >60% progress.
 - **Interactive Quick Boosters**: Earn XP and save towards goals with one-click habits (*+R15 Round-Up*, *+R35 Skip Takeout*, *+R50 Friday Lock*).
 - **Confetti Particle Celebrations**: Visual particle animations upon achieving milestones.
@@ -37,20 +37,20 @@ Millions of emerging consumers across Africa rely on **Mukuru** for internationa
   - *Grocery Round-Up*: Rounds up grocery purchases to the nearest R10.
   - *Sprint Threshold Boost*: Deposits R50 when any goal reaches 80% completion.
 
-### 5. 🤖 AI Money Coach & What-If Simulator
+### 5. AI Money Coach & What-If Simulator
 - **Interactive AI Chat**: Conversational money guidance tailored to emerging consumers.
 - **What-If Scenario Simulator**: Simulates financial outcomes (e.g. *What if I cut takeaway spending by R150/month?*).
 
-### 6. 🛒 Grocery Price Watch & WhatsApp Simulator
+### 6. Grocery Price Watch & WhatsApp Simulator
 - **Grocery Price Alerts**: Real-time alerts for local staple discounts (e.g. Mealie Meal 12% off at Shoprite).
 - **WhatsApp Interface**: Simulated chat interface mimicking Mukuru's WhatsApp channel.
 
-### 7. 🌍 3-Language Localization (i18n)
+### 7. 3-Language Localization (i18n)
 - Instant, real-time language switching across **English (EN)**, **isiZulu (ZU)**, and **chiShona (SN)** with full template interpolation support.
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Technologies Used |
 | :--- | :--- |
@@ -65,7 +65,7 @@ Millions of emerging consumers across Africa rely on **Mukuru** for internationa
 
 ---
 
-## 📁 Repository Directory Structure
+## Repository Directory Structure
 
 ```
 Mukuru-Saver-Imali/
@@ -103,7 +103,7 @@ Mukuru-Saver-Imali/
 
 ---
 
-## 🚀 Installation & Setup Guide
+## Installation & Setup Guide
 
 ### Prerequisites
 - **Node.js**: v18.0 or higher
@@ -162,7 +162,7 @@ docker-compose up --build
 
 ---
 
-## 🧪 Testing & Verification
+## Testing & Verification
 
 ### Frontend Unit Tests
 Execute the automated test script to verify core UI helpers (`MoneyText`, `CategoryTag` fallback, and `i18n` fallback):
@@ -182,7 +182,7 @@ mvn test
 
 ---
 
-## 🔒 Security & Data Privacy
+## Security & Data Privacy
 
 - **Protected Routes**: Private financial screens (`/dashboard`, `/goals`, `/transactions`, `/commitments`, `/coach`, `/referral`) require a valid signed-in user session.
 - **Local Storage Sanitization**: Sensitive authentication keys are managed locally and automatically cleared upon user sign-out.
@@ -190,7 +190,7 @@ mvn test
 
 ---
 
-## 📄 License & Acknowledgments
+## License & Acknowledgments
 
-Built with ❤️ for **Mukuru SheHacks – Challenge B: Money Coach**.  
+Built for **Mukuru SheHacks – Challenge B: Money Coach**.  
 *Empowering emerging African consumers to achieve financial freedom.*
