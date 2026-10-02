@@ -31,3 +31,18 @@ export async function createGoal(payload) {
   }
   return client.post('/api/goals', payload);
 }
+
+// POST /api/goals/:id/progress -> goal
+export async function updateGoalProgress(id, amount) {
+  if (useMocks()) {
+    const goal = mockGoals.find((g) => g.id === id);
+    if (goal) {
+      goal.saved = Math.min(goal.target, goal.saved + amount);
+      if (goal.saved >= goal.target) {
+        goal.status = 'completed';
+      }
+    }
+    return goal;
+  }
+  return client.post(`/api/goals/${id}/progress`, { amount });
+}

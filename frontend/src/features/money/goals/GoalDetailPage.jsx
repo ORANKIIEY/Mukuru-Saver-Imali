@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Target } from 'lucide-react';
@@ -7,10 +8,11 @@ import Button from '../../../components/Button';
 import MoneyText from '../../../components/MoneyText';
 import LoadingState from '../../../components/LoadingState';
 import ErrorState from '../../../components/ErrorState';
-import { getGoal } from '../../../api/goals';
-import { formatMoney, formatDate, percent } from '../utils';
 import GoalProgressRing from './GoalProgressRing';
 import MilestoneBadge from './MilestoneBadge';
+import GoalSprintMinigame from './GoalSprintMinigame';
+import { getGoal } from '../../../api/goals';
+import { formatMoney, formatDate, percent } from '../utils';
 import '../money.css';
 
 export default function GoalDetailPage() {
@@ -39,6 +41,10 @@ export default function GoalDetailPage() {
           </p>
         </div>
       </Card>
+
+      {/* Goal Sprint Minigame & Automations Widget */}
+      <GoalSprintMinigame goal={goal} onGoalUpdate={() => refetch()} />
+
       <Card>
         <div className="mm-stack">
           <div className="mm-row"><span>{t('goals.targetDate')}</span><span className="mm-strong">{formatDate(goal.targetDate, i18n.language)}</span></div>
