@@ -1,8 +1,12 @@
 services:
   # Backend Spring Boot Service
+  # Backend Spring Boot Service
   - type: web
     name: money-coach-backend
+    name: money-coach-backend
     env: docker
+    dockerfilePath: money-coach-backend/money-coach-backend/Dockerfile
+    dockerContext: money-coach-backend/money-coach-backend
     dockerfilePath: money-coach-backend/money-coach-backend/Dockerfile
     dockerContext: money-coach-backend/money-coach-backend
     plan: free
@@ -11,6 +15,18 @@ services:
     envVars:
       - key: PORT
         value: 5000
+
+  # Frontend Static Service
+  - type: web
+    name: mukuru-money-coach-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
 
   # Frontend Static Service
   - type: web
