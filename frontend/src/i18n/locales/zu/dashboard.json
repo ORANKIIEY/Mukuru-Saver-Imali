@@ -1,5 +1,5 @@
 {
-  "welcomeTitle": "Sawubona, Grace",
+  "welcomeTitle": "Sawubona, {{name}}",
   "welcomeSubtitle": "Nasi isifinyezo sakho semali se-Mukuru sanamuhla.",
   "summary": {
     "title": "Isifinyezo Senyanga",

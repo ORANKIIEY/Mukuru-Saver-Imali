@@ -1,5 +1,5 @@
 {
-  "welcomeTitle": "Good morning, Grace",
+  "welcomeTitle": "Good morning, {{name}}",
   "welcomeSubtitle": "Here is your Mukuru money summary for today.",
   "summary": {
     "title": "Monthly Overview",

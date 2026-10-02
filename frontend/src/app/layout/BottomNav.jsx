@@ -14,8 +14,8 @@ export default function BottomNav() {
   const navItems = [
     { key: 'home', label: t('common.nav.home', 'Home'), path: '/dashboard', icon: Home },
     { key: 'goals', label: t('common.nav.goals', 'Goals'), path: '/goals', icon: Target },
-    { key: 'referral', label: t('common.nav.referral', 'Referral'), path: '/referral', icon: Gift },
     { key: 'coach', label: t('common.nav.coach', 'Coach'), path: '/coach', icon: Sparkles },
+    { key: 'referral', label: t('common.nav.referral', 'Referral'), path: '/referral', icon: Gift },
     { key: 'more', label: t('common.nav.more', 'More'), path: '/more', icon: Menu },
   ];
 

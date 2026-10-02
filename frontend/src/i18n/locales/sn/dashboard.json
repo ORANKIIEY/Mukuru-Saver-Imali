@@ -1,5 +1,5 @@
 {
-  "welcomeTitle": "Mangwanani, Grace",
+  "welcomeTitle": "Mangwanani, {{name}}",
   "welcomeSubtitle": "Pano pane pfupiso yako yemari ye-Mukuru yanhasi.",
   "summary": {
     "title": "Pfupiso Yemwedzi",
