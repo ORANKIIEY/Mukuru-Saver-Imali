@@ -162,7 +162,7 @@ export default function DashboardPage() {
       {/* Subheader Greeting */}
       <div>
         <h2 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--color-text-primary)' }}>
-          {t('dashboard.welcomeTitle', { name: userName, defaultValue: `Good morning, ${userName}` })}
+          {t('dashboard.welcomeTitle', `Good morning, ${userName}`).replace('{{name}}', userName)}
         </h2>
         <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
           {t('dashboard.welcomeSubtitle', 'Here is your Mukuru money summary for today.')}
