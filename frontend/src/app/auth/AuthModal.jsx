@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser, COUNTRY_REGIONS } from '../../context/UserContext';
-import { X, Lock, Mail, Phone, User, Globe, ArrowRight, ShieldCheck } from 'lucide-react';
+import { X, Lock, Mail, Phone, User, Globe, ArrowRight, ShieldCheck, Gift } from 'lucide-react';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 
@@ -22,6 +22,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
   const [signUpPhone, setSignUpPhone] = useState('');
   const [signUpPass, setSignUpPass] = useState('');
   const [signUpConfirmPass, setSignUpConfirmPass] = useState('');
+  const [signUpReferralCode, setSignUpReferralCode] = useState('');
 
   // Status
   const [errorMsg, setErrorMsg] = useState('');
@@ -66,6 +67,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
         phone: signUpPhone,
         password: signUpPass,
         confirmPassword: signUpConfirmPass,
+        referralCode: signUpReferralCode,
       });
       setSuccessMsg('Account created successfully! Welcome to Mukuru Money Coach.');
       setTimeout(() => {
@@ -486,6 +488,36 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
                     }}
                   />
                 </div>
+              </div>
+
+              {/* Referral Code (Optional) */}
+              <div>
+                <label style={{ fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <Gift size={14} color="var(--mukuru-orange)" /> Referral Code (Optional)
+                  </span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--mukuru-orange)', backgroundColor: 'var(--mukuru-orange-subtle)', padding: '2px 6px', borderRadius: '4px', fontWeight: '800' }}>
+                    Get R50 Bonus!
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. MUKURU-FRIEND"
+                  value={signUpReferralCode}
+                  onChange={(e) => setSignUpReferralCode(e.target.value.toUpperCase())}
+                  style={{
+                    width: '100%',
+                    padding: '9px 12px',
+                    borderRadius: 'var(--radius-md)',
+                    border: '1px dashed var(--mukuru-orange-border)',
+                    fontSize: '0.85rem',
+                    backgroundColor: 'var(--mukuru-orange-subtle)',
+                    color: 'var(--mukuru-dark)',
+                    fontWeight: '700',
+                    outline: 'none',
+                    letterSpacing: '0.05em',
+                  }}
+                />
               </div>
 
               <Button type="submit" variant="primary" size="lg" fullWidth icon={<ShieldCheck size={18} />}>

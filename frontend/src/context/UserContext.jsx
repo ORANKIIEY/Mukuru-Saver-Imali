@@ -33,6 +33,9 @@ export const DEFAULT_DEMO_USER = {
   available: 2200,
   safeToSave: 500,
   goal: 'Frosty Fridge',
+  referralCode: 'MUKURU-GRACE-2026',
+  referredBy: null,
+  bonusBalance: 0,
 };
 
 const UserContext = createContext();
@@ -80,9 +83,9 @@ export function UserProvider({ children }) {
   }, [currentUser]);
 
   /**
-   * Register a new user account with Name, Surname, Email, Region, Phone, Password, Confirm Password
+   * Register a new user account with Name, Surname, Email, Region, Phone, Password, Confirm Password, Referral Code
    */
-  const signUp = ({ name, surname, email, region, dialCode, phone, password, confirmPassword }) => {
+  const signUp = ({ name, surname, email, region, dialCode, phone, password, confirmPassword, referralCode }) => {
     if (!name || !surname || !email || !phone || !password) {
       throw new Error('Please fill in all required fields.');
     }
@@ -94,14 +97,27 @@ export function UserProvider({ children }) {
     }
 
     const cleanEmail = email.trim().toLowerCase();
+    const cleanPhoneDigits = phone.replaceAll(/\D/g, '');
+    if (cleanPhoneDigits.length < 6) {
+      throw new Error('Please enter a valid cellphone number.');
+    }
+
+    const formattedPhone = phone.startsWith('+') ? phone.trim() : `${dialCode}${phone.trim()}`;
+    const cleanPhone = formattedPhone.replaceAll(' ', '');
+
     const existing = registeredUsers.find(
-      (u) => u.email.toLowerCase() === cleanEmail || u.phone.replaceAll(' ', '') === phone.replaceAll(' ', '')
+      (u) =>
+        (u.email && u.email.toLowerCase() === cleanEmail) ||
+        (u.phone && u.phone.replaceAll(' ', '') === cleanPhone)
     );
     if (existing) {
       throw new Error('An account with this email or phone number already exists. Please sign in instead.');
     }
 
-    const formattedPhone = phone.startsWith('+') ? phone.trim() : `${dialCode}${phone.trim()}`;
+    const cleanNameTag = name.trim().toUpperCase().replaceAll(/[^A-Z]/g, '');
+    const userRefCode = `MUKURU-${cleanNameTag || 'SAVER'}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const hasReferral = Boolean(referralCode && referralCode.trim());
+
     const newUser = {
       id: `usr-${Date.now()}`,
       name: name.trim(),
@@ -117,7 +133,10 @@ export function UserProvider({ children }) {
       commitments: 6300,
       available: 2200,
       safeToSave: 500,
-      goal: 'My Savings Goal',
+      goal: `${name.trim()}'s Savings Goal`,
+      referralCode: userRefCode,
+      referredBy: hasReferral ? referralCode.trim().toUpperCase() : null,
+      bonusBalance: hasReferral ? 50 : 0, // Instant R50 referral welcome bonus!
     };
 
     setRegisteredUsers((prev) => [...prev, newUser]);
