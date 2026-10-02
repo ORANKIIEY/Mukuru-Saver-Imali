@@ -5,7 +5,7 @@
 databases:
   - name: mukuru-db
     databaseName: mukuru_money_coach
-    user: postgres
+    user: mukuru_user
     plan: free
 
 services:
