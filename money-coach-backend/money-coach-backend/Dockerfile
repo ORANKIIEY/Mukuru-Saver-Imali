@@ -11,11 +11,11 @@ RUN npx vite build
 # 2. Package Backend with Frontend Assets embedded in classpath:/static/
 FROM maven:3.9-eclipse-temurin-21 AS backend-build
 WORKDIR /app
-COPY money-coach-backend/money-coach-backend/pom.xml ./
+COPY money-coach-backend/money-coach-backend/pom.xml ./pom.xml
 COPY money-coach-backend/money-coach-backend/src ./src
 RUN rm -rf ./src/main/resources/static/* && mkdir -p ./src/main/resources/static
 COPY --from=frontend-build /frontend/dist/ ./src/main/resources/static/
-RUN mvn package -DskipTests
+RUN mvn clean package -DskipTests
 
 # 3. Run Single Unified App Container with RAM limits for Render Free Tier (512MB)
 FROM eclipse-temurin:21-jre-alpine
