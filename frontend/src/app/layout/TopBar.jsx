@@ -35,21 +35,21 @@ export default function TopBar() {
       title: t('dashboard.notifications.n1_title', 'Safe-to-Save Updated'),
       desc: t('dashboard.notifications.n1_desc', 'Your monthly buffer is calculated at R3,000 after family commitments.'),
       icon: <CheckCircle2 size={16} color="var(--color-success)" />,
-      time: 'Just now',
+      time: t('common.time.justNow', 'Just now'),
     },
     {
       id: 'n2',
       title: t('dashboard.notifications.n2_title', 'Goal Milestone (20%)'),
       desc: t('dashboard.notifications.n2_desc', 'Frosty Fridge goal reached 20%! You have saved R1,200.'),
       icon: <Sparkles size={16} color="var(--mukuru-orange)" />,
-      time: '1h ago',
+      time: t('common.time.hourAgo', '1h ago'),
     },
     {
       id: 'n3',
       title: t('dashboard.notifications.n3_title', 'Grocery Price Alert'),
       desc: t('dashboard.notifications.n3_desc', 'Mealie meal is 12% cheaper at Shoprite this week.'),
       icon: <ShoppingBag size={16} color="#B45309" />,
-      time: 'Today',
+      time: t('common.time.today', 'Today'),
     },
   ];
 
@@ -72,7 +72,7 @@ export default function TopBar() {
             {user ? (
               <button
                 onClick={() => setShowUserModal(!showUserModal)}
-                aria-label="User Account Menu"
+                aria-label={t('common.a11y.userMenu', 'User Account Menu')}
                 title="Account Settings & Profile"
                 style={{
                   display: 'flex',
@@ -118,7 +118,7 @@ export default function TopBar() {
                       MUKURU
                     </span>
                     <span style={{ fontSize: '0.725rem', backgroundColor: '#334155', padding: '2px 6px', borderRadius: '4px', color: '#94A3B8' }}>
-                      Money Coach
+                      {t('common.brandSub', 'Money Coach')}
                     </span>
                   </div>
                   <div style={{ fontSize: '0.8rem', color: '#CBD5E1', display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -157,7 +157,7 @@ export default function TopBar() {
                     gap: '4px',
                   }}
                 >
-                  <LogIn size={14} /> Sign In
+                  <LogIn size={14} /> {t('common.actions.signIn', 'Sign In')}
                 </button>
                 <button
                   onClick={() => openAuth('signup')}
@@ -175,7 +175,7 @@ export default function TopBar() {
                     gap: '4px',
                   }}
                 >
-                  <UserPlus size={14} /> Sign Up
+                  <UserPlus size={14} /> {t('common.actions.signUp', 'Sign Up')}
                 </button>
               </div>
             )}
@@ -200,9 +200,9 @@ export default function TopBar() {
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                   <h4 style={{ fontSize: '0.9rem', fontWeight: '800', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <User size={16} color="var(--mukuru-orange)" /> Account Profile
+                    <User size={16} color="var(--mukuru-orange)" /> {t('common.accountProfile', 'Account Profile')}
                   </h4>
-                  <button onClick={() => setShowUserModal(false)} aria-label="Close Profile Menu" style={{ color: 'var(--color-text-muted)', cursor: 'pointer' }}>
+                  <button onClick={() => setShowUserModal(false)} aria-label={t('common.a11y.closeProfile', 'Close Profile Menu')} style={{ color: 'var(--color-text-muted)', cursor: 'pointer' }}>
                     <X size={16} />
                   </button>
                 </div>
@@ -253,7 +253,7 @@ export default function TopBar() {
                     gap: '6px',
                   }}
                 >
-                  <LogOut size={16} /> Sign Out
+                  <LogOut size={16} /> {t('common.actions.signOut', 'Sign Out')}
                 </button>
               </div>
             )}
@@ -287,7 +287,7 @@ export default function TopBar() {
             <div style={{ position: 'relative' }}>
               <button
                 onClick={() => setShowNotifications(!showNotifications)}
-                aria-label="Toggle System Alerts and Notifications"
+                aria-label={t('common.a11y.toggleNotifications', 'Toggle System Alerts and Notifications')}
                 title="System Alerts & Nudges"
                 style={{
                   width: '34px',
@@ -346,8 +346,8 @@ export default function TopBar() {
                   className="animate-fade-in"
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', paddingBottom: '6px', borderBottom: '1px solid var(--color-border-subtle)' }}>
-                    <h4 style={{ fontSize: '0.875rem', fontWeight: '800' }}>Notifications</h4>
-                    <button onClick={() => setShowNotifications(false)} aria-label="Close Notifications" style={{ color: 'var(--color-text-muted)', cursor: 'pointer' }}>
+                    <h4 style={{ fontSize: '0.875rem', fontWeight: '800' }}>{t('common.notifications.title', 'Notifications')}</h4>
+                    <button onClick={() => setShowNotifications(false)} aria-label={t('common.a11y.closeNotifications', 'Close Notifications')} style={{ color: 'var(--color-text-muted)', cursor: 'pointer' }}>
                       <X size={16} />
                     </button>
                   </div>
@@ -399,7 +399,7 @@ export default function TopBar() {
                   cursor: 'pointer',
                 }}
               >
-                {useMocks ? 'MOCKS' : 'LIVE'}
+                {useMocks ? t('common.mockMode.active', 'MOCKS') : t('common.mockMode.live', 'LIVE')}
               </button>
             )}
 

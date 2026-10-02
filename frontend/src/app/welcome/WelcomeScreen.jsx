@@ -145,11 +145,11 @@ export default function WelcomeScreen() {
         </div>
 
         <h1 style={{ fontSize: '2.1rem', lineHeight: '1.2', fontWeight: '800', color: '#FFFFFF' }}>
-          Dream → Save → Stretch → Grow
+          {t('common.hero.headline', 'Dream → Save → Stretch → Grow')}
         </h1>
 
         <p style={{ color: '#94A3B8', fontSize: '0.95rem', lineHeight: '1.5' }}>
-          Track spending, protect family support remittances, and reach your financial goals with your AI Money Coach.
+          {t('common.hero.subtitle', 'Track spending, protect family support remittances, and reach your financial goals with your AI Money Coach.')}
         </p>
 
         {/* User Account Active / Welcome Card */}
@@ -180,16 +180,18 @@ export default function WelcomeScreen() {
             </div>
             <div>
               <div style={{ fontSize: '1rem', fontWeight: '700', color: '#FFFFFF' }}>
-                {user ? (user.fullName || user.name) : 'Welcome to Mukuru'}
+                {user ? (user.fullName || user.name) : t('common.welcome.title', 'Welcome to Mukuru')}
               </div>
               <div style={{ fontSize: '0.78rem', color: '#94A3B8' }}>
-                {user ? `Signed in as ${user.email || user.phone}` : 'Create a secure account to save towards your goals'}
+                {user
+                  ? t('common.welcome.signedInAs', { identifier: user.email || user.phone })
+                  : t('common.welcome.guestSubtitle', 'Create a secure account to save towards your goals')}
               </div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.78rem', color: '#CBD5E1' }}>
             <HeartHandshake size={14} color="var(--mukuru-orange)" />
-            <span>Family remittances protected as legitimate commitments</span>
+            <span>{t('common.welcome.trustBadge', 'Family remittances protected as legitimate commitments')}</span>
           </div>
         </Card>
       </div>
@@ -210,7 +212,7 @@ export default function WelcomeScreen() {
                 fontWeight: '700',
               }}
             >
-              Sign In
+              {t('common.actions.signIn', 'Sign In')}
             </Button>
             <Button
               variant="primary"
@@ -224,7 +226,7 @@ export default function WelcomeScreen() {
                 boxShadow: 'var(--shadow-orange)',
               }}
             >
-              Sign Up
+              {t('common.actions.signUp', 'Sign Up')}
             </Button>
           </div>
         )}
@@ -245,11 +247,13 @@ export default function WelcomeScreen() {
             border: 'none',
           }}
         >
-          {user ? `Continue to Dashboard (${user.name})` : 'Try Demo Session (Grace Moyo)'}
+          {user
+            ? t('common.actions.continueDashboard', { name: user.name })
+            : t('common.actions.tryDemo', 'Try Demo Session (Grace Moyo)')}
         </Button>
 
         <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#94A3B8', marginTop: '4px' }}>
-          Mukuru Money Coach • SheHacks
+          {t('common.footer.credit', 'Mukuru Money Coach • SheHacks')}
         </p>
       </div>
 

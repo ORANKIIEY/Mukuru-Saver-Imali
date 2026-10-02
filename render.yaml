@@ -1,17 +1,23 @@
-# Render Blueprint Infrastructure-as-Code Configuration
-# Mukuru Money Coach (SheHacks Challenge B)
-# Unified Single-Port Web Application (Spring Boot Java 21 + React SPA)
-
 services:
-  # Unified Web Application (Frontend + Backend served on 1 Single Port)
+  # Backend Spring Boot Service
   - type: web
-    name: mukuru-app
+    name: money-coach-backend
     env: docker
+    dockerfilePath: money-coach-backend/money-coach-backend/Dockerfile
+    dockerContext: money-coach-backend/money-coach-backend
     plan: free
-    dockerfilePath: ./money-coach-backend/money-coach-backend/Dockerfile
-    dockerContext: .
     envVars:
       - key: PORT
         value: 5000
-      - key: JAVA_TOOL_OPTIONS
-        value: "-Xmx384m"
+
+  # Frontend Static Service
+  - type: web
+    name: mukuru-money-coach-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

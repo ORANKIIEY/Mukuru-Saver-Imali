@@ -57,30 +57,52 @@ export function LanguageProvider({ children }) {
   };
 
   /**
-   * Helper function to translate keys e.g. t('common.nav.home') or t('dashboard.welcomeTitle')
+   * Helper function to translate keys e.g. t('common.nav.home') or t('dashboard.welcomeTitle', { name: 'Grace' })
+   * Supports {{key}} interpolation when an object is passed as the second argument.
+   * Falls back to English if the key is missing in the current language.
    */
   const t = (path, defaultVal = '') => {
     const keys = path.split('.');
     let current = translations[lang];
-    
+
     for (const key of keys) {
       if (current && current[key] !== undefined) {
         current = current[key];
       } else {
-        // Fallback to English if missing
+        // Fallback to English if missing in current language
         let fallback = translations['en'];
         for (const fk of keys) {
           if (fallback && fallback[fk] !== undefined) {
             fallback = fallback[fk];
           } else {
-            return defaultVal || path;
+            // Key not found even in English — return defaultVal or path
+            const raw = (typeof defaultVal === 'object' ? path : defaultVal) || path;
+            return typeof defaultVal === 'object'
+              ? Object.entries(defaultVal).reduce(
+                  (str, [k, v]) => str.replace(new RegExp(`{{${k}}}`, 'g'), v),
+                  raw
+                )
+              : raw;
           }
         }
-        return fallback;
+        current = fallback;
+        break;
       }
     }
 
-    return typeof current === 'string' ? current : (defaultVal || path);
+    if (typeof current !== 'string') {
+      return (typeof defaultVal === 'object' ? path : defaultVal) || path;
+    }
+
+    // Apply {{key}} interpolation if defaultVal is an object of variables
+    if (typeof defaultVal === 'object' && defaultVal !== null) {
+      return Object.entries(defaultVal).reduce(
+        (str, [k, v]) => str.replace(new RegExp(`{{${k}}}`, 'g'), v),
+        current
+      );
+    }
+
+    return current;
   };
 
   return (

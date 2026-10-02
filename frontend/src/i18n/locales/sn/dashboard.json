@@ -1,20 +1,44 @@
 {
   "welcomeTitle": "Mangwanani, {{name}}",
   "welcomeSubtitle": "Pano pane pfupiso yako yemari ye-Mukuru yanhasi.",
+  "loadingMessage": "Inorodha Dashboard ya{{name}} yeMukuru...",
+  "errorTitle": "Dashboard Haitowanikwi",
   "summary": {
     "title": "Pfupiso Yemwedzi",
     "income": "Mugove Wewedzi",
     "commitments": "Zvisungo Zvemhuri",
     "safeToSave": "Kuchengeta Kwakachengeteka",
-    "remaining": "Mari Yasarira"
+    "remaining": "Mari Yasarira",
+    "commitmentsSub": "Mhuri Nemabhiri",
+    "suggestedLabel": "Zvinorudzirwa (R{{amount}} iripo)",
+    "commitmentsBar": "Zvisungo ({{pct}}%)",
+    "safeToSaveBar": "Kuchengeteka Kuchengetedza R{{amount}}",
+    "timeframes": {
+      "oct": "Okt",
+      "sep": "Mup",
+      "avg": "Avg",
+      "octFull": "Gumiguru 2026",
+      "sepFull": "Gunyana 2026",
+      "avgFull": "Pamwedzi 3 Wepakati"
+    }
   },
   "currentGoal": {
     "title": "Chinangwa Chinoshanda",
+    "activeLabel": "Chinangwa Chinoshanda",
+    "completedLabel": "Chinangwa Chakasvikwa",
     "saved": "Zvakachengetwa zvino",
     "target": "Chinangwa Chatinoda",
     "remaining": "yasara kusvika pachinangwa",
     "progress": "Fambiro Mberi",
-    "targetDate": "Zuva Rechinangwa"
+    "targetDate": "Zuva Rechinangwa",
+    "complete": "Chinangwa Chasvikwa!",
+    "celebrateButton": "Farira!"
+  },
+  "referral": {
+    "title": "Koka Shamwari & Wana R50",
+    "bonusActive": "+R{{amount}} Bhonasi Inoshanda",
+    "description": "Govera kodhi yako yakasiyana nemhuri neshamwari. Pavanyoresa, mese munowana bhonasi yekuchengetedza yeR50!",
+    "socialsButton": "Zvemagariro"
   },
   "coachTip": {
     "title": "Zano Re-AI Rekuchengeta Mari",
@@ -33,7 +57,8 @@
     "badge": "YAMBIRO YEKUCHENGETA",
     "item": "Special Ye-Mealie Meal paShoprite",
     "content": "Hupfu hupfu huri pa-discount ne 12% paShoprite svondo rino! Unochengeta R25 pa-10kg.",
-    "action": "Wona Mitengo"
+    "action": "Wona Mitengo",
+    "discountFallback": "12% DISCOUNT"
   },
   "notifications": {
     "n1_title": "Kuchengeta Kwakavandudzwa",

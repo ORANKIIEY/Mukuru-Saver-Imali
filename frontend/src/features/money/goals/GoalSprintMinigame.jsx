@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Zap, Trophy, Sparkles, RefreshCw, CheckCircle2, Sliders, ShieldCheck, Flame, Play, Volume2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Card from '../../../components/Card';
 import Button from '../../../components/Button';
 import MoneyText from '../../../components/MoneyText';
@@ -63,6 +64,8 @@ function triggerConfettiBurst() {
  * Interactive Gamified Goal Sprint Minigame & Automations Engine.
  */
 export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
+  const { t } = useTranslation('money');
+
   if (!goal) return null;
 
   const [currentSaved, setCurrentSaved] = useState(goal.saved);
@@ -106,12 +109,12 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
   const handleRunAutomation = () => {
     if (automations.fridayAutoLock) {
       handleBoost(20, 60, 'Friday Auto-Lock');
-      setAutomationToast('⚡ Automation Triggered: R20 Friday Auto-Lock deposited into goal!');
+      setAutomationToast(t('sprint.toastFriday'));
     } else if (automations.groceryRoundUp) {
       handleBoost(12, 40, 'Grocery Round-Up');
-      setAutomationToast('⚡ Automation Triggered: R12 Grocery Spare Change deposited!');
+      setAutomationToast(t('sprint.toastGrocery'));
     } else {
-      setAutomationToast('⚡ Automations checked: All savings rules up to date.');
+      setAutomationToast(t('sprint.toastDefault'));
     }
 
     setTimeout(() => setAutomationToast(null), 4000);
@@ -174,15 +177,15 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
           </div>
           <div>
             <div style={{ fontSize: '0.95rem', fontWeight: '800', color: 'var(--color-text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              Goal Sprint Minigame
+              {t('sprint.title', 'Goal Sprint Minigame')}
               {isClose && (
                 <span style={{ fontSize: '0.7rem', backgroundColor: '#FEF3C7', color: '#B45309', padding: '2px 8px', borderRadius: 'var(--radius-full)', fontWeight: '800' }}>
-                  CLOSE TO GOAL!
+                  {t('sprint.closeToGoal', 'CLOSE TO GOAL!')}
                 </span>
               )}
             </div>
             <div style={{ fontSize: '0.78rem', color: 'var(--color-text-secondary)' }}>
-              Interactive daily boost & auto-saver rules
+              {t('sprint.subtitle', 'Interactive daily boost & auto-saver rules')}
             </div>
           </div>
         </div>
@@ -190,33 +193,33 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
         {/* Level & XP Badge */}
         <div style={{ textAlign: 'right' }}>
           <div style={{ fontSize: '0.75rem', fontWeight: '800', color: 'var(--mukuru-orange-dark)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <Flame size={14} color="var(--mukuru-orange)" /> {xp} XP
+            <Flame size={14} color="var(--mukuru-orange)" /> {t('sprint.xpLabel', { xp })}
           </div>
           <div style={{ fontSize: '0.675rem', color: 'var(--color-text-muted)', fontWeight: '600' }}>
-            Sprint Saver Level 2
+            {t('sprint.level', 'Sprint Saver Level 2')}
           </div>
         </div>
       </div>
 
-      {/* Goal Progress Ring & Remaining Distance */}
+      {/* Goal Progress Bar & Remaining Distance */}
       <div style={{ backgroundColor: 'var(--color-bg)', padding: '12px 14px', borderRadius: 'var(--radius-md)', marginBottom: '14px', border: '1px solid var(--color-border-subtle)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
-          <span>{goal.name} ({pct}% complete)</span>
+          <span>{goal.name} ({t('sprint.complete', { pct })})</span>
           <span style={{ color: 'var(--mukuru-orange-dark)' }}>
-            <MoneyText amount={remaining} /> remaining
+            <MoneyText amount={remaining} /> {t('sprint.remaining', 'remaining')}
           </span>
         </div>
         <ProgressBar value={pct} />
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--color-text-muted)', marginTop: '4px' }}>
-          <span>Saved: <MoneyText amount={currentSaved} /></span>
-          <span>Target: <MoneyText amount={target} /></span>
+          <span>{t('sprint.saved', 'Saved:')} <MoneyText amount={currentSaved} /></span>
+          <span>{t('sprint.target', 'Target:')} <MoneyText amount={target} /></span>
         </div>
       </div>
 
       {/* Quick Boost Challenge Cards */}
       <div style={{ marginBottom: '16px' }}>
         <div style={{ fontSize: '0.825rem', fontWeight: '800', color: 'var(--color-text-primary)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Trophy size={16} color="var(--mukuru-orange)" /> Quick Goal Boosters
+          <Trophy size={16} color="var(--mukuru-orange)" /> {t('sprint.boosters', 'Quick Goal Boosters')}
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
           <button
@@ -231,7 +234,7 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
               transition: 'all 0.2s ease',
             }}
           >
-            <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--color-text-secondary)' }}>Round-Up</div>
+            <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--color-text-secondary)' }}>{t('sprint.boostRoundUp', 'Round-Up')}</div>
             <div style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--mukuru-orange-dark)', margin: '2px 0' }}>+R15</div>
             <div style={{ fontSize: '0.65rem', color: '#10B981', fontWeight: '700' }}>+30 XP</div>
           </button>
@@ -248,7 +251,7 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
               transition: 'all 0.2s ease',
             }}
           >
-            <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--color-text-secondary)' }}>Skip Coffee</div>
+            <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--color-text-secondary)' }}>{t('sprint.boostCoffee', 'Skip Coffee')}</div>
             <div style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--mukuru-orange-dark)', margin: '2px 0' }}>+R35</div>
             <div style={{ fontSize: '0.65rem', color: '#10B981', fontWeight: '700' }}>+70 XP</div>
           </button>
@@ -265,14 +268,14 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
               transition: 'all 0.2s ease',
             }}
           >
-            <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--color-text-secondary)' }}>Friday Lock</div>
+            <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--color-text-secondary)' }}>{t('sprint.boostFriday', 'Friday Lock')}</div>
             <div style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--mukuru-orange-dark)', margin: '2px 0' }}>+R50</div>
             <div style={{ fontSize: '0.65rem', color: '#10B981', fontWeight: '700' }}>+100 XP</div>
           </button>
         </div>
       </div>
 
-      {/* Feature 3: Smart Automations Manager */}
+      {/* Smart Automations Manager */}
       <div
         style={{
           borderTop: '1px solid var(--color-border-subtle)',
@@ -281,7 +284,7 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
       >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
           <div style={{ fontSize: '0.825rem', fontWeight: '800', color: 'var(--color-text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Sliders size={16} color="var(--mukuru-orange)" /> Smart Auto-Saver Rules
+            <Sliders size={16} color="var(--mukuru-orange)" /> {t('sprint.automations', 'Smart Auto-Saver Rules')}
           </div>
           <button
             onClick={handleRunAutomation}
@@ -297,14 +300,13 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
               gap: '4px',
             }}
           >
-            <Play size={12} /> Test Rule Run
+            <Play size={12} /> {t('sprint.testRun', 'Test Rule Run')}
           </button>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          {/* Rule 1 */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.78rem', color: 'var(--color-text-secondary)' }}>
-            <span>Auto-Lock R20 every Friday</span>
+            <span>{t('sprint.rule1', 'Auto-Lock R20 every Friday')}</span>
             <input
               type="checkbox"
               checked={automations.fridayAutoLock}
@@ -313,9 +315,8 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
             />
           </div>
 
-          {/* Rule 2 */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.78rem', color: 'var(--color-text-secondary)' }}>
-            <span>Grocery Purchase Spare Change Round-Up</span>
+            <span>{t('sprint.rule2', 'Grocery Purchase Spare Change Round-Up')}</span>
             <input
               type="checkbox"
               checked={automations.groceryRoundUp}
@@ -324,9 +325,8 @@ export default function GoalSprintMinigame({ goal, onGoalUpdate }) {
             />
           </div>
 
-          {/* Rule 3 */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.78rem', color: 'var(--color-text-secondary)' }}>
-            <span>Auto-Deposit R50 when goal hits 80%</span>
+            <span>{t('sprint.rule3', 'Auto-Deposit R50 when goal hits 80%')}</span>
             <input
               type="checkbox"
               checked={automations.sprint80PercentBoost}

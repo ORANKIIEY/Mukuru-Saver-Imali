@@ -1,28 +1,123 @@
 {
   "appName": "Mukuru Money Coach",
+  "brandSub": "Money Coach",
   "tagline": "Imali Yakho",
+  "accountProfile": "Account Profile",
   "nav": {
+    "label": "Navigation",
     "home": "Home",
     "goals": "Goals",
     "coach": "Coach",
+    "referral": "Referral",
     "more": "More"
+  },
+  "hero": {
+    "headline": "Dream → Save → Stretch → Grow",
+    "subtitle": "Track spending, protect family support remittances, and reach your financial goals with your AI Money Coach."
+  },
+  "welcome": {
+    "title": "Welcome to Mukuru",
+    "guestSubtitle": "Create a secure account to save towards your goals",
+    "signedInAs": "Signed in as {{identifier}}",
+    "trustBadge": "Family remittances protected as legitimate commitments"
   },
   "language": {
     "en": "English",
     "zu": "isiZulu",
-    "switch": "Language"
+    "sn": "chiShona",
+    "switch": "Language",
+    "enLabel": "English (EN)",
+    "zuLabel": "isiZulu (ZU)",
+    "snLabel": "chiShona (SN)"
   },
   "mockMode": {
     "active": "Mock Mode",
     "live": "Live API",
-    "toggle": "Toggle API / Mocks"
+    "toggle": "Toggle API / Mocks",
+    "localEngine": "Local Demo Engine",
+    "liveBackend": "Live Backend API",
+    "currentlyUsing": "Currently using: {{mode}}",
+    "switchTo": "Switch to {{target}}"
   },
   "actions": {
     "continueAsGrace": "Continue as Grace",
+    "continueDashboard": "Continue to Dashboard ({{name}})",
+    "tryDemo": "Try Demo Session (Grace Moyo)",
     "viewDetails": "View Details",
     "askCoach": "Ask Money Coach",
     "takeAction": "Take Action",
-    "retry": "Try Again"
+    "retry": "Try Again",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "copyCode": "Copy Code",
+    "copyLink": "Copy Link"
+  },
+  "auth": {
+    "signInSubtitle": "Sign in to access your money coach & goals",
+    "signUpSubtitle": "Create a secure account to start saving",
+    "tabSignIn": "Sign In",
+    "tabSignUp": "Sign Up",
+    "labelEmail": "Email or Cellphone Number",
+    "placeholderEmail": "e.g. grace.moyo@mukuru.com or 0821234567",
+    "labelPassword": "Password",
+    "placeholderPassword": "Enter your password",
+    "buttonSignIn": "Sign In to Mukuru",
+    "labelFirstName": "First Name",
+    "labelSurname": "Surname",
+    "labelEmailAddress": "Email Address",
+    "labelRegion": "Select Region / Country",
+    "labelPhone": "Cellphone Number",
+    "labelConfirmPassword": "Confirm Password",
+    "placeholderConfirm": "Confirm",
+    "labelReferral": "Referral Code (Optional)",
+    "referralBonus": "Get R50 Bonus!",
+    "buttonCreate": "Create Mukuru Account",
+    "successSignIn": "Signed in successfully! Redirecting...",
+    "successSignUp": "Account created successfully! Welcome to Mukuru Money Coach.",
+    "errorSignIn": "Failed to sign in.",
+    "errorSignUp": "Failed to create account.",
+    "closeModal": "Close Authentication Modal"
+  },
+  "notifications": {
+    "title": "Notifications"
+  },
+  "time": {
+    "justNow": "Just now",
+    "hourAgo": "1h ago",
+    "today": "Today"
+  },
+  "footer": {
+    "credit": "Mukuru Money Coach • SheHacks",
+    "description": "Empowering emerging consumers with transaction categorisation, safe-to-save guidance, goal tracking, and AI coaching."
+  },
+  "referral": {
+    "pageTitle": "Referral Rewards Program",
+    "pageSubtitle": "Earn R50 for every friend who joins Mukuru Money Coach",
+    "activeBonusBalance": "Active Bonus Balance",
+    "friendsInvited": "Friends Invited",
+    "dynamicLinkTitle": "Your Dynamic Referral Link",
+    "autoRefreshLink": "Auto-Refresh Link",
+    "personalCodeLabel": "Personal Referral Code",
+    "shareableLinkLabel": "Shareable Web Link",
+    "shareTitle": "Share via Social Media & Messaging",
+    "howItWorksTitle": "How Mukuru Referral Works",
+    "step1Title": "Send Your Unique Link",
+    "step1Desc": "Share your dynamic referral link with friends via WhatsApp, SMS, or Social Media.",
+    "step2Title": "Friend Signs Up",
+    "step2Desc": "Your friend registers a new account using your referral code.",
+    "step3Title": "Get R50 Reward Each",
+    "step3Desc": "Both you and your friend receive a R50 bonus credited straight to your safe-to-save buffer!",
+    "emailSubject": "Join Mukuru Money Coach & Get R50 Bonus",
+    "shareText": "Join me on Mukuru Money Coach to track spending, protect remittances & reach your savings goals! Use my code: {{code}} to get a R50 bonus: {{link}}"
+  },
+  "a11y": {
+    "userMenu": "User Account Menu",
+    "closeProfile": "Close Profile Menu",
+    "toggleNotifications": "Toggle System Alerts and Notifications",
+    "closeNotifications": "Close Notifications"
   },
   "greeting": "Good morning"
 }
