@@ -8,7 +8,7 @@
 
 Millions of emerging consumers across Africa rely on **Mukuru** for international money transfers, bill payments, and financial services. Often managing limited incomes, supporting multiple households, and using inexpensive mobile phones with unreliable internet, these consumers need financial tools that are simple, accessible, and culturally relevant.
 
-**Mukuru Money Coach** is a mobile-first, multi-lingual financial platform built for **SheHacks Challenge B**. It features transaction categorisation, bank statement document uploads, safe-to-save guidance, goal tracking, an AI Money Coach, gamified goal sprint boosters, an automated auto-saver engine, a referral rewards program with social sharing, a unified single-port deployment architecture, and full localization in **English (EN)**, **isiZulu (ZU)**, and **chiShona (SN)**.
+**Mukuru Money Coach** is a mobile-first, multi-lingual financial platform built for **SheHacks Challenge B**. It features transaction categorisation, safe-to-save guidance, goal tracking, an AI Money Coach, gamified goal sprint boosters, an automated auto-saver engine, a referral rewards program with social sharing, a unified single-port deployment architecture, and full localization in **English (EN)**, **isiZulu (ZU)**, and **chiShona (SN)**.
 
 ---
 
@@ -22,10 +22,6 @@ Millions of emerging consumers across Africa rely on **Mukuru** for internationa
 ### 2. Dynamic Dashboard & Safe-to-Save Buffer
 - **Personalized Experience**: Greets signed-in users by name (*"Good morning, Oratile"*) with their custom financial summary.
 - **Family Commitment Protection**: Automatically categorizes family support remittances as legitimate commitments before calculating the **Safe-to-Save Buffer** (e.g. R500 suggested out of R2,200 available).
-
-### 3. Bank Statement & Document Upload Engine
-- **Document Processing**: API endpoints for uploading and analyzing bank statements (`/api/documents/upload`).
-- **Automated Extraction**: Parses transaction data to extract income, expenses, and remittance history for automated safe-to-save calculations.
 
 ### 4. Referral Program & Social Share Hub
 - **Dynamic Referral Links**: Generates unique, auto-refreshing referral links (`https://mukuru-moneycoach.app/invite?code=MUKURU-USER-2026`).
@@ -186,7 +182,7 @@ node src/tests/role4.test.js
 *Expected Result*: `[PASS] All 3 Frontend Core unit tests passed successfully!`
 
 ### Backend Unit Tests
-Run the Maven JUnit test suite covering `GoalService`, `MilestoneService`, `MoneyEngineService`, `NudgeService`, `SafeToSaveService`, `DocumentService`, and `SimulatorService`:
+Run the Maven JUnit test suite covering `GoalService`, `MilestoneService`, `MoneyEngineService`, `NudgeService`, `SafeToSaveService`, and `SimulatorService`:
 ```bash
 cd money-coach-backend/money-coach-backend
 mvn test

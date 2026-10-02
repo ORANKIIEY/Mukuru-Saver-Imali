@@ -4,9 +4,7 @@ import MoneySummaryCard from './MoneySummaryCard';
 import CurrentGoalCard from './CurrentGoalCard';
 import CoachTipCard from './CoachTipCard';
 import NextStepCard from './NextStepCard';
-import GroceryAlertCard from './GroceryAlertCard';
-import BankStatementUploadCard from './BankStatementUploadCard';
-import LoadingState from '../../components/LoadingState';
+
 import ErrorState from '../../components/ErrorState';
 import Card from '../../components/Card';
 import Button from '../../components/Button';
@@ -176,9 +174,6 @@ export default function DashboardPage() {
         <div className="dashboard-col-main">
           {/* Money Summary Card */}
           <MoneySummaryCard summary={summary} />
-
-          {/* Bank Statement AI Scanner */}
-          <BankStatementUploadCard />
 
           {/* Current Goal Card */}
           <CurrentGoalCard goal={currentGoal} />

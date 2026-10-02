@@ -173,9 +173,9 @@ export function UserProvider({ children }) {
   };
 
   /**
-   * Update current user's financial profile from Bank Statement scan or manual edit
+   * Update current user's financial profile from manual edit or budget tools
    */
-  const updateUserFinancials = ({ income, commitments, safeToSave, goal, statementData }) => {
+  const updateUserFinancials = ({ income, commitments, safeToSave, goal }) => {
     if (!currentUser) return;
     const updated = {
       ...currentUser,
@@ -184,7 +184,6 @@ export function UserProvider({ children }) {
       available: (income !== undefined ? income : currentUser.income) - (commitments !== undefined ? commitments : currentUser.commitments),
       safeToSave: safeToSave !== undefined ? safeToSave : currentUser.safeToSave,
       goal: goal || currentUser.goal,
-      lastBankStatement: statementData || currentUser.lastBankStatement,
     };
 
     setCurrentUser(updated);
