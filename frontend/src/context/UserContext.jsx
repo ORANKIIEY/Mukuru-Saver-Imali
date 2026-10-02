@@ -173,6 +173,29 @@ export function UserProvider({ children }) {
   };
 
   /**
+   * Update current user's financial profile from Bank Statement scan or manual edit
+   */
+  const updateUserFinancials = ({ income, commitments, safeToSave, goal, statementData }) => {
+    if (!currentUser) return;
+    const updated = {
+      ...currentUser,
+      income: income !== undefined ? income : currentUser.income,
+      commitments: commitments !== undefined ? commitments : currentUser.commitments,
+      available: (income !== undefined ? income : currentUser.income) - (commitments !== undefined ? commitments : currentUser.commitments),
+      safeToSave: safeToSave !== undefined ? safeToSave : currentUser.safeToSave,
+      goal: goal || currentUser.goal,
+      lastBankStatement: statementData || currentUser.lastBankStatement,
+    };
+
+    setCurrentUser(updated);
+
+    // Sync with registered users array
+    setRegisteredUsers((prev) =>
+      prev.map((u) => (u.id === currentUser.id ? updated : u))
+    );
+  };
+
+  /**
    * Sign Out current user session
    */
   const signOut = () => {
@@ -187,6 +210,7 @@ export function UserProvider({ children }) {
         signUp,
         signIn,
         signOut,
+        updateUserFinancials,
         regions: COUNTRY_REGIONS,
       }}
     >

@@ -17,4 +17,8 @@ public class SafeToSaveService {
         double flexible = available - suggested;
         return new SafeToSaveResponse(income, commitmentsTotal, upcomingPayments, available, suggested, flexible);
     }
+
+    public SafeToSaveResponse getSafeToSave(String userId) {
+        return calculate(8500.0, 5700.0, 600.0);
+    }
 }
