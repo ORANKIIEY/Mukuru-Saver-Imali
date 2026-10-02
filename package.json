@@ -4,9 +4,11 @@
   "description": "Mukuru Money Coach",
   "main": "frontend/src/main.jsx",
   "scripts": {
-    "dev": "vite frontend",
-    "build": "vite build frontend",
-    "preview": "vite preview frontend"
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "copy:frontend": "node -e \"const fs=require('fs'); fs.cpSync('frontend/dist', 'money-coach-backend/money-coach-backend/src/main/resources/static', {recursive: true}); console.log('Frontend copied to backend static resources!');\"",
+    "build": "npm run build:frontend && npm run copy:frontend",
+    "preview": "npm --prefix frontend run preview"
   },
   "dependencies": {
     "lucide-react": "^1.16.0",

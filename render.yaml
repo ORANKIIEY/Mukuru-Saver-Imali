@@ -1,6 +1,6 @@
 # Render Blueprint Infrastructure-as-Code Configuration
 # Mukuru Money Coach (SheHacks Challenge B)
-# Full Stack: Spring Boot API + React Vite Frontend + PostgreSQL Database
+# Unified Single-Port Web Application (Spring Boot Java 21 + React SPA + PostgreSQL)
 
 databases:
   - name: mukuru-db
@@ -9,13 +9,13 @@ databases:
     plan: free
 
 services:
-  # Backend Web Service (Spring Boot Java 21)
+  # Unified Web Application (Frontend + Backend served on 1 Single Port)
   - type: web
-    name: mukuru-backend
+    name: mukuru-app
     env: docker
     plan: free
     dockerfilePath: ./money-coach-backend/money-coach-backend/Dockerfile
-    dockerContext: ./money-coach-backend/money-coach-backend
+    dockerContext: .
     envVars:
       - key: PORT
         value: 5000
@@ -31,20 +31,3 @@ services:
         fromDatabase:
           name: mukuru-db
           property: password
-
-  # Frontend Static Site (React + Vite)
-  - type: web
-    name: mukuru-frontend
-    env: static
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: ./frontend/dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_URL
-        fromService:
-          type: web
-          name: mukuru-backend
-          property: host

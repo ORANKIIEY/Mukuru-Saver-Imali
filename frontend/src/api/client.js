@@ -1,7 +1,7 @@
 import dashboardMock from '../mocks/dashboard.json';
 import insightsMock from '../mocks/insights.json';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 
 /**
  * Base API Client
