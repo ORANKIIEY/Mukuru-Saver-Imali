@@ -8,7 +8,7 @@ services:
     name: mukuru-app
     env: docker
     plan: free
-    dockerfilePath: ./money-coach-backend/money-coach-backend/Dockerfile
+    dockerfilePath: Dockerfile
     dockerContext: .
     envVars:
       - key: PORT
