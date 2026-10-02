@@ -1,8 +1,12 @@
 # Build Stage
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
+
+# Copy the pom and source from the nested folder
+COPY money-coach-backend/money-coach-backend/pom.xml .
+COPY money-coach-backend/money-coach-backend/src ./src
+
+# Build JAR skipping unit tests for fast deploy
 RUN mvn clean package -DskipTests
 
 # Run Stage
