@@ -1,10 +1,10 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Home, Target, Sparkles, Menu } from 'lucide-react';
+import { Home, Target, Gift, Sparkles, Menu } from 'lucide-react';
 import { useLanguage } from '../../i18n';
 
 /**
  * BottomNav Navigation Bar Component
- * Mobile-first sticky bottom navigation for Home, Goals, Coach, and More.
+ * Mobile-first sticky bottom navigation for Home, Goals, Referral, Coach, and More.
  */
 export default function BottomNav() {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ export default function BottomNav() {
   const navItems = [
     { key: 'home', label: t('common.nav.home', 'Home'), path: '/dashboard', icon: Home },
     { key: 'goals', label: t('common.nav.goals', 'Goals'), path: '/goals', icon: Target },
+    { key: 'referral', label: t('common.nav.referral', 'Referral'), path: '/referral', icon: Gift },
     { key: 'coach', label: t('common.nav.coach', 'Coach'), path: '/coach', icon: Sparkles },
     { key: 'more', label: t('common.nav.more', 'More'), path: '/more', icon: Menu },
   ];

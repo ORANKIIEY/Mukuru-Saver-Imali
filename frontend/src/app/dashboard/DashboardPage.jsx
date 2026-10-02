@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import MoneySummaryCard from './MoneySummaryCard';
 import CurrentGoalCard from './CurrentGoalCard';
 import CoachTipCard from './CoachTipCard';
@@ -92,6 +93,15 @@ function ReferralCard({ user }) {
         >
           {copied ? 'Copied!' : 'Copy'}
         </Button>
+        <Link to="/referral">
+          <Button
+            variant="outline"
+            size="sm"
+            icon={<Share2 size={14} />}
+          >
+            Socials
+          </Button>
+        </Link>
       </div>
     </Card>
   );

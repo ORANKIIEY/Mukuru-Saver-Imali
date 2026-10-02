@@ -17,6 +17,9 @@ import GoalDetailPage    from './features/money/goals/GoalDetailPage';
 import CelebrationScreen from './features/money/goals/CelebrationScreen';
 import GoalCreatorFlow   from './features/money/goals/creator/GoalCreatorFlow';
 
+// Referral screen
+import ReferralPage from './features/referral/ReferralPage';
+
 // Coach & What-If simulator screens
 import CoachChatPage    from './features/coach/chat/CoachChatPage';
 import SimulatorPage    from './features/coach/simulator/SimulatorPage';
@@ -158,7 +161,8 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/" element={<WelcomeScreen />} />
       <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-      <Route path="/more" element={<ProtectedRoute><MorePage /></ProtectedRoute>} />
+      <Route path="/referral"  element={<ProtectedRoute><ReferralPage /></ProtectedRoute>} />
+      <Route path="/more"      element={<ProtectedRoute><MorePage /></ProtectedRoute>} />
 
       {/* Money feature screens */}
       <Route path="/transactions"          element={<ProtectedRoute><TransactionsPage /></ProtectedRoute>} />
