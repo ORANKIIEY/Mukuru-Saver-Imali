@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bell, Sparkles, CheckCircle2, ShoppingBag, X, ChevronDown, User, LogOut, LogIn, UserPlus } from 'lucide-react';
+import { Bell, Sparkles, CheckCircle2, ShoppingBag, X, ChevronDown, User, LogOut, LogIn, UserPlus, QrCode } from 'lucide-react';
 import { useLanguage } from '../../i18n';
 import { useMockToggle } from '../../hooks/useMockToggle';
 import { useUser } from '../../context/UserContext';
 import AuthModal from '../auth/AuthModal';
+import ProjectQrCodeModal from '../../components/ProjectQrCodeModal';
 
 /**
  * TopBar Navigation Header Component
- * Contains Mukuru branding, signed-in user account menu, auth modal triggers, notification drawer, and language switcher (EN, ZU, SN).
+ * Contains Mukuru branding, signed-in user account menu, auth modal triggers, notification drawer, QR code modal, and language switcher (EN, ZU, SN).
  */
 export default function TopBar() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ export default function TopBar() {
   const [showUserModal, setShowUserModal] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalTab, setAuthModalTab] = useState('signin');
+  const [showQrModal, setShowQrModal] = useState(false);
 
   const openAuth = (tabName = 'signin') => {
     setAuthModalTab(tabName);
@@ -259,6 +261,28 @@ export default function TopBar() {
 
           {/* Right Controls */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            {/* Project QR Code Button */}
+            <button
+              onClick={() => setShowQrModal(true)}
+              aria-label="Open Project QR Code"
+              title="Project QR Code for Mobile Scanning"
+              style={{
+                width: '34px',
+                height: '34px',
+                borderRadius: '50%',
+                backgroundColor: showQrModal ? 'var(--mukuru-orange)' : '#334155',
+                color: '#FFFFFF',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s ease',
+              }}
+            >
+              <QrCode size={18} />
+            </button>
+
             {/* Notification Bell Icon */}
             <div style={{ position: 'relative' }}>
               <button
@@ -446,6 +470,12 @@ export default function TopBar() {
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}
         initialTab={authModalTab}
+      />
+
+      {/* Project QR Code Modal */}
+      <ProjectQrCodeModal
+        isOpen={showQrModal}
+        onClose={() => setShowQrModal(false)}
       />
     </>
   );
