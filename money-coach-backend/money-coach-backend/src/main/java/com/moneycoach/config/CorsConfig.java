@@ -22,7 +22,8 @@ public class CorsConfig {
             "http://localhost:5173",
             "http://localhost:3000",
             "http://localhost:5000",
-            "http://127.0.0.1:*"
+            "http://127.0.0.1:*",
+            "https://*.onrender.com"
         ));
         config.setAllowedHeaders(Collections.singletonList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
