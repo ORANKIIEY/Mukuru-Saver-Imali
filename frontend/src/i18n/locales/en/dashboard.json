@@ -1,20 +1,44 @@
 {
   "welcomeTitle": "Good morning, {{name}}",
   "welcomeSubtitle": "Here is your Mukuru money summary for today.",
+  "loadingMessage": "Loading {{name}}'s Mukuru Dashboard...",
+  "errorTitle": "Dashboard Unavailable",
   "summary": {
     "title": "Monthly Overview",
     "income": "Monthly Income",
     "commitments": "Commitments",
     "safeToSave": "Safe-to-Save Buffer",
-    "remaining": "Available Balance"
+    "remaining": "Available Balance",
+    "commitmentsSub": "Family & Household",
+    "suggestedLabel": "Suggested (R{{amount}} available)",
+    "commitmentsBar": "Commitments ({{pct}}%)",
+    "safeToSaveBar": "Safe-to-Save R{{amount}}",
+    "timeframes": {
+      "oct": "Oct",
+      "sep": "Sep",
+      "avg": "Avg",
+      "octFull": "October 2026",
+      "sepFull": "September 2026",
+      "avgFull": "3-Month Avg"
+    }
   },
   "currentGoal": {
     "title": "Active Savings Goal",
+    "activeLabel": "Active Goal",
+    "completedLabel": "Completed Goal",
     "saved": "Saved so far",
     "target": "Target",
     "remaining": "away from goal",
     "progress": "Goal Progress",
-    "targetDate": "Target Date"
+    "targetDate": "Target Date",
+    "complete": "Goal Complete!",
+    "celebrateButton": "Celebrate!"
+  },
+  "referral": {
+    "title": "Invite Friends & Earn R50",
+    "bonusActive": "+R{{amount}} Bonus Active",
+    "description": "Share your unique code with family & friends. When they register, you both get a R50 savings reward!",
+    "socialsButton": "Socials"
   },
   "coachTip": {
     "title": "Smart Coach Insight",
@@ -33,7 +57,8 @@
     "badge": "SAVINGS ALERT",
     "item": "Mealie Meal Special at Shoprite",
     "content": "Mealie Meal is 12% cheaper at Shoprite this week! Save R25 on 10kg.",
-    "action": "View Deals"
+    "action": "View Deals",
+    "discountFallback": "12% OFF"
   },
   "notifications": {
     "n1_title": "Safe-to-Save Updated",

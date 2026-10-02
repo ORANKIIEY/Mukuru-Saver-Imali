@@ -34,7 +34,9 @@
     "targetDate": "Zuva rekusvika",
     "weekly": "Chengetedza vhiki nevhiki",
     "milestone": "{{level}}%",
-    "seeCelebration": "Ona mufaro wako"
+    "seeCelebration": "Ona mufaro wako",
+    "sprintActive": "Kumhanya Kunoshanda",
+    "sprintFinal": "Nhanho Yekupedzisira Yekumhanya!"
   },
   "creator": {
     "stepOf": "Nhanho {{current}} kubva {{total}}",
@@ -52,6 +54,29 @@
       "confirm": "Gadzira chinangwa",
       "saveError": "Hatina kukwanisa kuchengetedza chinangwa chako. Tarisa kubatana kwako uedzazve."
     }
+  },
+  "sprint": {
+    "title": "Mutambo Wekumhanya Kuchinangwa",
+    "subtitle": "Kukudzwa kwezuva nezuva uye mitemo yekuchengetedza otomatiki",
+    "closeToGoal": "PEDYO NECHINANGWA!",
+    "xpLabel": "{{xp}} XP",
+    "level": "Nhanho 2 Yemumhanyi Wekuchengetedza",
+    "remaining": "yasara",
+    "saved": "Yakachengetwa:",
+    "target": "Chinangwa:",
+    "complete": "{{pct}}% yapera",
+    "boosters": "Zvinokudza Chinangwa Nokukurumidza",
+    "boostRoundUp": "Rindura Mari",
+    "boostCoffee": "Siya Kofi",
+    "boostFriday": "Pfiga Pavhiki",
+    "automations": "Mitemo Yekuchengetedza Otomatiki",
+    "testRun": "Edza Mutemo",
+    "rule1": "Pfiga R20 otomatiki Pavhiki yega yega",
+    "rule2": "Rindura Mari Yemari Dzekutenga Chikafu",
+    "rule3": "Isa R50 otomatiki chinangwa chichisvika 80%",
+    "toastFriday": "⚡ Mutemo Washandiswa: R20 ye-Friday Auto-Lock yakaiswa kuchinangwa!",
+    "toastGrocery": "⚡ Mutemo Washandiswa: R12 Yemari Dzakasara Dzekutenga Chikafu yakaiswa!",
+    "toastDefault": "⚡ Mitemo Yakatariswa: Mitemo yose yekuchengetedza yakagadziridzwa."
   },
   "celebrate": {
     "title": "{{name}} ndeyako!",

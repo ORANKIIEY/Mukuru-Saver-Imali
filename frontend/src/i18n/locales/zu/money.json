@@ -34,7 +34,9 @@
     "targetDate": "Usuku oluhlosiwe",
     "weekly": "Londoloza ngesonto",
     "milestone": "{{level}}%",
-    "seeCelebration": "Bona ukugubha kwakho"
+    "seeCelebration": "Bona ukugubha kwakho",
+    "sprintActive": "Ugijima Uyasebenza",
+    "sprintFinal": "Isinyathelo Sokugcina Sokugijima!"
   },
   "creator": {
     "stepOf": "Isinyathelo {{current}} kwezi-{{total}}",
@@ -52,6 +54,29 @@
       "confirm": "Dala umgomo",
       "saveError": "Asikwazanga ukulondoloza umgomo wakho. Hlola uxhumo bese uzama futhi."
     }
+  },
+  "sprint": {
+    "title": "Umdlalo Wokugijima Kwenhloso",
+    "subtitle": "Ukuqinisa nsuku zonke kanye nemithetho yokonga ngokuzenzakalelayo",
+    "closeToGoal": "USEDUZE NENHLOSO!",
+    "xpLabel": "{{xp}} XP",
+    "level": "Izinga 2 Lomgijimi Wokonga",
+    "remaining": "kusele",
+    "saved": "Okugcinwe:",
+    "target": "Inhloso:",
+    "complete": "{{pct}}% iqediwe",
+    "boosters": "Iziqinisi Zezinhloso Ezisheshayo",
+    "boostRoundUp": "Phezisa Imali",
+    "boostCoffee": "Salta Ikhofi",
+    "boostFriday": "Valela ngoLwesihlanu",
+    "automations": "Imithhetho Yokuonga Ngokuzenzakalelayo",
+    "testRun": "Hlola Imthetho",
+    "rule1": "Valela i-R20 ngokuzenzakalelayo ngoLwesihlanu ngalunye",
+    "rule2": "Phezisa Imali Esemdlangaleni Yokudla",
+    "rule3": "Fakela i-R50 ngokuzenzakalelayo uma inhloso ifinyelela ku-80%",
+    "toastFriday": "⚡ Umthetho Uqalisiwe: i-R20 ye-Friday Auto-Lock ifakiwe enhlosweni!",
+    "toastGrocery": "⚡ Umthetho Uqalisiwe: i-R12 Yemali Esemdlangaleni Yokudla ifakiwe!",
+    "toastDefault": "⚡ Imithetho Ihlolwe: Yonke imithetho yokonga ihlengahlengisiwe."
   },
   "celebrate": {
     "title": "{{name}} yakho!",

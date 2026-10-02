@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser, COUNTRY_REGIONS } from '../../context/UserContext';
-import { X, Lock, Mail, Phone, User, Globe, ArrowRight, ShieldCheck, Gift } from 'lucide-react';
+import { useLanguage } from '../../i18n';
+import { X, Lock, Phone, User, Globe, ArrowRight, ShieldCheck, Gift } from 'lucide-react';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 
 export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
   const navigate = useNavigate();
   const { signUp, signIn, regions } = useUser();
+  const { t } = useLanguage();
   const [tab, setTab] = useState(initialTab); // 'signin' | 'signup'
 
   // Sign In State
@@ -17,7 +19,6 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
   // Sign Up State
   const [signUpName, setSignUpName] = useState('');
   const [signUpSurname, setSignUpSurname] = useState('');
-  const [signUpEmail, setSignUpEmail] = useState('');
   const [selectedRegion, setSelectedRegion] = useState(COUNTRY_REGIONS[0].code); // ZA default
   const [signUpPhone, setSignUpPhone] = useState('');
   const [signUpPass, setSignUpPass] = useState('');
@@ -43,13 +44,13 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
     setSuccessMsg('');
     try {
       signIn({ identifier: signInId, password: signInPass });
-      setSuccessMsg('Signed in successfully! Redirecting...');
+      setSuccessMsg(t('common.auth.successSignIn', 'Signed in successfully! Redirecting...'));
       setTimeout(() => {
         onClose();
         navigate('/dashboard');
       }, 500);
     } catch (err) {
-      setErrorMsg(err.message || 'Failed to sign in.');
+      setErrorMsg(err.message || t('common.auth.errorSignIn', 'Failed to sign in.'));
     }
   };
 
@@ -61,7 +62,6 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
       signUp({
         name: signUpName,
         surname: signUpSurname,
-        email: signUpEmail,
         region: selectedRegion,
         dialCode: currentRegionObj.dialCode,
         phone: signUpPhone,
@@ -69,13 +69,13 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
         confirmPassword: signUpConfirmPass,
         referralCode: signUpReferralCode,
       });
-      setSuccessMsg('Account created successfully! Welcome to Mukuru Money Coach.');
+      setSuccessMsg(t('common.auth.successSignUp', 'Account created successfully! Welcome to Mukuru Money Coach.'));
       setTimeout(() => {
         onClose();
         navigate('/dashboard');
       }, 600);
     } catch (err) {
-      setErrorMsg(err.message || 'Failed to create account.');
+      setErrorMsg(err.message || t('common.auth.errorSignUp', 'Failed to create account.'));
     }
   };
 
@@ -122,7 +122,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
         >
           <button
             onClick={onClose}
-            aria-label="Close Authentication Modal"
+            aria-label={t('common.auth.closeModal', 'Close Authentication Modal')}
             style={{
               position: 'absolute',
               top: '16px',
@@ -165,7 +165,9 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
           </div>
 
           <p style={{ fontSize: '0.825rem', color: '#94A3B8' }}>
-            {tab === 'signin' ? 'Sign in to access your money coach & goals' : 'Create a secure account to start saving'}
+            {tab === 'signin'
+              ? t('common.auth.signInSubtitle', 'Sign in to access your money coach & goals')
+              : t('common.auth.signUpSubtitle', 'Create a secure account to start saving')}
           </p>
         </div>
 
@@ -195,7 +197,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
               transition: 'all 0.2s ease',
             }}
           >
-            Sign In
+            {t('common.auth.tabSignIn', 'Sign In')}
           </button>
           <button
             onClick={() => {
@@ -215,7 +217,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
               transition: 'all 0.2s ease',
             }}
           >
-            Sign Up
+            {t('common.auth.tabSignUp', 'Sign Up')}
           </button>
         </div>
 
@@ -259,16 +261,16 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
             <form onSubmit={handleSignInSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)' }}>
-                  Email or Cellphone Number
+                  {t('common.auth.labelPhone', 'Cellphone Number')}
                 </label>
                 <div style={{ position: 'relative' }}>
                   <span style={{ position: 'absolute', left: '12px', top: '10px', color: 'var(--color-text-muted)' }}>
-                    <Mail size={16} />
+                    <Phone size={16} />
                   </span>
                   <input
-                    type="text"
+                    type="tel"
                     required
-                    placeholder="e.g. grace.moyo@mukuru.com or 0821234567"
+                    placeholder="e.g. 0821234567"
                     value={signInId}
                     onChange={(e) => setSignInId(e.target.value)}
                     style={{
@@ -285,7 +287,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
 
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)' }}>
-                  Password
+                  {t('common.auth.labelPassword', 'Password')}
                 </label>
                 <div style={{ position: 'relative' }}>
                   <span style={{ position: 'absolute', left: '12px', top: '10px', color: 'var(--color-text-muted)' }}>
@@ -294,7 +296,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
                   <input
                     type="password"
                     required
-                    placeholder="Enter your password"
+                    placeholder={t('common.auth.placeholderPassword', 'Enter your password')}
                     value={signInPass}
                     onChange={(e) => setSignInPass(e.target.value)}
                     style={{
@@ -310,7 +312,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
               </div>
 
               <Button type="submit" variant="primary" size="lg" fullWidth icon={<ArrowRight size={18} />}>
-                Sign In to Mukuru
+                {t('common.auth.buttonSignIn', 'Sign In to Mukuru')}
               </Button>
             </form>
           ) : (
@@ -319,114 +321,53 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)' }}>
-                    First Name
+                    {t('common.auth.labelFirstName', 'First Name')}
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="First Name"
+                    placeholder={t('common.auth.labelFirstName', 'First Name')}
                     value={signUpName}
                     onChange={(e) => setSignUpName(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '9px 12px',
-                      borderRadius: 'var(--radius-md)',
-                      border: '1px solid var(--color-border)',
-                      fontSize: '0.85rem',
-                      outline: 'none',
-                    }}
+                    style={{ width: '100%', padding: '9px 12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)', fontSize: '0.85rem', outline: 'none' }}
                   />
                 </div>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)' }}>
-                    Surname
+                    {t('common.auth.labelSurname', 'Surname')}
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="Surname"
+                    placeholder={t('common.auth.labelSurname', 'Surname')}
                     value={signUpSurname}
                     onChange={(e) => setSignUpSurname(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '9px 12px',
-                      borderRadius: 'var(--radius-md)',
-                      border: '1px solid var(--color-border)',
-                      fontSize: '0.85rem',
-                      outline: 'none',
-                    }}
+                    style={{ width: '100%', padding: '9px 12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)', fontSize: '0.85rem', outline: 'none' }}
                   />
                 </div>
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)' }}>
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="name@domain.com"
-                  value={signUpEmail}
-                  onChange={(e) => setSignUpEmail(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '9px 12px',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid var(--color-border)',
-                    fontSize: '0.85rem',
-                    outline: 'none',
-                  }}
-                />
-              </div>
-
-              {/* Region & Country Dial Code Selector */}
-              <div>
                 <label style={{ fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <Globe size={14} color="var(--mukuru-orange)" /> Select Region / Country
+                  <Globe size={14} color="var(--mukuru-orange)" /> {t('common.auth.labelRegion', 'Select Region / Country')}
                 </label>
                 <select
                   value={selectedRegion}
                   onChange={handleRegionChange}
-                  style={{
-                    width: '100%',
-                    padding: '9px 12px',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid var(--color-border)',
-                    fontSize: '0.85rem',
-                    backgroundColor: '#FFFFFF',
-                    fontWeight: '600',
-                    outline: 'none',
-                  }}
+                  style={{ width: '100%', padding: '9px 12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)', fontSize: '0.85rem', backgroundColor: '#FFFFFF', fontWeight: '600', outline: 'none' }}
                 >
                   {regions.map((r) => (
-                    <option key={r.code} value={r.code}>
-                      {r.name} ({r.dialCode})
-                    </option>
+                    <option key={r.code} value={r.code}>{r.name} ({r.dialCode})</option>
                   ))}
                 </select>
               </div>
 
-              {/* Cellphone Input with Dial Code Badge */}
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)' }}>
-                  Cellphone Number
+                  {t('common.auth.labelPhone', 'Cellphone Number')}
                 </label>
                 <div style={{ display: 'flex', gap: '6px' }}>
-                  <div
-                    style={{
-                      padding: '9px 14px',
-                      backgroundColor: 'var(--mukuru-orange)',
-                      border: '1px solid var(--mukuru-orange)',
-                      borderRadius: 'var(--radius-md)',
-                      fontSize: '0.875rem',
-                      fontWeight: '800',
-                      color: '#FFFFFF',
-                      display: 'flex',
-                      alignItems: 'center',
-                      boxShadow: 'var(--shadow-sm)',
-                    }}
-                  >
+                  <div style={{ padding: '9px 14px', backgroundColor: 'var(--mukuru-orange)', border: '1px solid var(--mukuru-orange)', borderRadius: 'var(--radius-md)', fontSize: '0.875rem', fontWeight: '800', color: '#FFFFFF', display: 'flex', alignItems: 'center', boxShadow: 'var(--shadow-sm)' }}>
                     {currentRegionObj.dialCode}
                   </div>
                   <input
@@ -435,14 +376,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
                     placeholder="82 123 4567"
                     value={signUpPhone}
                     onChange={(e) => setSignUpPhone(e.target.value)}
-                    style={{
-                      flex: 1,
-                      padding: '9px 12px',
-                      borderRadius: 'var(--radius-md)',
-                      border: '1px solid var(--color-border)',
-                      fontSize: '0.85rem',
-                      outline: 'none',
-                    }}
+                    style={{ flex: 1, padding: '9px 12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)', fontSize: '0.85rem', outline: 'none' }}
                   />
                 </div>
               </div>
@@ -450,54 +384,39 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)' }}>
-                    Password
+                    {t('common.auth.labelPassword', 'Password')}
                   </label>
                   <input
                     type="password"
                     required
-                    placeholder="Password"
+                    placeholder={t('common.auth.labelPassword', 'Password')}
                     value={signUpPass}
                     onChange={(e) => setSignUpPass(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '9px 12px',
-                      borderRadius: 'var(--radius-md)',
-                      border: '1px solid var(--color-border)',
-                      fontSize: '0.85rem',
-                      outline: 'none',
-                    }}
+                    style={{ width: '100%', padding: '9px 12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)', fontSize: '0.85rem', outline: 'none' }}
                   />
                 </div>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)' }}>
-                    Confirm Password
+                    {t('common.auth.labelConfirmPassword', 'Confirm Password')}
                   </label>
                   <input
                     type="password"
                     required
-                    placeholder="Confirm"
+                    placeholder={t('common.auth.placeholderConfirm', 'Confirm')}
                     value={signUpConfirmPass}
                     onChange={(e) => setSignUpConfirmPass(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '9px 12px',
-                      borderRadius: 'var(--radius-md)',
-                      border: '1px solid var(--color-border)',
-                      fontSize: '0.85rem',
-                      outline: 'none',
-                    }}
+                    style={{ width: '100%', padding: '9px 12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)', fontSize: '0.85rem', outline: 'none' }}
                   />
                 </div>
               </div>
 
-              {/* Referral Code (Optional) */}
               <div>
                 <label style={{ fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Gift size={14} color="var(--mukuru-orange)" /> Referral Code (Optional)
+                    <Gift size={14} color="var(--mukuru-orange)" /> {t('common.auth.labelReferral', 'Referral Code (Optional)')}
                   </span>
                   <span style={{ fontSize: '0.7rem', color: 'var(--mukuru-orange)', backgroundColor: 'var(--mukuru-orange-subtle)', padding: '2px 6px', borderRadius: '4px', fontWeight: '800' }}>
-                    Get R50 Bonus!
+                    {t('common.auth.referralBonus', 'Get R50 Bonus!')}
                   </span>
                 </label>
                 <input
@@ -505,23 +424,12 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
                   placeholder="e.g. MUKURU-FRIEND"
                   value={signUpReferralCode}
                   onChange={(e) => setSignUpReferralCode(e.target.value.toUpperCase())}
-                  style={{
-                    width: '100%',
-                    padding: '9px 12px',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px dashed var(--mukuru-orange-border)',
-                    fontSize: '0.85rem',
-                    backgroundColor: 'var(--mukuru-orange-subtle)',
-                    color: 'var(--mukuru-dark)',
-                    fontWeight: '700',
-                    outline: 'none',
-                    letterSpacing: '0.05em',
-                  }}
+                  style={{ width: '100%', padding: '9px 12px', borderRadius: 'var(--radius-md)', border: '1px dashed var(--mukuru-orange-border)', fontSize: '0.85rem', backgroundColor: 'var(--mukuru-orange-subtle)', color: 'var(--mukuru-dark)', fontWeight: '700', outline: 'none', letterSpacing: '0.05em' }}
                 />
               </div>
 
               <Button type="submit" variant="primary" size="lg" fullWidth icon={<ShieldCheck size={18} />}>
-                Create Mukuru Account
+                {t('common.auth.buttonCreate', 'Create Mukuru Account')}
               </Button>
             </form>
           )}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../../context/UserContext';
+import { useLanguage } from '../../i18n';
 import Card from '../../components/Card';
 import Button from '../../components/Button';
 import {
@@ -23,6 +24,7 @@ import ProjectQrCodeModal from '../../components/ProjectQrCodeModal';
 
 export default function ReferralPage() {
   const { user } = useUser();
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [sessionToken, setSessionToken] = useState(() => Date.now().toString(36));
@@ -31,17 +33,14 @@ export default function ReferralPage() {
   const userName = user?.name || 'Saver';
   const referralCode = user?.referralCode || `MUKURU-${userName.toUpperCase()}-2026`;
 
-  // Dynamically generated invitation link based on session state & user account
   const dynamicReferralLink = `https://mukuru-moneycoach.app/invite?code=${referralCode}&t=${sessionToken}`;
 
-  // Automatically refresh dynamic session link when page mounts or on refresh button
   const handleRefreshLink = () => {
     setSessionToken(Date.now().toString(36));
   };
 
-  const shareText = `Join me on Mukuru Money Coach to track spending, protect remittances & reach your savings goals! Use my code: ${referralCode} to get a R50 bonus: ${dynamicReferralLink}`;
+  const shareText = t('common.referral.shareText', { code: referralCode, link: dynamicReferralLink });
 
-  // Social Share URLs
   const socialShares = [
     {
       name: 'WhatsApp',
@@ -51,7 +50,7 @@ export default function ReferralPage() {
       url: `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`,
     },
     {
-      name: 'SMS Text',
+      name: 'SMS',
       icon: MessageSquare,
       color: '#0284C7',
       bgColor: '#E0F2FE',
@@ -83,7 +82,7 @@ export default function ReferralPage() {
       icon: Mail,
       color: '#EA4335',
       bgColor: '#FCE8E6',
-      url: `mailto:?subject=${encodeURIComponent('Join Mukuru Money Coach & Get R50 Bonus')}&body=${encodeURIComponent(shareText)}`,
+      url: `mailto:?subject=${encodeURIComponent(t('common.referral.emailSubject', 'Join Mukuru Money Coach & Get R50 Bonus'))}&body=${encodeURIComponent(shareText)}`,
     },
   ];
 
@@ -105,6 +104,7 @@ export default function ReferralPage() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }} className="animate-fade-in">
+
       {/* Header Banner */}
       <div
         style={{
@@ -132,10 +132,10 @@ export default function ReferralPage() {
           </div>
           <div>
             <h2 style={{ fontSize: '1.25rem', fontWeight: '800', color: '#FFFFFF' }}>
-              Referral Rewards Program
+              {t('common.referral.pageTitle', 'Referral Rewards Program')}
             </h2>
             <p style={{ fontSize: '0.8rem', color: '#94A3B8' }}>
-              Earn R50 for every friend who joins Mukuru Money Coach
+              {t('common.referral.pageSubtitle', 'Earn R50 for every friend who joins Mukuru Money Coach')}
             </p>
           </div>
         </div>
@@ -143,15 +143,19 @@ export default function ReferralPage() {
         {/* Stats Summary Row */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '14px' }}>
           <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.08)', padding: '10px', borderRadius: 'var(--radius-md)' }}>
-            <div style={{ fontSize: '0.725rem', color: '#94A3B8', fontWeight: '600' }}>Active Bonus Balance</div>
+            <div style={{ fontSize: '0.725rem', color: '#94A3B8', fontWeight: '600' }}>
+              {t('common.referral.activeBonusBalance', 'Active Bonus Balance')}
+            </div>
             <div style={{ fontSize: '1.2rem', fontWeight: '800', color: '#34D399', marginTop: '2px' }}>
               R{user?.bonusBalance || 50}
             </div>
           </div>
           <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.08)', padding: '10px', borderRadius: 'var(--radius-md)' }}>
-            <div style={{ fontSize: '0.725rem', color: '#94A3B8', fontWeight: '600' }}>Friends Invited</div>
+            <div style={{ fontSize: '0.725rem', color: '#94A3B8', fontWeight: '600' }}>
+              {t('common.referral.friendsInvited', 'Friends Invited')}
+            </div>
             <div style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--mukuru-orange-light)', marginTop: '2px' }}>
-              2 Friends
+              2
             </div>
           </div>
         </div>
@@ -161,11 +165,12 @@ export default function ReferralPage() {
       <Card variant="default">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
           <h4 style={{ fontSize: '0.95rem', fontWeight: '800', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Sparkles size={18} color="var(--mukuru-orange)" /> Your Dynamic Referral Link
+            <Sparkles size={18} color="var(--mukuru-orange)" />
+            {t('common.referral.dynamicLinkTitle', 'Your Dynamic Referral Link')}
           </h4>
           <button
             onClick={handleRefreshLink}
-            title="Refresh dynamic link token"
+            title={t('common.referral.autoRefreshLink', 'Auto-Refresh Link')}
             style={{
               fontSize: '0.75rem',
               color: 'var(--mukuru-orange-dark)',
@@ -178,14 +183,14 @@ export default function ReferralPage() {
               gap: '4px',
             }}
           >
-            <RefreshCw size={14} /> Auto-Refresh Link
+            <RefreshCw size={14} /> {t('common.referral.autoRefreshLink', 'Auto-Refresh Link')}
           </button>
         </div>
 
         {/* Code Box */}
         <div style={{ marginBottom: '12px' }}>
           <label style={{ fontSize: '0.78rem', fontWeight: '700', color: 'var(--color-text-secondary)', display: 'block', marginBottom: '4px' }}>
-            Personal Referral Code
+            {t('common.referral.personalCodeLabel', 'Personal Referral Code')}
           </label>
           <div style={{ display: 'flex', gap: '8px' }}>
             <div
@@ -210,7 +215,7 @@ export default function ReferralPage() {
               icon={copied ? <Check size={16} /> : <Copy size={16} />}
               style={{ backgroundColor: copied ? '#10B981' : 'var(--mukuru-orange)', color: '#FFFFFF' }}
             >
-              {copied ? 'Copied!' : 'Copy Code'}
+              {copied ? t('common.actions.copied', 'Copied!') : t('common.actions.copyCode', 'Copy Code')}
             </Button>
           </div>
         </div>
@@ -218,7 +223,7 @@ export default function ReferralPage() {
         {/* Link Box */}
         <div>
           <label style={{ fontSize: '0.78rem', fontWeight: '700', color: 'var(--color-text-secondary)', display: 'block', marginBottom: '4px' }}>
-            Shareable Web Link
+            {t('common.referral.shareableLinkLabel', 'Shareable Web Link')}
           </label>
           <div style={{ display: 'flex', gap: '8px' }}>
             <input
@@ -241,7 +246,7 @@ export default function ReferralPage() {
               onClick={handleCopyLink}
               icon={copiedLink ? <Check size={16} /> : <Copy size={16} />}
             >
-              {copiedLink ? 'Copied!' : 'Copy Link'}
+              {copiedLink ? t('common.actions.copied', 'Copied!') : t('common.actions.copyLink', 'Copy Link')}
             </Button>
           </div>
         </div>
@@ -250,7 +255,8 @@ export default function ReferralPage() {
       {/* Share on Social Platforms */}
       <Card variant="default">
         <h4 style={{ fontSize: '0.95rem', fontWeight: '800', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Share2 size={18} color="var(--mukuru-orange)" /> Share via Social Media & Messaging
+          <Share2 size={18} color="var(--mukuru-orange)" />
+          {t('common.referral.shareTitle', 'Share via Social Media & Messaging')}
         </h4>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
@@ -309,45 +315,44 @@ export default function ReferralPage() {
       {/* How it Works Guide */}
       <Card variant="default">
         <h4 style={{ fontSize: '0.95rem', fontWeight: '800', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Users size={18} color="var(--mukuru-orange)" /> How Mukuru Referral Works
+          <Users size={18} color="var(--mukuru-orange)" />
+          {t('common.referral.howItWorksTitle', 'How Mukuru Referral Works')}
         </h4>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-            <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'var(--mukuru-orange-subtle)', color: 'var(--mukuru-orange)', fontWeight: '800', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyCenter: 'center', flexShrink: 0 }}>
-              1
-            </div>
-            <div>
-              <div style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--color-text-primary)' }}>Send Your Unique Link</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
-                Share your dynamic referral link with friends via WhatsApp, SMS, or Social Media.
+          {[
+            { num: '1', title: t('common.referral.step1Title', 'Send Your Unique Link'),    desc: t('common.referral.step1Desc', 'Share your dynamic referral link with friends via WhatsApp, SMS, or Social Media.') },
+            { num: '2', title: t('common.referral.step2Title', 'Friend Signs Up'),          desc: t('common.referral.step2Desc', 'Your friend registers a new account using your referral code.') },
+            { num: '3', title: t('common.referral.step3Title', 'Get R50 Reward Each'),      desc: t('common.referral.step3Desc', 'Both you and your friend receive a R50 bonus credited straight to your safe-to-save buffer!') },
+          ].map((step) => (
+            <div key={step.num} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+              <div
+                style={{
+                  width: '28px',
+                  height: '28px',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--mukuru-orange-subtle)',
+                  color: 'var(--mukuru-orange)',
+                  fontWeight: '800',
+                  fontSize: '0.85rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}
+              >
+                {step.num}
+              </div>
+              <div>
+                <div style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--color-text-primary)' }}>
+                  {step.title}
+                </div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
+                  {step.desc}
+                </div>
               </div>
             </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-            <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'var(--mukuru-orange-subtle)', color: 'var(--mukuru-orange)', fontWeight: '800', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyCenter: 'center', flexShrink: 0 }}>
-              2
-            </div>
-            <div>
-              <div style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--color-text-primary)' }}>Friend Signs Up</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
-                Your friend registers a new account using your referral code.
-              </div>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-            <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'var(--mukuru-orange-subtle)', color: 'var(--mukuru-orange)', fontWeight: '800', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyCenter: 'center', flexShrink: 0 }}>
-              3
-            </div>
-            <div>
-              <div style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--color-text-primary)' }}>Get R50 Reward Each</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
-                Both you and your friend receive a R50 bonus credited straight to your safe-to-save buffer!
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </Card>
 

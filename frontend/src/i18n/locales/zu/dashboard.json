@@ -1,20 +1,44 @@
 {
   "welcomeTitle": "Sawubona, {{name}}",
   "welcomeSubtitle": "Nasi isifinyezo sakho semali se-Mukuru sanamuhla.",
+  "loadingMessage": "Iyalayisha iDashboard ka-{{name}} ye-Mukuru...",
+  "errorTitle": "IDashboard Ayitholakali",
   "summary": {
     "title": "Isifinyezo Senyanga",
     "income": "Imiholo Yenyanga",
     "commitments": "Izibopho Zamalanga",
     "safeToSave": "Ukonga Okuphephile",
-    "remaining": "Imali Esela"
+    "remaining": "Imali Esela",
+    "commitmentsSub": "Umndeni Nezindleko",
+    "suggestedLabel": "Okuphakanyisiwe (R{{amount}} iyatholakala)",
+    "commitmentsBar": "Izibopho ({{pct}}%)",
+    "safeToSaveBar": "Ukonga Okuphephile R{{amount}}",
+    "timeframes": {
+      "oct": "Okt",
+      "sep": "Sep",
+      "avg": "Avg",
+      "octFull": "Okthoba 2026",
+      "sepFull": "Septhemba 2026",
+      "avgFull": "Phakathi Kwezinyanga Ezi-3"
+    }
   },
   "currentGoal": {
     "title": "Inhloso Yokonga Eyingxenye",
+    "activeLabel": "Inhloso Esebenzayo",
+    "completedLabel": "Inhloso Efinyelelelwe",
     "saved": "Okugcinwe kuze kube manje",
     "target": "Inhloso Imali",
     "remaining": "kushoda ukufinyelela inhloso",
     "progress": "Inqubekelaphambili",
-    "targetDate": "Usuku Lwenhloso"
+    "targetDate": "Usuku Lwenhloso",
+    "complete": "Inhloso Iyafinyelelwa!",
+    "celebrateButton": "Gujwa!"
+  },
+  "referral": {
+    "title": "Mema Abangani & Thola i-R50",
+    "bonusActive": "+R{{amount}} Ibhonasi Iyasebenza",
+    "description": "Abelana ngekhodi yakho eyingqayizivele nomndeni nabangani. Uma bebhalisa, nithola ibhonasi yokonga ye-R50!",
+    "socialsButton": "Izinkundla"
   },
   "coachTip": {
     "title": "Zano Le-AI Lokonga Imali",
@@ -33,7 +57,8 @@
     "badge": "ISEXWAYISO SOKONGA",
     "item": "Isaphulelo Se-Mealie Meal eShoprite",
     "content": "Impuphu ine-saphulelo se-12% eShoprite kule wiki! Wonga i-R25 ku-10kg.",
-    "action": "Buka Izintengo"
+    "action": "Buka Izintengo",
+    "discountFallback": "12% ISAPHULELO"
   },
   "notifications": {
     "n1_title": "Ukonga Kwakuyisiqalo",

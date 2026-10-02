@@ -20,6 +20,7 @@ import { Gift, Copy, Check, Share2 } from 'lucide-react';
  */
 function ReferralCard({ user }) {
   const [copied, setCopied] = useState(false);
+  const { t } = useLanguage();
   const referralCode = user?.referralCode || `MUKURU-${(user?.name || 'SAVER').toUpperCase()}-2026`;
 
   const handleCopy = () => {
@@ -52,18 +53,18 @@ function ReferralCard({ user }) {
             <Gift size={14} />
           </span>
           <h4 style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--color-text-primary)' }}>
-            Invite Friends & Earn R50
+            {t('dashboard.referral.title', 'Invite Friends & Earn R50')}
           </h4>
         </div>
         {user?.bonusBalance > 0 && (
           <span style={{ fontSize: '0.7rem', color: '#065F46', backgroundColor: '#D1FAE5', padding: '2px 6px', borderRadius: '4px', fontWeight: '800' }}>
-            +R{user.bonusBalance} Bonus Active
+            {t('dashboard.referral.bonusActive', { amount: user.bonusBalance })}
           </span>
         )}
       </div>
 
       <p style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '10px', lineHeight: '1.4' }}>
-        Share your unique code with family & friends. When they register, you both get a <strong>R50 savings reward</strong>!
+        {t('dashboard.referral.description', 'Share your unique code with family & friends. When they register, you both get a R50 savings reward!')}
       </p>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -90,7 +91,7 @@ function ReferralCard({ user }) {
           icon={copied ? <Check size={14} /> : <Copy size={14} />}
           style={{ backgroundColor: copied ? '#10B981' : 'var(--mukuru-orange)', color: '#FFFFFF' }}
         >
-          {copied ? 'Copied!' : 'Copy'}
+          {copied ? t('common.actions.copied', 'Copied!') : t('common.actions.copy', 'Copy')}
         </Button>
         <Link to="/referral">
           <Button
@@ -98,7 +99,7 @@ function ReferralCard({ user }) {
             size="sm"
             icon={<Share2 size={14} />}
           >
-            Socials
+            {t('dashboard.referral.socialsButton', 'Socials')}
           </Button>
         </Link>
       </div>
@@ -161,7 +162,7 @@ export default function DashboardPage() {
       {/* Subheader Greeting */}
       <div>
         <h2 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--color-text-primary)' }}>
-          {t('dashboard.welcomeTitle', `Good morning, ${userName}`).replace('{{name}}', userName)}
+          {t('dashboard.welcomeTitle', { name: userName })}
         </h2>
         <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
           {t('dashboard.welcomeSubtitle', 'Here is your Mukuru money summary for today.')}

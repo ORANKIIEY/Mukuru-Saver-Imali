@@ -1,29 +1,122 @@
 {
   "appName": "Mukuru Money Coach",
+  "brandSub": "Murairidzi WeMari",
   "tagline": "Imali Yakho / Mari Yako",
+  "accountProfile": "Profile YeAkaunti",
   "nav": {
+    "label": "Kutungamirira",
     "home": "Musha",
     "goals": "Zvinangwa",
     "coach": "Murairidzi",
+    "referral": "Kutumira Shamwari",
     "more": "Zvimwe"
+  },
+  "hero": {
+    "headline": "Rora → Chengetedza → Tambanudzira → Kukura",
+    "subtitle": "Teverera kushandiswa kwemari, uchengete kutumira kwemhuri, usvike pazvinangwa zvako zvemari nemurairidzi wako wemari we-AI."
+  },
+  "welcome": {
+    "title": "Mauya ku-Mukuru",
+    "guestSubtitle": "Gadzira akaunti yakachengeteka kuchengetedza pazvinangwa zvako",
+    "signedInAs": "Wapinda se-{{identifier}}",
+    "trustBadge": "Kutumira kwemhuri kwakachengetedzwa sezvisungo zvinobvumirwa"
   },
   "language": {
     "en": "English",
     "zu": "isiZulu",
     "sn": "chiShona",
-    "switch": "Mutauro"
+    "switch": "Mutauro",
+    "enLabel": "English (EN)",
+    "zuLabel": "isiZulu (ZU)",
+    "snLabel": "chiShona (SN)"
   },
   "mockMode": {
     "active": "Imodi Yemuyedzo",
     "live": "Inethiweki Yechokwadi",
-    "toggle": "Shandura Data Mode"
+    "toggle": "Shandura Data Mode",
+    "localEngine": "Injini Yedemo Yepasi",
+    "liveBackend": "API Yechokwadi",
+    "currentlyUsing": "Parizvino ichishandisa: {{mode}}",
+    "switchTo": "Shandukira ku-{{target}}"
   },
   "actions": {
     "continueAsGrace": "Enderera mberi saGrace",
+    "continueDashboard": "Enderera kuDashboard ({{name}})",
+    "tryDemo": "Edza Mushandirapamwe weDemo (Grace Moyo)",
     "viewDetails": "Wona Zvizere",
     "askCoach": "Bvunza Murairidzi WeMari",
     "takeAction": "Tora Nhanho",
-    "retry": "Edza Zvewve"
+    "retry": "Edza Zvewve",
+    "signIn": "Pinda",
+    "signUp": "Nyoresa",
+    "signOut": "Buda",
+    "copy": "Copia",
+    "copied": "Yakacopyiwa!",
+    "copyCode": "Copia Kodhi",
+    "copyLink": "Copia Musungo"
   },
-  "greeting": "Mangwanani"
+  "notifications": {
+    "title": "Zviziviso"
+  },
+  "time": {
+    "justNow": "Zvino zvino",
+    "hourAgo": "Awa rapfuura",
+    "today": "Nhasi"
+  },
+  "footer": {
+    "credit": "Mukuru Money Coach • SheHacks",
+    "description": "Kusimbisa vatengi vari kushanduka nekurongedza mabhadharo, kurudziro yekuchengetedza, kutevera zvinangwa, uye kudzidziswa kwe-AI."
+  },
+  "referral": {
+    "pageTitle": "Chirongwa Chemibairo Yekutumira Shamwari",
+    "pageSubtitle": "Wana R50 pashamwari yega yega inojoinira Mukuru Money Coach",
+    "activeBonusBalance": "Bhonasi Inoshanda Izvozvi",
+    "friendsInvited": "Shamwari Dzakakokwa",
+    "dynamicLinkTitle": "Musungo Wako Wekutumira Shamwari",
+    "autoRefreshLink": "Vandudza Musungo Otomatiki",
+    "personalCodeLabel": "Kodhi Yako Yekutumira Shamwari",
+    "shareableLinkLabel": "Musungo Unogoverwa",
+    "shareTitle": "Govera Kuburikidza neSocial Media neZvimwe",
+    "howItWorksTitle": "Maitiro eMukuru Referral",
+    "step1Title": "Tumira Musungo Wako Wakasiyana",
+    "step1Desc": "Govera musungo wako wekutumira shamwari neWhatsApp, SMS, kana Social Media.",
+    "step2Title": "Shamwari Inyoresa",
+    "step2Desc": "Shamwari yako inyoresa akaunti itsva ichishandisa kodhi yako yekutumira shamwari.",
+    "step3Title": "Wana R50 Mumwe nemumwe",
+    "step3Desc": "Iwe neshamwari yako mese munowana bhonasi yeR50 inoiswa mu safe-to-save buffer yako!",
+    "emailSubject": "Joina Mukuru Money Coach & Wana R50 Bhonasi",
+    "shareText": "Joina neni pa-Mukuru Money Coach kutevera kushandiswa kwemari, uchengete kutumira uye usvike pazvinangwa zvako zvekuchengetedza! Shandisa kodhi yangu: {{code}} kuwana bhonasi yeR50: {{link}}"
+  },
+  "a11y": {
+    "userMenu": "Menyu YeAkaunti YeMushandisi",
+    "closeProfile": "Vhara Menyu Yeprofile",
+    "toggleNotifications": "Shandura Zviziviso",
+    "closeNotifications": "Vhara Zviziviso"
+  },
+  "auth": {
+    "signInSubtitle": "Pinda kuti uwane murairidzi wemari nezvinangwa zvako",
+    "signUpSubtitle": "Gadzira akaunti yakachengeteka kuti utange kuchengetedza",
+    "tabSignIn": "Pinda",
+    "tabSignUp": "Nyoresa",
+    "labelEmail": "Imeyiri kana Nhamba Yefoni",
+    "placeholderEmail": "semuenzaniso. grace.moyo@mukuru.com kana 0821234567",
+    "labelPassword": "Pasiwedhi",
+    "placeholderPassword": "Isa pasiwedhi yako",
+    "buttonSignIn": "Pinda ku-Mukuru",
+    "labelFirstName": "Zita Rekutanga",
+    "labelSurname": "Zita reMhuri",
+    "labelEmailAddress": "Kero Yemeyiri",
+    "labelRegion": "Sarudza Nzvimbo / Nyika",
+    "labelPhone": "Nhamba Yefoni",
+    "labelConfirmPassword": "Simbisa Pasiwedhi",
+    "placeholderConfirm": "Simbisa",
+    "labelReferral": "Kodhi Yekutumira Shamwari (Sarudzo)",
+    "referralBonus": "Wana R50 Bhonasi!",
+    "buttonCreate": "Gadzira Akaunti ye-Mukuru",
+    "successSignIn": "Wapinda zvakanaka! Irikukutumira...",
+    "successSignUp": "Akaunti yakagadzirwa zvakanaka! Mauya ku-Mukuru Money Coach.",
+    "errorSignIn": "Kupinda kwakutadza.",
+    "errorSignUp": "Kugadzira akaunti kwakutadza.",
+    "closeModal": "Vhara Fomu Rekupinda"
+  }
 }

@@ -34,7 +34,9 @@
     "targetDate": "Target date",
     "weekly": "Save each week",
     "milestone": "{{level}}%",
-    "seeCelebration": "See your celebration"
+    "seeCelebration": "See your celebration",
+    "sprintActive": "Sprint Active",
+    "sprintFinal": "Sprint Final Step!"
   },
   "creator": {
     "stepOf": "Step {{current}} of {{total}}",
@@ -52,6 +54,29 @@
       "confirm": "Create goal",
       "saveError": "We could not save your goal. Check your connection and try again."
     }
+  },
+  "sprint": {
+    "title": "Goal Sprint Minigame",
+    "subtitle": "Interactive daily boost & auto-saver rules",
+    "closeToGoal": "CLOSE TO GOAL!",
+    "xpLabel": "{{xp}} XP",
+    "level": "Sprint Saver Level 2",
+    "remaining": "remaining",
+    "saved": "Saved:",
+    "target": "Target:",
+    "complete": "{{pct}}% complete",
+    "boosters": "Quick Goal Boosters",
+    "boostRoundUp": "Round-Up",
+    "boostCoffee": "Skip Coffee",
+    "boostFriday": "Friday Lock",
+    "automations": "Smart Auto-Saver Rules",
+    "testRun": "Test Rule Run",
+    "rule1": "Auto-Lock R20 every Friday",
+    "rule2": "Grocery Purchase Spare Change Round-Up",
+    "rule3": "Auto-Deposit R50 when goal hits 80%",
+    "toastFriday": "⚡ Automation Triggered: R20 Friday Auto-Lock deposited into goal!",
+    "toastGrocery": "⚡ Automation Triggered: R12 Grocery Spare Change deposited!",
+    "toastDefault": "⚡ Automations checked: All savings rules up to date."
   },
   "celebrate": {
     "title": "{{name}} is yours!",

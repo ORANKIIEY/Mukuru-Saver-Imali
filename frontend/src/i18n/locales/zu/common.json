@@ -1,28 +1,122 @@
 {
   "appName": "Mukuru Money Coach",
+  "brandSub": "Umqeqeshi Wemali",
   "tagline": "Imali Yakho",
+  "accountProfile": "Iphrofayili Ye-Akhawunti",
   "nav": {
+    "label": "Ukuzulazula",
     "home": "Ekhaya",
     "goals": "Izinhloso",
     "coach": "Umeluleki",
+    "referral": "Ukwabelana",
     "more": "Okuningi"
+  },
+  "hero": {
+    "headline": "Phupha → Gcina → Nweba → Khula",
+    "subtitle": "Landelela izindleko, vikelela ukuthumela imali kwamalungu omndeni, futhi ufinyelele izinhloso zakho zemali noMeluleki Wakho Wezimali we-AI."
+  },
+  "welcome": {
+    "title": "Wamukelekile ku-Mukuru",
+    "guestSubtitle": "Dala i-akhawunti ephephile ukuze ulondoloze izinhloso zakho",
+    "signedInAs": "Ungene njengo-{{identifier}}",
+    "trustBadge": "Ukuthumela imali kwamalungu omndeni kuKuVikelwa njengezibopho ezivumelekile"
   },
   "language": {
     "en": "English",
     "zu": "isiZulu",
-    "switch": "Ulimi"
+    "sn": "chiShona",
+    "switch": "Ulimi",
+    "enLabel": "English (EN)",
+    "zuLabel": "isiZulu (ZU)",
+    "snLabel": "chiShona (SN)"
   },
   "mockMode": {
     "active": "Imodi Yokuhlola",
     "live": "Inethiwekhi Yoqobo",
-    "toggle": "Shintsha Imikhiqizo"
+    "toggle": "Shintsha Imikhiqizo",
+    "localEngine": "Injini Yedemo Yendawo",
+    "liveBackend": "I-API Yoqobo",
+    "currentlyUsing": "Manje isebenzisa: {{mode}}",
+    "switchTo": "Shintsha ku-{{target}}"
   },
   "actions": {
     "continueAsGrace": "Qhubeka njengo-Grace",
+    "continueDashboard": "Qhubeka kuDashboard ({{name}})",
+    "tryDemo": "Zama Isesheni Yedemo (Grace Moyo)",
     "viewDetails": "Buka Imininingwane",
     "askCoach": "Buza Umeluleki",
     "takeAction": "Thatha Isinyathelo",
-    "retry": "Zama Futhi"
+    "retry": "Zama Futhi",
+    "signIn": "Ngena",
+    "signUp": "Bhalisa",
+    "signOut": "Phuma",
+    "copy": "Kopisha",
+    "copied": "Kukopishiwe!",
+    "copyCode": "Kopisha Ikhodi",
+    "copyLink": "Kopisha Isixhumanisi"
   },
-  "greeting": "Sawubona"
+  "notifications": {
+    "title": "Izaziso"
+  },
+  "time": {
+    "justNow": "Manje nje",
+    "hourAgo": "Ihora eledlule",
+    "today": "Namuhla"
+  },
+  "footer": {
+    "credit": "Mukuru Money Coach • SheHacks",
+    "description": "Unika amandla abathengi abashintsha ngokulawulwa kwamalengiso, isiqondiso sokonga, ukuphatha izinhloso, kanye nokuqeqeshwa kwe-AI."
+  },
+  "referral": {
+    "pageTitle": "Uhlelo Lwemiklomelo Yokwabelana",
+    "pageSubtitle": "Thola i-R50 ngomngane ngamunye ojoyina u-Mukuru Money Coach",
+    "activeBonusBalance": "Ibhalansi Ye-Bhonasi Eyamukelekile",
+    "friendsInvited": "Abangani Baabiziwe",
+    "dynamicLinkTitle": "Isixhumanisi Sakho Sokwabelana Esinzuzo",
+    "autoRefreshLink": "Vuselela Isixhumanisi Ngokuzenzakalelayo",
+    "personalCodeLabel": "Ikhodi Yakho Yokwabelana",
+    "shareableLinkLabel": "Isixhumanisi Esabelwana Nabanye",
+    "shareTitle": "Abelana Nge-Social Media Nezithume",
+    "howItWorksTitle": "Ukusebenza Kwenkambiso Yokwabelana ye-Mukuru",
+    "step1Title": "Thumela Isixhumanisi Sakho Esiyingqayizivele",
+    "step1Desc": "Abelana isixhumanisi sakho sokwabelana nabangani nge-WhatsApp, SMS, noma i-Social Media.",
+    "step2Title": "Umngane Ubhalisa",
+    "step2Desc": "Umngani wakho ubhalisa i-akhawunti entsha esebenzisa ikhodi yakho yokwabelana.",
+    "step3Title": "Thola i-R50 Ngekheli",
+    "step3Desc": "Wena nomngani wakho nithola ibhonasi ye-R50 efakwa ku-safe-to-save buffer yakho!",
+    "emailSubject": "Joyina u-Mukuru Money Coach & Thola i-R50 Ibhonasi",
+    "shareText": "Joyina mina ku-Mukuru Money Coach ukuze ulandelele izindleko, uvikele ukuthumela imali & ufinyelele izinhloso zakho zokonga! Sebenzisa ikhodi yami: {{code}} ukuze uthole ibhonasi ye-R50: {{link}}"
+  },
+  "a11y": {
+    "userMenu": "Imenyu Ye-Akhawunti Yomsebenzisi",
+    "closeProfile": "Vala Imenyu Yephrofayili",
+    "toggleNotifications": "Phendula Izaziso Zohlelo",
+    "closeNotifications": "Vala Izaziso"
+  },
+  "auth": {
+    "signInSubtitle": "Ngena ukuze uthole umeluleki wemali nezinhloso zakho",
+    "signUpSubtitle": "Dala i-akhawunti ephephile ukuze uqale ukulondoloza",
+    "tabSignIn": "Ngena",
+    "tabSignUp": "Bhalisa",
+    "labelEmail": "I-imeyili noma Inombolo Yocingo",
+    "placeholderEmail": "isib. grace.moyo@mukuru.com noma 0821234567",
+    "labelPassword": "Iphasiwedi",
+    "placeholderPassword": "Faka iphasiwedi yakho",
+    "buttonSignIn": "Ngena ku-Mukuru",
+    "labelFirstName": "Igama Lokuqala",
+    "labelSurname": "Isibongo",
+    "labelEmailAddress": "Ikheli Le-imeyili",
+    "labelRegion": "Khetha Isifunda / Izwe",
+    "labelPhone": "Inombolo Yocingo",
+    "labelConfirmPassword": "Qinisekisa Iphasiwedi",
+    "placeholderConfirm": "Qinisekisa",
+    "labelReferral": "Ikhodi Yokwabelana (Akhona)",
+    "referralBonus": "Thola i-R50 Ibhonasi!",
+    "buttonCreate": "Dala I-Akhawunti ye-Mukuru",
+    "successSignIn": "Ungene ngempumelelo! Iyakujikisa...",
+    "successSignUp": "I-akhawunti idalwe ngempumelelo! Wamukelekile ku-Mukuru Money Coach.",
+    "errorSignIn": "Ukungena kuhlulekile.",
+    "errorSignUp": "Ukudala i-akhawunti kuhlulekile.",
+    "closeModal": "Vala Ifasitelana Lokufaka Imininingwane"
+  }
 }
