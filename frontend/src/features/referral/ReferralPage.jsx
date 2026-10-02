@@ -17,13 +17,16 @@ import {
   Users,
   Award,
   Sparkles,
+  QrCode,
 } from 'lucide-react';
+import ProjectQrCodeModal from '../../components/ProjectQrCodeModal';
 
 export default function ReferralPage() {
   const { user } = useUser();
   const [copied, setCopied] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [sessionToken, setSessionToken] = useState(() => Date.now().toString(36));
+  const [showQrModal, setShowQrModal] = useState(false);
 
   const userName = user?.name || 'Saver';
   const referralCode = user?.referralCode || `MUKURU-${userName.toUpperCase()}-2026`;
@@ -281,6 +284,28 @@ export default function ReferralPage() {
         </div>
       </Card>
 
+      {/* Instant Mobile QR Code Card */}
+      <Card variant="default" style={{ background: 'linear-gradient(135deg, #FFF5F0 0%, #FFFFFF 100%)', border: '1.5px solid var(--mukuru-orange-border)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ width: '42px', height: '42px', borderRadius: '10px', backgroundColor: 'var(--mukuru-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}>
+              <QrCode size={24} />
+            </div>
+            <div>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: '800', color: 'var(--color-text-primary)' }}>
+                Mobile Scan QR Code
+              </h4>
+              <p style={{ fontSize: '0.78rem', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
+                Display or download project QR code for instant mobile camera scanning
+              </p>
+            </div>
+          </div>
+          <Button variant="primary" size="sm" onClick={() => setShowQrModal(true)} icon={<QrCode size={16} />}>
+            Show QR Code
+          </Button>
+        </div>
+      </Card>
+
       {/* How it Works Guide */}
       <Card variant="default">
         <h4 style={{ fontSize: '0.95rem', fontWeight: '800', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -325,6 +350,9 @@ export default function ReferralPage() {
           </div>
         </div>
       </Card>
+
+      {/* Project QR Code Modal */}
+      <ProjectQrCodeModal isOpen={showQrModal} onClose={() => setShowQrModal(false)} />
     </div>
   );
 }
