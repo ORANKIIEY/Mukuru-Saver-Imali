@@ -17,7 +17,7 @@ WORKDIR /app
 COPY money-coach-backend/money-coach-backend/pom.xml ./
 COPY money-coach-backend/money-coach-backend/src ./src
 COPY --from=frontend-build /frontend/dist ./src/main/resources/static
-RUN mvn clean package -DskipTests -Dmaven.test.skip=true
+RUN mvn clean package -DskipTests
 
 # 3. Run Single Unified App Container with RAM limits for Render Free Tier (512MB)
 FROM eclipse-temurin:21-jre-alpine
