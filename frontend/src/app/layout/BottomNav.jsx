@@ -21,12 +21,12 @@ export default function BottomNav() {
 
   return (
     <nav
+      className="bottom-nav"
       style={{
         position: 'sticky',
         bottom: 0,
         backgroundColor: '#FFFFFF',
         borderTop: '1px solid var(--color-border)',
-        display: 'flex',
         justifyContent: 'space-around',
         padding: '8px 0 12px 0',
         zIndex: 100,

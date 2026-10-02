@@ -143,7 +143,7 @@ function MorePage() {
       {/* System Information Card */}
       <Card variant="subtle">
         <h4 style={{ fontSize: '0.875rem', fontWeight: '700', color: 'var(--color-text-secondary)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <ShieldCheck size={16} color="var(--mukuru-orange)" /> Mukuru Money Coach | SheHacks Challenge B
+          <ShieldCheck size={16} color="var(--mukuru-orange)" /> Mukuru Money Coach | SheHacks 
         </h4>
         <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', lineHeight: '1.4' }}>
           Empowering emerging consumers with transaction categorisation, safe-to-save guidance, goal tracking, and AI coaching.

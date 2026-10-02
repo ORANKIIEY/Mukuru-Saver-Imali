@@ -64,7 +64,7 @@ export default function TopBar() {
           boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: '1040px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           {/* Brand & Account Profile Controls */}
           <div style={{ position: 'relative' }}>
             {user ? (

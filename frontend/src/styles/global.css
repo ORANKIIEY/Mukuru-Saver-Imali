@@ -20,13 +20,11 @@ html, body {
 #root {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: #0F172A;
+  background-color: var(--color-bg);
   padding: 0;
 }
 
-/* Responsive App Shell Frame */
+/* Full-width App Shell Frame */
 .app-frame {
   width: 100%;
   min-height: 100vh;
@@ -34,41 +32,87 @@ html, body {
   position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
   overflow-x: hidden;
 }
 
-/* Desktop & Tablet responsive layout enhancements */
-@media (min-width: 768px) {
-  #root {
-    padding: 24px 16px;
+/* App body: sidebar + main content side by side */
+.app-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar Navigation */
+.side-nav {
+  width: 220px;
+  min-height: 100%;
+  background-color: #1E293B;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+  gap: 4px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* Bottom Nav — desktop: hidden, mobile: shown */
+.bottom-nav {
+  display: none;
+}
+
+/* Main content area */
+.app-main {
+  flex: 1;
+  padding: 28px 36px;
+  overflow-y: auto;
+  max-width: 1200px;
+}
+
+/* Responsive 2-column Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.dashboard-col-main,
+.dashboard-col-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .app-main {
+    padding: 20px 24px;
   }
 
-  .app-frame {
-    max-width: 1040px;
-    min-height: calc(100vh - 48px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-  }
-
-  /* Responsive 2-column Dashboard Grid on Desktop */
   .dashboard-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 20px;
-    align-items: start;
-  }
-
-  .dashboard-col-main,
-  .dashboard-col-side {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
 }
 
+/* Mobile breakpoint — collapse sidebar to bottom nav */
 @media (max-width: 767px) {
+  .app-body {
+    flex-direction: column;
+  }
+
+  .side-nav {
+    display: none;
+  }
+
+  .bottom-nav {
+    display: flex;
+  }
+
+  .app-main {
+    padding: 16px;
+  }
+
   .dashboard-grid {
     display: flex;
     flex-direction: column;

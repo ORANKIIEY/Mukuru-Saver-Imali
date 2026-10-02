@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import TopBar from './TopBar';
+import SideNav from './SideNav';
 import BottomNav from './BottomNav';
 
 /**
- * Mobile-First & Desktop App Shell Frame Component
+ * Responsive App Shell — web sidebar on desktop, bottom nav on mobile.
  */
 export default function AppShell({ children }) {
   const location = useLocation();
@@ -13,19 +14,22 @@ export default function AppShell({ children }) {
   return (
     <div className="app-frame">
       {!isWelcomeScreen && <TopBar />}
-      <main
-        style={{
-          flex: 1,
-          padding: isWelcomeScreen ? '0' : '20px 16px',
-          overflowY: 'auto',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '16px',
-        }}
-      >
-        {children}
-      </main>
-      {!isWelcomeScreen && <BottomNav />}
+
+      {isWelcomeScreen ? (
+        <main style={{ flex: 1 }}>
+          {children}
+        </main>
+      ) : (
+        <>
+          <div className="app-body">
+            <SideNav />
+            <main className="app-main">
+              {children}
+            </main>
+          </div>
+          <BottomNav />
+        </>
+      )}
     </div>
   );
 }

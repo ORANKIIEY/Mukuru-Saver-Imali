@@ -249,7 +249,7 @@ export default function WelcomeScreen() {
         </Button>
 
         <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#94A3B8', marginTop: '4px' }}>
-          Mukuru Money Coach • SheHacks Challenge B
+          Mukuru Money Coach • SheHacks
         </p>
       </div>
 
