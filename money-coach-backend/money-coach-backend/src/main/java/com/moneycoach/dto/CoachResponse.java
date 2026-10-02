@@ -1,5 +1,6 @@
 package com.moneycoach.dto;
 
+<<<<<<< Updated upstream
 import java.util.List;
 
 public class CoachResponse {
@@ -35,3 +36,7 @@ public class CoachResponse {
     public boolean isFallback() { return fallback; }
     public void setFallback(boolean fallback) { this.fallback = fallback; }
 }
+=======
+public record CoachResponse(String reply, String language, String source) {
+}
+>>>>>>> Stashed changes
