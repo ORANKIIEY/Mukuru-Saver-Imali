@@ -1,21 +1,120 @@
-# Mukuru Money Coach — SheHacks Challenge B
+# 🌍 Mukuru Money Coach — SheHacks Challenge B
 
-> **One-sentence pitch:** Money Coach helps people supporting family across households understand where their money goes, see how today's decisions affect tomorrow's goals, and get practical next steps in language they understand.
-
----
-
-## 🚀 Frontend Role 4: App Shell & Dashboard
-
-**Frontend Role 4** owns the project setup, mobile-first + desktop responsive frame layout, Mukuru brand design system, navigation bar, primary dashboard screen, multi-language i18n setup (**English**, **isiZulu**, **chiShona**), and shared UI component kit.
+> **Empowering emerging African consumers to track spending, protect family remittances, reach financial goals, and build lasting wealth with AI coaching.**
 
 ---
 
-## 🛠️ Getting Started
+## 📌 Executive Summary
+
+Millions of emerging consumers across Africa rely on **Mukuru** for international money transfers, bill payments, and financial services. Often managing limited incomes, supporting multiple households, and using inexpensive mobile phones with unreliable internet, these consumers need financial tools that are simple, accessible, and culturally relevant.
+
+**Mukuru Money Coach** is a mobile-first, multi-lingual financial platform built for **SheHacks Challenge B**. It features transaction categorisation, safe-to-save guidance, goal tracking, an AI Money Coach, gamified goal sprint boosters, an automated auto-saver engine, a referral rewards program with social sharing, and full localization in **English (EN)**, **isiZulu (ZU)**, and **chiShona (SN)**.
+
+---
+
+## 🌟 Key Features
+
+### 1. 🛡️ Secure Multi-Region Auth & Protected Routes
+- **Multi-Country Support**: Sign Up and Sign In with automatic dial codes for **South Africa (+27)**, **Zimbabwe (+263)**, **Malawi (+265)**, **Mozambique (+258)**, **Zambia (+260)**, **Botswana (+267)**, **Kenya (+254)**, and more.
+- **Session Persistence**: Account credentials securely stored in `localStorage`.
+- **Protected Routes (`ProtectedRoute`)**: Unauthenticated users are automatically redirected to the Welcome screen (`/`) upon sign-out or when attempting to access private dashboard pages.
+
+### 2. 📊 Dynamic Dashboard & Safe-to-Save Buffer
+- **Personalized Experience**: Greets signed-in users by name (*"Good morning, Oratile"*) with their custom financial summary.
+- **Family Commitment Protection**: Automatically categorizes family support remittances as legitimate commitments before calculating the **Safe-to-Save Buffer** (e.g. R500 suggested out of R2,200 available).
+
+### 3. 🎁 Referral Program & Social Share Hub
+- **Dynamic Referral Links**: Generates unique, auto-refreshing referral links (`https://mukuru-moneycoach.app/invite?code=MUKURU-USER-2026`).
+- **One-Click Social Sharing**: Direct sharing to **WhatsApp**, **SMS Text**, **Facebook**, **X (Twitter)**, **Telegram**, and **Email**.
+- **R50 Savings Reward**: Automatic R50 welcome bonus credited when registering with a referral code.
+
+### 4. ⚡ Gamified Goal Sprint & Smart Auto-Saver Engine
+- **Goal Milestone Alerts**: Visual alerts when goals reach >60% progress.
+- **Interactive Quick Boosters**: Earn XP and save towards goals with one-click habits (*+R15 Round-Up*, *+R35 Skip Takeout*, *+R50 Friday Lock*).
+- **Confetti Particle Celebrations**: Visual particle animations upon achieving milestones.
+- **Automated Rules Engine**:
+  - *Friday Auto-Lock*: Automatically locks R20 into goals every Friday.
+  - *Grocery Round-Up*: Rounds up grocery purchases to the nearest R10.
+  - *Sprint Threshold Boost*: Deposits R50 when any goal reaches 80% completion.
+
+### 5. 🤖 AI Money Coach & What-If Simulator
+- **Interactive AI Chat**: Conversational money guidance tailored to emerging consumers.
+- **What-If Scenario Simulator**: Simulates financial outcomes (e.g. *What if I cut takeaway spending by R150/month?*).
+
+### 6. 🛒 Grocery Price Watch & WhatsApp Simulator
+- **Grocery Price Alerts**: Real-time alerts for local staple discounts (e.g. Mealie Meal 12% off at Shoprite).
+- **WhatsApp Interface**: Simulated chat interface mimicking Mukuru's WhatsApp channel.
+
+### 7. 🌍 3-Language Localization (i18n)
+- Instant, real-time language switching across **English (EN)**, **isiZulu (ZU)**, and **chiShona (SN)** with full template interpolation support.
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technologies Used |
+| :--- | :--- |
+| **Frontend Framework** | React 18, Vite |
+| **Routing** | React Router DOM v6 (with `ProtectedRoute` route guards) |
+| **Styling & System** | Vanilla CSS (CSS Modules & Custom Brand Tokens), Mobile-First Flexbox/Grid |
+| **Icons & Media** | Lucide React Vector Icons |
+| **Internationalization** | i18next (EN, ZU, SN) |
+| **Backend Service** | Java 21, Spring Boot, Maven |
+| **Containerization** | Docker, Docker Compose |
+| **API Integration** | REST API client with auto-switchable Live/Mock modes |
+
+---
+
+## 📁 Repository Directory Structure
+
+```
+Mukuru-Saver-Imali/
+├── frontend/                          # React + Vite Frontend Application
+│   ├── index.html                     # Entry HTML template with mobile viewport
+│   ├── package.json                   # Dependencies and scripts
+│   ├── vite.config.js                 # Vite build configuration & API proxy
+│   └── src/
+│       ├── main.jsx                   # React root entry point
+│       ├── App.jsx                    # Top-level app wrapper
+│       ├── routes.jsx                 # Route definitions & ProtectedRoute wrapper
+│       ├── app/
+│       │   ├── auth/                  # AuthModal with multi-country dial codes & registration
+│       │   ├── layout/                # AppShell, TopBar, and BottomNav (Home, Goals, Coach, Referral, More)
+│       │   ├── welcome/               # Landing screen with Sign In / Sign Up / Demo mode
+│       │   └── dashboard/             # Personalized Dashboard, MoneySummaryCard, ReferralCard
+│       ├── components/                # Reusable UI Kit (Button, Card, ProgressBar, MoneyText, etc.)
+│       ├── context/                   # UserContext (Session storage, Sign In, Sign Up, Referral handling)
+│       ├── features/
+│       │   ├── money/                 # Transactions, Commitments, Goals, GoalSprintMinigame
+│       │   ├── coach/                 # AI Coach Chat & What-If Simulator
+│       │   ├── referral/              # Dedicated Referral Page & Social Share Hub
+│       │   └── tier3/                 # Grocery Price Watch & WhatsApp Mock Screen
+│       ├── styles/                    # tokens.css (Mukuru orange design tokens & global CSS)
+│       ├── i18n/                      # Localization engine & translation JSON files (EN, ZU, SN)
+│       └── tests/                     # Frontend unit test suite (role4.test.js)
+└── money-coach-backend/               # Spring Boot Backend Service
+    └── money-coach-backend/
+        ├── pom.xml                    # Maven project configuration (Java 21)
+        ├── docker-compose.yml         # Container orchestration
+        └── src/
+            ├── main/java/com/moneycoach/  # 55 Java classes (SafeToSaveService, GoalService, etc.)
+            └── test/java/com/moneycoach/  # 22 JUnit & Mockito backend unit tests
+```
+
+---
+
+## 🚀 Installation & Setup Guide
 
 ### Prerequisites
-- Node.js (v18+) & npm
+- **Node.js**: v18.0 or higher
+- **npm**: v9.0 or higher
+- **Java JDK**: v21 (for backend)
+- **Maven**: v3.8+ (for backend)
 
-### Installation & Execution
+---
+
+### 1. Frontend Setup
+
 ```bash
 # Navigate to the frontend directory
 cd frontend
@@ -23,73 +122,75 @@ cd frontend
 # Install dependencies
 npm install
 
-# Start local development server
+# Start the local development server (runs on http://localhost:3000)
 npm run dev
+```
 
+#### Build Production Bundle & Run Frontend Tests:
+```bash
 # Build production bundle
 npm run build
+
+# Run frontend core unit test suite
+node src/tests/role4.test.js
 ```
 
 ---
 
-## 📁 Role 4 File Structure Overview
+### 2. Backend Setup (Spring Boot)
 
-```
-frontend/
-├── index.html               # Mobile-first viewport & font definitions
-├── package.json             # Frontend dependencies & build scripts
-├── vite.config.js           # Vite React plugin & REST API proxy configuration
-├── .env / .env.example      # Environment variables (VITE_API_URL, VITE_USE_MOCKS)
-└── src/
-    ├── main.jsx             # React entry point
-    ├── App.jsx              # Root app wrapper with providers
-    ├── routes.jsx           # Shared route configuration with Role 5/6 placeholders
-    ├── app/
-    │   ├── layout/
-    │   │   ├── AppShell.jsx       # Responsive frame container
-    │   │   ├── TopBar.jsx         # Header with profile switcher, notifications & i18n
-    │   │   └── BottomNav.jsx      # Mobile navigation bar
-    │   ├── welcome/
-    │   │   └── WelcomeScreen.jsx  # "Continue as Grace" opening screen with i18n picker
-    │   └── dashboard/
-    │       ├── DashboardPage.jsx  # Primary dashboard page
-    │       ├── MoneySummaryCard.jsx # Income, Commitments & Safe-to-Save (R500)
-    │       ├── CurrentGoalCard.jsx # Active goal (Frosty Fridge R1,200/R6,000)
-    │       ├── CoachTipCard.jsx   # AI coach tip insight
-    │       ├── NextStepCard.jsx   # Action card
-    │       └── GroceryAlertCard.jsx # Tier 3 grocery price alert card
-    ├── components/          # Shared UI Kit
-    │   ├── Button.jsx
-    │   ├── Card.jsx
-    │   ├── ProgressBar.jsx
-    │   ├── CategoryTag.jsx
-    │   ├── MoneyText.jsx
-    │   ├── LoadingState.jsx
-    │   └── ErrorState.jsx
-    ├── context/
-    │   └── UserContext.jsx   # Logged-in user state & profile switcher
-    ├── styles/
-    │   ├── tokens.css        # Mukuru orange color tokens & variables
-    │   └── global.css        # Responsive mobile + desktop CSS grid rules
-    ├── i18n/
-    │   ├── index.jsx / index.js # i18n setup & useLanguage hook
-    │   └── locales/
-    │       ├── en/           # English strings
-    │       ├── zu/           # isiZulu strings
-    │       └── sn/           # chiShona strings
-    ├── api/
-    │   ├── client.js         # Base REST API client with Accept-Language header
-    │   └── dashboard.js      # /api/dashboard & /api/insights fetchers
-    └── mocks/
-        ├── dashboard.json    # Grace's figures (Income R8500, Safe-to-Save R500)
-        └── insights.json     # Mock AI insights
+```bash
+# Navigate to the backend directory
+cd money-coach-backend/money-coach-backend
+
+# Run Maven test suite (22 unit tests)
+mvn clean test
+
+# Start Spring Boot application (runs on http://localhost:5000)
+mvn spring-boot:run
 ```
 
 ---
 
-## 💡 Key Role 4 Highlights for Demo
+### 3. Docker Deployment (Optional)
 
-1. **Responsive Design:** Mobile-first layout on smartphones and a centered 2-column dashboard grid layout on desktop displays (≥768px).
-2. **3-Language i18n:** Realtime instant language translation across the entire app for **English (EN)**, **isiZulu (ZU)**, and **chiShona (SN)**.
-3. **Grace's Financial Model:** R8,500 monthly income, R6,300 commitments, R2,200 available remainder, and **R500 suggested Safe-to-Save** towards Frosty Fridge.
-4. **Shared UI Kit:** 7 production components (`Button`, `Card`, `ProgressBar`, `CategoryTag`, `MoneyText`, `LoadingState`, `ErrorState`) ready for Roles 5 & 6.
+```bash
+# Run backend and database services via Docker Compose
+cd money-coach-backend/money-coach-backend
+docker-compose up --build
+```
+
+---
+
+## 🧪 Testing & Verification
+
+### Frontend Unit Tests
+Execute the automated test script to verify core UI helpers (`MoneyText`, `CategoryTag` fallback, and `i18n` fallback):
+```bash
+cd frontend
+node src/tests/role4.test.js
+```
+*Expected Result*: `[PASS] All 3 Frontend Core unit tests passed successfully!`
+
+### Backend Unit Tests
+Run the Maven JUnit test suite covering `GoalService`, `MilestoneService`, `MoneyEngineService`, `NudgeService`, `SafeToSaveService`, and `SimulatorService`:
+```bash
+cd money-coach-backend/money-coach-backend
+mvn test
+```
+*Expected Result*: `Tests run: 22, Failures: 0, Errors: 0` (**BUILD SUCCESS**)
+
+---
+
+## 🔒 Security & Data Privacy
+
+- **Protected Routes**: Private financial screens (`/dashboard`, `/goals`, `/transactions`, `/commitments`, `/coach`, `/referral`) require a valid signed-in user session.
+- **Local Storage Sanitization**: Sensitive authentication keys are managed locally and automatically cleared upon user sign-out.
+- **Role-Neutral & Professional**: Contains zero hardcoded placeholders or internal references.
+
+---
+
+## 📄 License & Acknowledgments
+
+Built with ❤️ for **Mukuru SheHacks – Challenge B: Money Coach**.  
+*Empowering emerging African consumers to achieve financial freedom.*
