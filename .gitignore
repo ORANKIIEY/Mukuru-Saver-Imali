@@ -4,3 +4,7 @@ money-coach-backend/money-coach-backend/target/
 money-coach-backend/money-coach-backend/src/main/resources/static/
 .DS_Store
 *.log
+
+node_modules/
+frontend/node_modules/
+.vite/

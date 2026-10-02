@@ -5,3 +5,9 @@ money-coach-backend/money-coach-backend/target/
 .git/
 .idea/
 *.log
+
+node_modules
+frontend
+.git
+.idea
+target
