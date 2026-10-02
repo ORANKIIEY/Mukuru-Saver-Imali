@@ -1,40 +1,47 @@
 package com.moneycoach.service;
 
 import com.moneycoach.dto.DocumentUploadResponseDto;
+import com.moneycoach.model.BankStatement;
+import com.moneycoach.repository.BankStatementRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
-import java.util.List;
+import java.io.IOException;
+import java.time.LocalDateTime;
 
 @Service
 public class DocumentService {
 
-    public DocumentUploadResponseDto processBankStatement(String fileName, String content) {
-        // Smart bank statement scanner algorithm
-        double income = 9500.00;
-        double commitments = 5800.00;
-        double remittances = 1800.00;
-        double safeToSave = 750.00;
-        double flexible = 2950.00;
+    private final BankStatementRepository bankStatementRepository;
 
-        List<String> transactions = Arrays.asList(
-            "SALARY / DIRECT DEPOSIT: +R9,500.00",
-            "MUKURU FAMILY REMITTANCE (ZIMBABWE / MALAWI): -R1,800.00",
-            "SHOPRITE GROCERIES & HOUSEHOLD: -R2,400.00",
-            "RENT & MUNICIPAL UTILITIES: -R1,600.00"
+    public DocumentService(
+            BankStatementRepository bankStatementRepository) {
+
+        this.bankStatementRepository = bankStatementRepository;
+    }
+
+    public DocumentUploadResponseDto uploadDocument(
+            MultipartFile file) throws IOException {
+
+        if (file.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "The uploaded document is empty");
+        }
+
+        BankStatement bankStatement = new BankStatement(
+                file.getOriginalFilename(),
+                file.getContentType(),
+                LocalDateTime.now(),
+                file.getBytes()
         );
 
-        String aiCoachRecommendation = "Bank Statement Scanned Successfully! We detected R9,500 income with R1,800 protected family remittances. Based on your active commitments, we recommend reserving a Safe-to-Save buffer of R750 towards your financial goal.";
+        BankStatement savedStatement =
+                bankStatementRepository.save(bankStatement);
 
         return new DocumentUploadResponseDto(
-            fileName != null ? fileName : "Mukuru_Bank_Statement.pdf",
-            income,
-            commitments,
-            remittances,
-            safeToSave,
-            flexible,
-            aiCoachRecommendation,
-            transactions
+                savedStatement.getStatementID(),
+                savedStatement.getFileName(),
+                "Bank statement uploaded successfully"
         );
     }
 }

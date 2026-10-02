@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/money-coach-backend/money-coach-backend/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/money-coach-backend/money-coach-backend/src/test" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="temurin-21" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
