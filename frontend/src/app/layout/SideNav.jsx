@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Home, Target, Gift, Sparkles, Menu } from 'lucide-react';
+import { Home, Target, Gift, Sparkles, Menu, ShieldAlert } from 'lucide-react';
 import { useLanguage } from '../../i18n';
+import { useUser } from '../../context/UserContext';
 
 /**
  * SideNav — Vertical sidebar navigation for desktop web layout.
@@ -11,6 +12,9 @@ export default function SideNav() {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useLanguage();
+  const { user } = useUser();
+
+  const isAdmin = user?.role === 'admin';
 
   const navItems = [
     { key: 'home',     label: t('common.nav.home',     'Home'),     path: '/dashboard', icon: Home },
@@ -18,6 +22,7 @@ export default function SideNav() {
     { key: 'coach',    label: t('common.nav.coach',    'Coach'),    path: '/coach',     icon: Sparkles },
     { key: 'referral', label: t('common.nav.referral', 'Referral'), path: '/referral',  icon: Gift },
     { key: 'more',     label: t('common.nav.more',     'More'),     path: '/more',      icon: Menu },
+    ...(isAdmin ? [{ key: 'admin', label: 'Admin Console', path: '/admin', icon: ShieldAlert, badge: 'STAFF' }] : []),
   ];
 
   return (

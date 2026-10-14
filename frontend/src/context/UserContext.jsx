@@ -27,6 +27,7 @@ export const DEFAULT_DEMO_USER = {
   dialCode: '+27',
   phone: '+27821234567',
   password: 'password123',
+  role: 'customer',
   avatar: 'G',
   income: 8500,
   commitments: 6300,
@@ -38,21 +39,52 @@ export const DEFAULT_DEMO_USER = {
   bonusBalance: 0,
 };
 
+export const DEFAULT_ADMIN_USER = {
+  id: 'user-admin',
+  name: 'Mukuru',
+  surname: 'Admin',
+  fullName: 'Mukuru Operations Administrator',
+  email: 'admin@mukuru.com',
+  region: 'ZA',
+  dialCode: '+27',
+  phone: '+27800000000',
+  password: 'adminPassword123',
+  role: 'admin',
+  avatar: 'A',
+  income: 35000,
+  commitments: 12000,
+  available: 23000,
+  safeToSave: 8000,
+  goal: 'Platform Operations & Reserve',
+  referralCode: 'MUKURU-ADMIN-SYS',
+  referredBy: null,
+  bonusBalance: 500,
+};
+
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  // Load stored registered accounts or fallback to DEFAULT_DEMO_USER
+  // Load stored registered accounts or fallback to defaults
   const [registeredUsers, setRegisteredUsers] = useState(() => {
     const saved = localStorage.getItem('mukuru_registered_users');
+    let list = [DEFAULT_DEMO_USER, DEFAULT_ADMIN_USER];
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          list = parsed.map((u) => ({
+            ...u,
+            role: u.role || (u.email === 'admin@mukuru.com' ? 'admin' : 'customer'),
+          }));
+          if (!list.some((u) => u.email === 'admin@mukuru.com' || u.role === 'admin')) {
+            list.push(DEFAULT_ADMIN_USER);
+          }
+        }
       } catch (e) {
         // fallback
       }
     }
-    return [DEFAULT_DEMO_USER];
+    return list;
   });
 
   // Load active logged-in session user
@@ -60,7 +92,11 @@ export function UserProvider({ children }) {
     const saved = localStorage.getItem('mukuru_active_user');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        return {
+          ...parsed,
+          role: parsed.role || (parsed.email === 'admin@mukuru.com' ? 'admin' : 'customer'),
+        };
       } catch (e) {
         // fallback
       }
@@ -83,10 +119,10 @@ export function UserProvider({ children }) {
   }, [currentUser]);
 
   /**
-   * Register a new user account with Name, Surname, Email, Region, Phone, Password, Confirm Password, Referral Code
+   * Register a new user account with Name, Surname, Email (optional), Region, Phone, Password, Confirm Password, Referral Code
    */
   const signUp = ({ name, surname, email, region, dialCode, phone, password, confirmPassword, referralCode }) => {
-    if (!name || !surname || !email || !phone || !password) {
+    if (!name || !surname || !phone || !password) {
       throw new Error('Please fill in all required fields.');
     }
     if (password !== confirmPassword) {
@@ -96,7 +132,6 @@ export function UserProvider({ children }) {
       throw new Error('Password must be at least 6 characters long.');
     }
 
-    const cleanEmail = email.trim().toLowerCase();
     const cleanPhoneDigits = phone.replaceAll(/\D/g, '');
     if (cleanPhoneDigits.length < 6) {
       throw new Error('Please enter a valid cellphone number.');
@@ -105,16 +140,24 @@ export function UserProvider({ children }) {
     const formattedPhone = phone.startsWith('+') ? phone.trim() : `${dialCode}${phone.trim()}`;
     const cleanPhone = formattedPhone.replaceAll(' ', '');
 
+    const cleanNameTag = name.trim().toUpperCase().replaceAll(/[^A-Z]/g, '');
+    const cleanSurnameTag = surname.trim().toUpperCase().replaceAll(/[^A-Z]/g, '');
+    const cleanEmail = email && email.trim()
+      ? email.trim().toLowerCase()
+      : `${(cleanNameTag || 'user').toLowerCase()}.${(cleanSurnameTag || 'saver').toLowerCase()}@mukuru.com`;
+
     const existing = registeredUsers.find(
       (u) =>
-        (u.email && u.email.toLowerCase() === cleanEmail) ||
-        (u.phone && u.phone.replaceAll(' ', '') === cleanPhone)
+        (email && u.email && u.email.toLowerCase() === cleanEmail) ||
+        (u.phone && (
+          u.phone.replaceAll(' ', '') === cleanPhone ||
+          u.phone.replaceAll(/\D/g, '') === cleanPhoneDigits
+        ))
     );
     if (existing) {
-      throw new Error('An account with this email or phone number already exists. Please sign in instead.');
+      throw new Error('An account with this cellphone number already exists. Please sign in instead.');
     }
 
-    const cleanNameTag = name.trim().toUpperCase().replaceAll(/[^A-Z]/g, '');
     const userRefCode = `MUKURU-${cleanNameTag || 'SAVER'}-${Math.floor(1000 + Math.random() * 9000)}`;
     const hasReferral = Boolean(referralCode && referralCode.trim());
 
@@ -128,6 +171,7 @@ export function UserProvider({ children }) {
       dialCode: dialCode || '+27',
       phone: formattedPhone,
       password,
+      role: (referralCode && referralCode.trim().toUpperCase() === 'MUKURU-ADMIN-KEY') ? 'admin' : 'customer',
       avatar: name.trim().charAt(0).toUpperCase(),
       income: 8500,
       commitments: 6300,
@@ -139,8 +183,11 @@ export function UserProvider({ children }) {
       bonusBalance: hasReferral ? 50 : 0, // Instant R50 referral welcome bonus!
     };
 
-    setRegisteredUsers((prev) => [...prev, newUser]);
+    const nextUsers = [...registeredUsers, newUser];
+    setRegisteredUsers(nextUsers);
     setCurrentUser(newUser);
+    localStorage.setItem('mukuru_registered_users', JSON.stringify(nextUsers));
+    localStorage.setItem('mukuru_active_user', JSON.stringify(newUser));
     return newUser;
   };
 
@@ -153,11 +200,16 @@ export function UserProvider({ children }) {
     }
 
     const cleanId = identifier.trim().toLowerCase();
+    const cleanDigits = identifier.replaceAll(/\D/g, '');
     const foundUser = registeredUsers.find(
       (u) =>
-        u.email.toLowerCase() === cleanId ||
-        u.phone.replaceAll(' ', '') === cleanId.replaceAll(' ', '') ||
-        u.name.toLowerCase() === cleanId
+        (u.email && u.email.toLowerCase() === cleanId) ||
+        (u.phone && (
+          u.phone.replaceAll(' ', '') === cleanId.replaceAll(' ', '') ||
+          u.phone.replaceAll(/\D/g, '') === cleanDigits ||
+          (cleanDigits.length >= 7 && u.phone.replaceAll(/\D/g, '').endsWith(cleanDigits))
+        )) ||
+        (u.name && u.name.toLowerCase() === cleanId)
     );
 
     if (!foundUser) {
@@ -169,7 +221,34 @@ export function UserProvider({ children }) {
     }
 
     setCurrentUser(foundUser);
+    localStorage.setItem('mukuru_active_user', JSON.stringify(foundUser));
     return foundUser;
+  };
+
+  /**
+   * Toggle user role (admin <-> customer) for authorized administrators
+   */
+  const toggleUserRole = (userId) => {
+    setRegisteredUsers((prev) => {
+      const updated = prev.map((u) => {
+        if (u.id === userId) {
+          const newRole = u.role === 'admin' ? 'customer' : 'admin';
+          return { ...u, role: newRole };
+        }
+        return u;
+      });
+      localStorage.setItem('mukuru_registered_users', JSON.stringify(updated));
+      return updated;
+    });
+
+    if (currentUser && currentUser.id === userId) {
+      const updatedCurrent = {
+        ...currentUser,
+        role: currentUser.role === 'admin' ? 'customer' : 'admin',
+      };
+      setCurrentUser(updatedCurrent);
+      localStorage.setItem('mukuru_active_user', JSON.stringify(updatedCurrent));
+    }
   };
 
   /**
@@ -205,11 +284,13 @@ export function UserProvider({ children }) {
     <UserContext.Provider
       value={{
         user: currentUser,
+        isAdmin: currentUser?.role === 'admin',
         registeredUsers,
         signUp,
         signIn,
         signOut,
         updateUserFinancials,
+        toggleUserRole,
         regions: COUNTRY_REGIONS,
       }}
     >

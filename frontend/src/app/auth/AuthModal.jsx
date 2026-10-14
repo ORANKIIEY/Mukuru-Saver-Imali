@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser, COUNTRY_REGIONS } from '../../context/UserContext';
 import { useLanguage } from '../../i18n';
-import { X, Lock, Phone, User, Globe, ArrowRight, ShieldCheck, Gift } from 'lucide-react';
+import { X, Lock, Phone, User, Globe, ArrowRight, ShieldCheck, Gift, Mail } from 'lucide-react';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 
@@ -19,6 +19,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
   // Sign Up State
   const [signUpName, setSignUpName] = useState('');
   const [signUpSurname, setSignUpSurname] = useState('');
+  const [signUpEmail, setSignUpEmail] = useState('');
   const [selectedRegion, setSelectedRegion] = useState(COUNTRY_REGIONS[0].code); // ZA default
   const [signUpPhone, setSignUpPhone] = useState('');
   const [signUpPass, setSignUpPass] = useState('');
@@ -62,6 +63,7 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
       signUp({
         name: signUpName,
         surname: signUpSurname,
+        email: signUpEmail,
         region: selectedRegion,
         dialCode: currentRegionObj.dialCode,
         phone: signUpPhone,
@@ -377,6 +379,31 @@ export default function AuthModal({ isOpen, onClose, initialTab = 'signin' }) {
                     value={signUpPhone}
                     onChange={(e) => setSignUpPhone(e.target.value)}
                     style={{ flex: 1, padding: '9px 12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)', fontSize: '0.85rem', outline: 'none' }}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', marginBottom: '6px', color: 'var(--color-text-primary)' }}>
+                  Email Address <span style={{ color: 'var(--color-text-muted)', fontWeight: '400' }}>(Optional)</span>
+                </label>
+                <div style={{ position: 'relative' }}>
+                  <span style={{ position: 'absolute', left: '12px', top: '9px', color: 'var(--color-text-muted)' }}>
+                    <Mail size={16} />
+                  </span>
+                  <input
+                    type="email"
+                    placeholder="e.g. grace.moyo@gmail.com"
+                    value={signUpEmail}
+                    onChange={(e) => setSignUpEmail(e.target.value)}
+                    style={{
+                      width: '100%',
+                      padding: '9px 12px 9px 36px',
+                      borderRadius: 'var(--radius-md)',
+                      border: '1px solid var(--color-border)',
+                      fontSize: '0.85rem',
+                      outline: 'none',
+                    }}
                   />
                 </div>
               </div>

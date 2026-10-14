@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bell, Sparkles, CheckCircle2, ShoppingBag, X, ChevronDown, User, LogOut, LogIn, UserPlus, QrCode } from 'lucide-react';
+import { Bell, Sparkles, CheckCircle2, ShoppingBag, X, ChevronDown, User, LogOut, LogIn, UserPlus, QrCode, ShieldAlert } from 'lucide-react';
 import { useLanguage } from '../../i18n';
 import { useMockToggle } from '../../hooks/useMockToggle';
 import { useUser } from '../../context/UserContext';
@@ -231,6 +231,33 @@ export default function TopBar() {
                   )}
                 </div>
 
+                {user.role === 'admin' && (
+                  <button
+                    onClick={() => {
+                      setShowUserModal(false);
+                      navigate('/admin');
+                    }}
+                    style={{
+                      width: '100%',
+                      padding: '9px 12px',
+                      borderRadius: 'var(--radius-md)',
+                      backgroundColor: '#EEF2FF',
+                      color: '#4F46E5',
+                      border: '1px solid #C7D2FE',
+                      fontWeight: '800',
+                      fontSize: '0.825rem',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '6px',
+                      marginBottom: '8px',
+                    }}
+                  >
+                    <ShieldAlert size={16} /> Admin Operations Console
+                  </button>
+                )}
+
                 <button
                   onClick={() => {
                     signOut();
@@ -261,6 +288,31 @@ export default function TopBar() {
 
           {/* Right Controls */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            {/* Admin Console Quick Button (Admins only) */}
+            {user?.role === 'admin' && (
+              <button
+                onClick={() => navigate('/admin')}
+                aria-label="Open Admin Console"
+                title="Admin Console"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  backgroundColor: '#4F46E5',
+                  color: '#FFFFFF',
+                  padding: '5px 12px',
+                  borderRadius: 'var(--radius-full)',
+                  border: '1px solid #818CF8',
+                  fontSize: '0.75rem',
+                  fontWeight: '800',
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px rgba(79, 70, 229, 0.35)',
+                }}
+              >
+                <ShieldAlert size={14} /> ADMIN
+              </button>
+            )}
+
             {/* Project QR Code Button */}
             <button
               onClick={() => setShowQrModal(true)}

@@ -4,15 +4,15 @@
 FROM node:20-alpine AS frontend-build
 WORKDIR /frontend
 COPY frontend/package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install
 COPY frontend/ ./
-RUN npx vite build
+RUN npm run build
 
 # 2. Package Backend with Frontend Assets embedded in classpath:/static/
 FROM maven:3.9-eclipse-temurin-21 AS backend-build
 WORKDIR /app
-COPY money-coach-backend/money-coach-backend/pom.xml ./pom.xml
-COPY money-coach-backend/money-coach-backend/src ./src
+COPY money-coach-backend/pom.xml ./pom.xml
+COPY money-coach-backend/src ./src
 RUN rm -rf ./src/main/resources/static/* && mkdir -p ./src/main/resources/static
 COPY --from=frontend-build /frontend/dist/ ./src/main/resources/static/
 RUN mvn clean package -DskipTests

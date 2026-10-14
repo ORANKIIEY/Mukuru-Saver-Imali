@@ -1,10 +1,34 @@
-node_modules/
-frontend/dist/
-money-coach-backend/money-coach-backend/target/
-money-coach-backend/money-coach-backend/src/main/resources/static/
-.DS_Store
-*.log
-
+# Dependencies
 node_modules/
 frontend/node_modules/
+
+# Frontend Build Output
+frontend/dist/
 .vite/
+
+# Backend Build Output
+money-coach-backend/target/
+target/
+*.class
+
+# Embedded static bundle (generated at build time from frontend)
+money-coach-backend/src/main/resources/static/
+
+# Environment and Secret files
+.env
+.env.local
+.env.*.local
+application-local.properties
+application-secret.properties
+
+# IDE and Editor Files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# Operating System and Logs
+.DS_Store
+Thumbs.db
+*.log

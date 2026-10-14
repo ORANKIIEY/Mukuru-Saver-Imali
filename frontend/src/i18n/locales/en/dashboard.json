@@ -34,6 +34,23 @@
     "complete": "Goal Complete!",
     "celebrateButton": "Celebrate!"
   },
+  "activeGoals": {
+    "title": "Active Goals",
+    "filterAll": "All",
+    "filterNeeds": "Needs",
+    "filterWants": "Wants",
+    "essentialNeed": "Essential Need",
+    "personalWant": "Personal Want",
+    "targetDate": "Target: {{date}}",
+    "savedOf": "Saved {{saved}} of {{target}}",
+    "remaining": "{{amount}} remaining",
+    "goals": {
+      "frostyFridge": "Frosty Fridge",
+      "emergencyBuffer": "Emergency Buffer Fund",
+      "holidayVisit": "Holiday Home Visit",
+      "smartTv": "New Smart TV"
+    }
+  },
   "referral": {
     "title": "Invite Friends & Earn R50",
     "bonusActive": "+R{{amount}} Bonus Active",

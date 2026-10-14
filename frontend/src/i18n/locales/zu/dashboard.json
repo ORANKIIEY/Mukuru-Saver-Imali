@@ -34,6 +34,23 @@
     "complete": "Inhloso Iyafinyelelwa!",
     "celebrateButton": "Gujwa!"
   },
+  "activeGoals": {
+    "title": "Izinhloso Ezisebenzayo",
+    "filterAll": "Konke",
+    "filterNeeds": "Izidingo",
+    "filterWants": "Izifiso",
+    "essentialNeed": "Isidingo Esibalulekile",
+    "personalWant": "Isifiso Somuntu",
+    "targetDate": "Usuku Lwenhloso: {{date}}",
+    "savedOf": "Kugcinwe {{saved}} kwezingu-{{target}}",
+    "remaining": "kushoda {{amount}}",
+    "goals": {
+      "frostyFridge": "Isiqandisi Se-Frosty",
+      "emergencyBuffer": "Isikhwama Sesimo Esiphuthumayo",
+      "holidayVisit": "Ukuvakashela Ekhaya Ngeholide",
+      "smartTv": "I-Smart TV Entsha"
+    }
+  },
   "referral": {
     "title": "Mema Abangani & Thola i-R50",
     "bonusActive": "+R{{amount}} Ibhonasi Iyasebenza",

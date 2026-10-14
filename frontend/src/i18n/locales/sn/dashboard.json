@@ -34,6 +34,23 @@
     "complete": "Chinangwa Chasvikwa!",
     "celebrateButton": "Farira!"
   },
+  "activeGoals": {
+    "title": "Zvinangwa Zviri Kushanda",
+    "filterAll": "Zvese",
+    "filterNeeds": "Zvinodiwa Chaizvo",
+    "filterWants": "Zvinoshuviwa",
+    "essentialNeed": "Chinodiwa Chaizvo",
+    "personalWant": "Chishuvo Chepachako",
+    "targetDate": "Zuva Rokupedza: {{date}}",
+    "savedOf": "Kwakachengetwa {{saved}} pamari {{target}}",
+    "remaining": "kwasara {{amount}}",
+    "goals": {
+      "frostyFridge": "Firiji Ye-Frosty",
+      "emergencyBuffer": "Chikwama Chechimbichimbi",
+      "holidayVisit": "Kushanyira Kumusha Pazororo",
+      "smartTv": "Smart TV Itsva"
+    }
+  },
   "referral": {
     "title": "Koka Shamwari & Wana R50",
     "bonusActive": "+R{{amount}} Bhonasi Inoshanda",

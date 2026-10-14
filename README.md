@@ -102,13 +102,11 @@ Mukuru-Saver-Imali/
 │       ├── i18n/                      # Localization engine & translation JSON files (EN, ZU, SN)
 │       └── tests/                     # Frontend unit test suite (role4.test.js)
 └── money-coach-backend/               # Spring Boot Backend Service
-    └── money-coach-backend/
-        ├── pom.xml                    # Maven project configuration (Java 21)
-        ├── Dockerfile                 # Multi-stage Docker build packaging frontend & backend into 1 port
-        ├── docker-compose.yml         # Container orchestration
-        └── src/
-            ├── main/java/com/moneycoach/  # 60 Java classes (SafeToSaveService, DocumentController, GoalService, etc.)
-            └── test/java/com/moneycoach/  # JUnit & Mockito backend unit tests
+    ├── pom.xml                        # Maven project configuration (Java 21)
+    ├── docker-compose.yml             # Container orchestration (PostgreSQL)
+    └── src/
+        ├── main/java/com/moneycoach/  # Java classes (SafeToSaveService, DocumentController, GoalService, etc.)
+        └── test/java/com/moneycoach/  # JUnit & Mockito backend unit tests
 ```
 
 ---
@@ -132,7 +130,7 @@ Run both the frontend and backend together on **1 single port (`http://localhost
 npm run build
 
 # 2. Start the unified Spring Boot app on port 5000
-cd money-coach-backend/money-coach-backend
+cd money-coach-backend
 mvn spring-boot:run
 ```
 
@@ -153,7 +151,7 @@ npm run dev
 
 #### 2. Backend Local Dev Server (Port 5000):
 ```bash
-cd money-coach-backend/money-coach-backend
+cd money-coach-backend
 mvn spring-boot:run
 ```
 
@@ -177,14 +175,14 @@ mvn spring-boot:run
 Execute the automated test script to verify core UI helpers (`MoneyText`, `CategoryTag` fallback, and `i18n` fallback):
 ```bash
 cd frontend
-node src/tests/role4.test.js
+npm test
 ```
 *Expected Result*: `[PASS] All 3 Frontend Core unit tests passed successfully!`
 
 ### Backend Unit Tests
 Run the Maven JUnit test suite covering `GoalService`, `MilestoneService`, `MoneyEngineService`, `NudgeService`, `SafeToSaveService`, and `SimulatorService`:
 ```bash
-cd money-coach-backend/money-coach-backend
+cd money-coach-backend
 mvn test
 ```
 *Expected Result*: `Tests run: 22, Failures: 0, Errors: 0` (**BUILD SUCCESS**)

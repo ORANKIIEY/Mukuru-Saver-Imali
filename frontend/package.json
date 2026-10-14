@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node -e \"import('./src/tests/role4.test.js').then(m => { m.testMoneyTextFormat(); m.testCategoryTagFallback(); m.testI18nEnglishFallback(); console.log('All frontend tests passed!'); })\""
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.1",

@@ -1,6 +1,7 @@
 # Java / Maven
 target/
 *.class
+src/main/resources/static/
 
 # IntelliJ IDEA
 .idea/

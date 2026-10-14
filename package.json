@@ -2,18 +2,14 @@
   "name": "mukuru-saver-imali",
   "version": "1.0.0",
   "description": "Mukuru Money Coach",
-  "main": "frontend/src/main.jsx",
+  "private": true,
   "scripts": {
     "dev:frontend": "npm --prefix frontend run dev",
     "build:frontend": "npm --prefix frontend run build",
-    "copy:frontend": "node -e \"const fs=require('fs'); fs.cpSync('frontend/dist', 'money-coach-backend/money-coach-backend/src/main/resources/static', {recursive: true}); console.log('Frontend copied to backend static resources!');\"",
+    "test:frontend": "npm --prefix frontend test",
+    "copy:frontend": "node -e \"const fs=require('fs'); fs.mkdirSync('money-coach-backend/src/main/resources/static', {recursive: true}); fs.cpSync('frontend/dist', 'money-coach-backend/src/main/resources/static', {recursive: true}); console.log('Frontend copied to backend static resources!');\"",
     "build": "npm run build:frontend && npm run copy:frontend",
-    "preview": "npm --prefix frontend run preview"
-  },
-  "dependencies": {
-    "lucide-react": "^1.16.0",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "react-router-dom": "^7.18.4"
+    "preview": "npm --prefix frontend run preview",
+    "test": "npm run test:frontend"
   }
 }
